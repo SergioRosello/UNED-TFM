@@ -1,6 +1,7 @@
 compile_pdf:
   image: aergus/latex
-  tags: docker
+  tags:
+    - docker
   script:
     - latexmk -pdf -f memoria.tex
   artifacts:
