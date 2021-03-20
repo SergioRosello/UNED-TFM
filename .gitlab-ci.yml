@@ -3,7 +3,7 @@ compile_pdf:
   tags:
     - docker
   script:
-    - latexmk -pdf -f memoria.tex
+    - latexmk -pdf -f TFM-SergioRosello.tex
   artifacts:
     paths:
       - TFM-SergioRosello.pdf
