@@ -3,7 +3,8 @@ compile_pdf:
   tags:
     - docker
   script:
-    - latexmk -pdf -f TFM-SergioRosello.tex
+    - cd src/
+    - latexmk -pdf TFM-SergioRosello.tex
   artifacts:
     paths:
-      - TFM-SergioRosello.pdf
+      - $CI_PROJECT_DIR/TFM-SergioRosello.pdf
