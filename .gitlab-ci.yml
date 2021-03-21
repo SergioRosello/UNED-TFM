@@ -5,6 +5,8 @@ compile_pdf:
   script:
     - cd src/
     - latexmk -pdf TFM-SergioRosello.tex
+    - biber TFM-SergioRosello.tex
+    - latexmk -pdf TFM-SergioRosello.tex
   artifacts:
     paths:
       - $CI_PROJECT_DIR/src/TFM-SergioRosello.pdf
