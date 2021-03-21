@@ -7,4 +7,4 @@ compile_pdf:
     - latexmk -pdf TFM-SergioRosello.tex
   artifacts:
     paths:
-      - $CI_PROJECT_DIR/TFM-SergioRosello.pdf
+      - $CI_PROJECT_DIR/src/TFM-SergioRosello.pdf
