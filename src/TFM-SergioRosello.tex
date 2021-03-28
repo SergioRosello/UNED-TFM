@@ -32,8 +32,8 @@ hmargin=3cm
 \definecolor{gray45}{gray}{.45}
 
 % In the template we include the file OUTPUT.XMPDATA. You can download that file and include the metadata that will be incorporated into the PDF file when you compile the memoria.tex file. Then upload it back to your project. 
-% Commented out due to upstraem error
-% \usepackage[a-1b]{pdfx}
+% Commented out due to upstream error
+% \use package[a-1b]{pdf}
 
 % LINKS
 \usepackage{hyperref}
@@ -224,10 +224,57 @@ hmargin=3cm
 \clearpage
 \pagenumbering{arabic} % numbering with Arabic numerals for the rest of the document.	
 
-\chapter{Introducción}
+\chapter{Estado del arte}
 
-Esta es la pequeña introducción de la tesis, a ver si funciona como me gastaría a mi :)
-\cite{kim}
+\section{Evolución de la tecnología, desde su concepción a la actualidad}
+
+El software solo es posible gracias al hardware en el que se ejecuta.
+Naturalmente, este campo ha adoptado las costumbres y características del mundo del Hardware.
+
+Inicialmente, en 1950, actualizar el software de un ordenador suponía un gasto tremendo, ya que el software que corría el ordenador estaba estrictamente acoplado al hardware que hacia posible dicha ejecución.
+
+Al no disponer de una conexión a Internet y requerir la presencia de ingenieros enviados por parte de la compañía que fabrica el propio ordenador, las empresas que poseían un ordenador, no esperaban tener que actualizar su software regularmente.
+
+A medida que se avanzaba en la fabricación de ordenadores personales y se estandarizaba Internet, los requisitos para poder actualizar el software del ordenador empezaban a ofrecer menos resistencia.
+
+A medida que evoluciona Internet, también lo hacen las aplicaciones que se alojan en el, pasamos de Internet 1.0, a  Internet 2.0, en el que las paginas web dejan de ser portales de visita, como revistas, y se empieza a poder diferenciar clientes, y adaptar el funcionamiento de la pagina al cliente especifico.
+
+Estos nuevos requisitos, incorporan nueva complejidad a la ya creciente complejidad del software, como por ejemplo, cualquier pagina que tenga que poder diferenciar a sus clientes, por lógica de negocio, debe añadir a su pila de componentes, una base de datos.
+
+Debido a esta creciente complejidad, las empresas cuyo modelo de negocio estaba basado en el software, ofrecían actualizaciones muy poco regularmente ya que el proceso de construcción y compilación de dicho software era tedioso.
+Como añadido, a mayor complejidad de aplicación, mayor era el tiempo que se tenia que designar a la compilación de las distintas piezas que componían el software. (Base de datos, Portal frontal, Sistema de lógica interna, entre otras.)
+
+Debido a la complejidad de las aplicaciones generadas, el proceso de Despliegue, ha sido, y sigue siendo, uno de los puntos de estrés de muchas empresas.
+
+La realidad, es que desde 1957, en el que se pretendía desarrollar iterativamente e incrementalmente \cite{IID}, se ha estado pensando colectivamente en como mejorar el desarrollo de software, desde su fase de concepción, a su fase de despliegue, pero hasta 2001, no se escribió el manifesto del desarrollo ágil \cite{agile}, en el que se destacan los pilares fundamentales sobre los que se ha construido la filosofía DevOps \cite{CD-TF}, posteriormente extendida a la filosofía DevSecOps.
+
+Esto último es lo que se va a proceder a analizar en este trabajo.
+
+
+\subsection{Historia de los despliegues}
+\subsection{Historia Como se desplegaba anteriormente}
+\subsection{Historia Uso de metodología ágil}
+\subsection{Historia Popularización de Extreme Programming}
+\subsection{Historia Despliegues diarios vs Despliegues trimestrales}
+
+\subsection{Historia Seguridad en el mundo empresarial}
+\subsection{Historia Introducción de la seguridad en la metodología ágil}
+\subsection{Historia Inicio del fenómeno DevSecOps}
+
+\section{presente como se gestiona la seguridad en el mundo DevSecOps}
+
+\section{Empresas actuales, casos de éxito}
+
+\begin{itemize}
+  \item{IBM}
+  \item{Netflix}
+\end{itemize}
+
+\subsection{Presente Aplicaciones Off the Shelf}
+
+\begin{itemize}
+  \item{Larch Darkly}
+\end{itemize}
 
 
 \include{bibliography}
