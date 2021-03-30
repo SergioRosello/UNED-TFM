@@ -252,7 +252,54 @@ Esto último es lo que se va a proceder a analizar en este trabajo.
 
 
 \subsection{Historia de los despliegues}
-\subsection{Historia Como se desplegaba anteriormente}
+
+En esta sección analizaremos las distintas formas en las que se ha desarrollado software comúnmente, hasta hoy en día, haciendo énfasis en el desarrollo ágil, y el uso de Pipelines para garantizar cierta calidad del software antes de desplegar.
+
+\subsubsection{1950}
+
+En esta década, se empieza a pensar y desarrollar una mejor forma de construir software. \par
+El proyecto más memorable en el que se hace uso de técnicas modernas de desarrollo de software es "Project Mercury". \par
+Este proyecto, centrado en poner al hombre a la luna, requería de una capacidad de construcción de software ejemplar.
+Gerald M. Weinberg fue el arquitecto del proyecto.
+Decidieron que ``el desarrollo en cascada aplicado a un proyecto grande era bastante estúpido, o al menos, ignorante a la realidad'' \cite{GW-PM} y desarrollaron software con una metodología similar a la estipulada por XP.
+
+\subsubsection{1968}
+
+La primera aparición formal de desarrollo iterativo aparece en un documento interno de IBM en el que se describe que primero se define formalmente la funcionalidad, posteriormente se establecen unos tests, y se empieza a desarrollar, a medida que avanza el proceso, se crean nuevos tests, mas específicos, al final, el sistema, se convierte en la aplicación. \cite{ID-FB}
+
+\subsubsection{1970}
+
+Se documenta por primera vez el desarrollo en cascada en el articulo que escribe el Dr. Winston W. Royce. \par
+Como curiosidad, Royce aconseja realizar el proceso de desarrollo compuesto por las fases de análisis de requisitos, construcción del software, testeo y despliegue dos veces, pero a medida que se ha extendido esta metodología, se ha popularizado siguiendo únicamente uno de estos flujos, quedando en el desarrollo en cascada que se conoce hoy en día. \cite{royce1970} \par
+Actualmente, una de las metodologías de desarrollo más populares, debido a su simplicidad, y sentido. \par
+
+\subsubsection{1975}
+
+Vic Basil y Joe Turner escriben un articulo explicando como desarrollaron una serie de compiladores extendidos para una familia de lenguajes de programación específicos a dominio.
+En este articulo, se describe claramente el desarrollo iterativo incremental (IID). \cite{6312870}
+
+Durante los años 70, el desarrollo en cascada cobra una popularidad abismal, tanta, que los lideres de equipo encargados de proyectos tan importantes como la creación del software de la lanzadera espacial de la NASA, sentían la obligación de justificar por que no habían usado el método de de desarrollo en cascada.
+La justificación mas común para no usar el desarrollo en cascada, era que los requisitos del proyecto cambiaban continuamente, y no podían ajustar el desarrollo en cascada a estos cambios.
+
+\subsubsection{1980}
+
+Durante los años 80, muchos desarrolladores prominentes publican artículos sobre como el desarrollo en cascada no es una buena forma de construir un proyecto medianamente grande de software.
+Parafraseando el articulo titulado ``Un proceso de diseño racional: Como y por que falsearlo'' \cite{Parnas1986}
+\begin{itemize}
+  \item{Un usuario raramente sabe exactamente todo lo que quiere y no puede expresar todo lo que sabe}
+  \item{Existen muchos detalles de implementación que no se pueden anticipar, aunque tengamos todos los requisitos claros}
+  \item{Aunque sepamos todos los detalles, como humanos, no podemos procesar tanta complejidad}
+  \item{Aunque pudiésemos procesar toda esta complejidad, existen fuerzas exteriores, que hacen que cambien los requisitos o invaliden decisiones previas}
+\end{itemize}
+Estas razones encabezan la lista de motivos por los que la tendencia a la hora de desarrollar software debía de virar hacia el desarrollo incremental e iterativo.
+
+\subsubsection{1990 - Presente}
+
+A medida que el desarrollo en cascada demostraba que no era lo suficientemente flexible para llevar a cabo proyectos medianamente grandes, cantidad de nuevos artículos aparecían con nuevas y mejoradas técnicas de desarrollo iterativo e incremental. \par
+Muchas de estas siguen aplicándose hoy en día, como XP (Extreme Programming), Dynamic Systems Development Method (DSDM), Scrum y FDD (Feature Driven Development), entre otras. \par
+El 1 de febrero de 2001, se celebra una reunion entre varios expertos en procesos, entre ellos, los promotores de XP, Scrum, FDD. 
+En ese momento se forma la alianza ágil (agile alliance), cuya función es promover métodos de desarrollo de software iterativo e incremental.
+
 \subsection{Historia Uso de metodología ágil}
 \subsection{Historia Popularización de Extreme Programming}
 \subsection{Historia Despliegues diarios vs Despliegues trimestrales}
@@ -268,6 +315,7 @@ Esto último es lo que se va a proceder a analizar en este trabajo.
 \begin{itemize}
   \item{IBM}
   \item{Netflix}
+  \item{Amazon}
 \end{itemize}
 
 \subsection{Presente Aplicaciones Off the Shelf}
