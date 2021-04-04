@@ -270,7 +270,7 @@ La primera aparición formal de desarrollo iterativo aparece en un documento int
 \subsubsection{1970}
 
 Se documenta por primera vez el desarrollo en cascada en el articulo que escribe el Dr. Winston W. Royce. \par
-Como curiosidad, Royce aconseja realizar el proceso de desarrollo compuesto por las fases de análisis de requisitos, construcción del software, testeo y despliegue dos veces, pero a medida que se ha extendido esta metodología, se ha popularizado siguiendo únicamente uno de estos flujos, quedando en el desarrollo en cascada que se conoce hoy en día. \cite{royce1970} \par
+Como curiosidad, Royce aconseja realizar el proceso de desarrollo compuesto por las fases de análisis de requisitos, construcción del software, testeo y despliegue dos veces, pero a medida que se ha extendido esta metodología, se ha popularizado siguiendo únicamente una de estas iteraciones, quedando en el desarrollo en cascada que se conoce hoy en día. \cite{royce1970} \par
 Actualmente, una de las metodologías de desarrollo más populares, debido a su simplicidad, y sentido. \par
 
 \subsubsection{1975}
@@ -329,6 +329,77 @@ Los principales valores del desarrollo ágil son los siguientes: \cite{agilePrin
   \item{Las mejores arquitecturas, requisitos y diseños emergen de equipos auto-organizados.}
   \item{A intervalos regulares el equipo reflexiona sobre cómo ser más efectivo para a continuación ajustar y perfeccionar su comportamiento en consecuencia.}
 \end{itemize}
+
+\subsection{Como llevar a cabo el desarrollo ágil}
+
+Una vez repasados los valores del desarrollo ágil, debemos ahondar más en como repercuten estos en el día a día de un proyecto de software que usa la metodología ágil.
+
+Cada uno de los pasos descritos a continuación forma parte de una iteración dentro del proceso de desarrollo de software.
+Estas fases, van construyendo sobre las previas, hasta que se completa la aplicación.
+
+\subsubsection{Firma del contrato}
+
+Al inicio de la colaboración, se tiene una reunion, en la que el cliente y la empresa trabajan conjuntamente para asentar las bases sobre las que se construirá el proyecto.
+Este tipo de enfoque se llama ``top-down approach'' %TODO: Cite needed
+
+\subsubsection{tests de aceptación}
+
+Una vez establecidas ciertas bases, se empiezan a definir funcionalidades, casos de uso.
+Aquí es donde entran en juego técnicas de verificación de los casos de uso.
+Se generan documentos ejecutables que consisten en asentar los requisitos básicos para que un usuario realize una acción y llegue a un resultado final esperado, dadas unas pre condiciones.
+Estos tests, se llaman comúnmente tests de aceptación, y se encargan de verificar que el software realizado por la empresa cumple con los requisitos impuestos por el cliente.
+
+El desarrollador puede saber cuando ha acabado de implementar el ``happy path'' de su parte del código cuando su trabajo pasa todos los tests de aceptación que se han definido con anterioridad.
+La ventaja que tienen estos tests frente al resto de tests que se usan de desarrollo ágil, es que estos tests están diseñados para que cualquier persona, sea desarrollador, o no, los pueda definir, crear, y editar.
+De esta forma, el desarrollo se mantiene ágil iteración tras iteración, ya que en caso de haber un cambio entre iteraciones, únicamente se tienen que ejecutar los tests de aceptación para saber si la version actual del software cumple con los nuevos requisitos.
+
+La sintaxis estándar de los tests de aceptación es la siguiente:
+
+\begin{lstlisting}
+Feature: Registro de usuario
+
+  Background:
+    Given la base de datos esta actualizada
+
+  Scenario: Usuario existente inicia sesion
+    Given ya tengo cuenta en la aplicacion
+    When introduzco mis credenciales correctamente
+    Then inicio sesion en la aplicacion
+\end{lstlisting}
+
+De esta forma, se definen las características (``Features'') del producto a construir.
+Cada característica engloba una serie de ``caminos felices'' que puede seguir el usuario.
+La concatenación de acciones que sigue el usuario para llegar a un estado final se llama ``camino feliz'' (``Scenario'').
+Dentro de cada camino feliz, existen una serie de acciones, representadas por ``Given, When y Then''.
+
+\begin{itemize}
+  \item{``Given'' representa el estado inicial en el que debe estar la aplicación}
+  \item{``When'' representa la acción a ejecutar}
+  \item{``Then'' representa el estado final en el que debe quedar la aplicación.}
+\end{itemize}
+
+Este estilo, o formato de escritura se denomina ``Gherkin'' y es fundamental en la vertiente BDD de desarrollo ágil.
+
+\subsubsection{Desarrollo y testeo del código}
+
+Una vez se ha definido la especificación, los programadores, pueden empezar con el desarrollo.
+Esto asegura que todo el mundo trabaja en sincronía, desde los clientes, al analista, al jefe de proyecto, al desarrollador.
+La existencia de estos tests hace que cualquier persona involucrada en el proyecto que quiera revisar la documentación se dirija al mismo sitio.
+Esto obliga a que esta documentación viviente, se mantenga actualizada y al día, entre iteraciones.
+
+A medida que los programadores ahondan en complejidad de desarrollo, se encuentran con una complejidad cada vez mayor.
+Siguiendo con el ejemplo anterior, del inicio de sesion, se tienen que definir casos mas específicos, como la forma en la que se conecta la plataforma a la base de datos, el mensaje de error que aparece cuando el nombre de usuario es incorrecto, y cuando la contraseña es incorrecta, entre muchos otros.
+Para asegurar el correcto funcionamiento de su código, los desarrolladores deben crear tests para cubrir cualquier cauce que pueda tomar su código.
+De esta forma, pueden delegar la comprobación de su código a los tests, que van a verificar que la lógica que están programando es la adecuada, definida previamente.
+Una vez se hayan ejecutado los tests, el programador puede estar seguro de que ha implementado correctamente el código que se le ha solicitado crear.
+
+Existe un nivel mas detallado de tests.
+Estos se llaman tests unitarios.
+Su función es validar el correcto funcionamiento de los componentes específicos (Funciones, clases, datos) y la forma  que tienen de alterar o crear los datos necesarios, que, en combinación unos con otros, habilitan la creación de la lógica de la aplicación.
+
+\subsubsection{Despliegue del código}
+
+Una vez los desarrolladores 
 
 \section{De desarrollo ágil, a DevOps}
 
