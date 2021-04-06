@@ -399,7 +399,13 @@ Su función es validar el correcto funcionamiento de los componentes específico
 
 \subsubsection{Despliegue del código}
 
-Una vez los desarrolladores 
+Una vez los desarrolladores han terminado la tarea, y el proyecto cumple con las especificaciones descritas por el cliente, es hora de desplegar el código a producción.
+
+Al centrarse principalmente en la fase de desarrollo de software, los equipos que siguen las recomendaciones estipuladas por la metodología ágil, frecuentemente olvidan la importancia del despliegue en el flujo de desarrollo del software y el despliegue, deja de ser parte del proceso iterativo, sino que, al terminar el desarrollo, se despliega el código a producción.
+
+Esta ha sido el modus operandi de la mayoría de equipos que han seguido el desarrollo ágil.
+
+Esto desemboca en tremendos dolores de cabeza que pueden llegar a prolongarse durante horas para pasar el código desarrollado en los equipos internos de la empresa a los equipos destinados para alojar el código en producción o que directamente pueden llevar a una empresa a la bancarrota en cuestión de minutos. \cite{seven2014}
 
 \section{De desarrollo ágil, a DevOps}
 
@@ -419,9 +425,26 @@ Aunque, como ya se ha demostrado en empresas no directamente relacionadas con el
 En el mundo del software, podemos hacer uso de herramientas automatizadas y frameworks para satisfacer los principales valores del desarrollo ágil.
 De esta forma, se logra crear un proyecto que se mantiene actualizado entre las especificaciones y el desarrollo.
 
+En 2006, se escribe públicamente por primera vez sobre este proceso, en el articulo llamado ``The Deployment Production Line'' en el que se describe como construir una cadena de montaje, en la que el código puede ser desplegado a producción sencillamente presionando un botón, y revertido, en caso de que algo fuera mal de igual manera. \cite{10.1109/AGILE.2006.53}
 
-\subsection{Historia Seguridad en el mundo empresarial}
-\subsection{Historia Introducción de la seguridad en la metodología ágil}
+\subsection{Que es DevOps}
+
+El fenómeno DevOps se puede considerar una extension del desarrollo ágil, debido a que, en su forma mas reducida, acorta las iteraciones del desarrollo de una fecha especifica, a un commit especifico. \cite{dobra2018}
+Cada commit pasa por una serie de comprobaciones, (Pipeline) para verificar que efectivamente el código que añade a producción es adecuado para ser desplegado.
+
+La finalidad de la filosofía DevOps es establecer una comunicación constante entre las distintas fases y equipos de desarrollo.
+Como consecuencia, se crea un flujo automatizado de Integración Continua y Despliegue Continuo del código generado iterativamente a lo largo de todo el proyecto.
+El despliegue de una nueva funcionalidad se hace de forma iterativa e incremental, exactamente igual que el desarrollo de la misma.
+
+``Cada vez que se añade un cambio al servidor de control de versiones, se espera que pase todos los tests, produzca código funcional y se pueda desplegar a producción.
+Esta es la suposición inicial.
+La tarea de un sistema de integración continua es la de refutar dicha suposición, demostrando que este candidato a producción no es adecuado para entrar a producción''\cite{Humble2010}
+
+En el desarrollo ágil, tenemos una serie de fases, definidas al inicio del proyecto.
+Cada equipo %TODO: Finish
+
+\subsection{La seguridad en la metodología ágil}
+
 \subsection{Historia Inicio del fenómeno DevSecOps}
 
 \section{presente como se gestiona la seguridad en el mundo DevSecOps}
