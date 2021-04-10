@@ -429,19 +429,34 @@ En 2006, se escribe públicamente por primera vez sobre este proceso, en el arti
 
 \subsection{Que es DevOps}
 
+
+La filosofía DevOps nace como respuesta a una falta de comunicación, y creciente frustración entre equipos dentro de un mismo desarrollo.
+
+Su finalidad es establecer una comunicación constante entre las distintas fases y equipos de desarrollo, mayoritariamente entre los desarrolladores y los equipos de operaciones, que se encargan de poner el código que genera el equipo de desarrolladores a un entorno de producción. Esto no quiere decir que se excluyan a cualquier otro equipo involucrado en el desarrollo del software, como el de QA.
+
 El fenómeno DevOps se puede considerar una extension del desarrollo ágil, debido a que, en su forma mas reducida, acorta las iteraciones del desarrollo de una fecha especifica, a un commit especifico. \cite{dobra2018}
 Cada commit pasa por una serie de comprobaciones, (Pipeline) para verificar que efectivamente el código que añade a producción es adecuado para ser desplegado.
 
-La finalidad de la filosofía DevOps es establecer una comunicación constante entre las distintas fases y equipos de desarrollo.
+Otras de las prioridades de la cultura DevOps es Habilitar la automatización sobre la documentación, presentar al desarrollador posibilidades (API de testeo de código), en vez de impedimentos (procesos)
+
 Como consecuencia, se crea un flujo automatizado de Integración Continua y Despliegue Continuo del código generado iterativamente a lo largo de todo el proyecto.
-El despliegue de una nueva funcionalidad se hace de forma iterativa e incremental, exactamente igual que el desarrollo de la misma.
+
+La filosofía DevOps en la construcción y despliegue de software, por tanto gira en torno a establecer una serie de procesos y comprobaciones por los que tiene que pasar cada desarrollo candidato a se desplegado a producción. 
+
+Desde la concepción del proyecto, antes de desarrollar el código, se establecen los pasos mínimos por los que tiene que pasar cada candidato a producción (Commit) creando así un Pipeline, que es la union de esos pasos automatizados, de forma que, para que el candidato a producción llegue a producción, siempre tenga que pasar por estos mismos pasos y comprobaciones.
+Ya sea un apaño en producción, como un desarrollo nuevo.
+
+En la metodología ágil, el desarrollo de una nueva funcionalidad se hace de forma iterativa e incremental, empezando primero por los tests.
+En el enfoque de la filosofía DevOps, la creación del Pipeline se añade anteriormente a los tests, para que, una vez se este desarrollando, se puedan revisar los desarrollos directamente con los tests, de forma automática en el Pipeline una vez se cumplen una serie de acciones, normalmente, un commit.
+
+Al igual que en el desarrollo ágil, el desarrollo del Pipeline es siempre constante, este también va creciendo de forma iterativa e incremental, añadiendo más tests, más pasos, y por tanto revisando y asegurando mayor confianza en el commit que pasa todo el pipeline.
+
+En esencia, se trata de un desarrollo mas, pero en vez de que su función sea cumplir un requisito del cliente, su función es asegurar la estabilidad y calidad del software. 
 
 ``Cada vez que se añade un cambio al servidor de control de versiones, se espera que pase todos los tests, produzca código funcional y se pueda desplegar a producción.
 Esta es la suposición inicial.
 La tarea de un sistema de integración continua es la de refutar dicha suposición, demostrando que este candidato a producción no es adecuado para entrar a producción''\cite{Humble2010}
 
-En el desarrollo ágil, tenemos una serie de fases, definidas al inicio del proyecto.
-Cada equipo %TODO: Finish
 
 \subsection{La seguridad en la metodología ágil}
 
