@@ -197,11 +197,6 @@ hmargin=3cm
 % Caption package, for use of subfigures.
 \usepackage{subfig}
 
-% Diagrams and workflow
-\usepackage{tikz}
-\usetikzlibrary{shapes.geometric, arrows}
-\tikzstyle{process} = [rectangle, minimum width=3cm, minimum height=1cm,text centered, draw=black]
-\tikzstyle{arrow} = [thick,->,>=stealth]
 
 %-------------
 %	DOCUMENT
@@ -305,7 +300,7 @@ Muchas de estas siguen aplicándose hoy en día, como XP (Extreme Programming), 
 El 1 de febrero de 2001, se celebra una reunion entre varios expertos en procesos, entre ellos, los promotores de XP, Scrum, FDD. 
 En ese momento se forma la alianza ágil (agile alliance), cuya función es promover métodos de desarrollo de software iterativo e incremental. \par
 
-\section{De desarrollo ágil, a DevOps}
+\section{Desarrollo ágil}
 
 A medida que nos adentramos en la actualidad, podemos observar como el uso de la metodología ágil aumenta en popularidad \cite{Hoda2018}.
 Actualmente, el 95\% de las empresas dicen desarrollar software siguiendo la metodología ágil. \cite{stateofagile}
@@ -412,7 +407,7 @@ Esta ha sido el modus operandi de la mayoría de equipos que han seguido el desa
 
 Esto desemboca en tremendos dolores de cabeza que pueden llegar a prolongarse durante horas para pasar el código desarrollado en los equipos internos de la empresa a los equipos destinados para alojar el código en producción o que directamente pueden llevar a una empresa a la bancarrota en cuestión de minutos. \cite{seven2014}
 
-\subsection{Que es DevOps}
+\section{De desarrollo ágil, a DevOps}
 
 Para llevar a cabo cualquier tipo de proyecto, deben haber como mínimo dos partes implicadas.
 El cliente y la empresa que va a llevar a cabo la vision del cliente.\par
@@ -431,6 +426,9 @@ En el mundo del software, podemos hacer uso de herramientas automatizadas y fram
 De esta forma, se logra crear un proyecto que se mantiene actualizado entre las especificaciones y el desarrollo.
 
 En 2006, se escribe públicamente por primera vez sobre este proceso, en el articulo llamado ``The Deployment Production Line'' en el que se describe como construir una cadena de montaje, en la que el código puede ser desplegado a producción sencillamente presionando un botón, y revertido, en caso de que algo fuera mal de igual manera. \cite{10.1109/AGILE.2006.53}
+
+\subsection{Que es DevOps}
+
 
 La filosofía DevOps nace como respuesta a una falta de comunicación, y creciente frustración entre equipos dentro de un mismo desarrollo.
 
@@ -459,50 +457,38 @@ En esencia, se trata de un desarrollo mas, pero en vez de que su función sea cu
 Esta es la suposición inicial.
 La tarea de un sistema de integración continua es la de refutar dicha suposición, demostrando que este candidato a producción no es adecuado para entrar a producción''\cite{Humble2010}
 
-\section{De DevOps a DevSecOps}
 
-Una vez observada la cultura DevOps, es de esperar que se quiera seguir explorando hasta donde puede llegar el cambio de paradigma que ha traído esta filosofía de desarrollo y comunicación.
-Al igual que ha surgido la vertiente DevSecOps, también ha surgido la vertiente DataOps.
-Ambas representan la misma idea.
-Romper los problemas de comunicación entre los distintos equipos que componen un producto y proporcionar al desarrollador con las herramientas necesarias para que pueda desempeñar su trabajo sin tener que lidiar con procesos, cambios de requisitos no documentados, y cualquier problema que se interponga entre el desarrollo y el producto final.
-
-\subsection{Que es la seguridad?}
+\subsection{La seguridad en el desarrollo clásico}
  
-La seguridad en el mundo del software viene heredada del mundo físico, en el que primero se consolida un producto, y luego se tiene en cuenta su seguridad.
-En los años <++> cuando Internet era mayoritariamente estático, o no estaba disponible a muchos usuarios, la seguridad era una pieza del puzzle que no estaba contemplada.
-Los desarrolladores implementaban las funcionalidades sin pensar en como otra gente pudiese romper la aplicacion para sacar provecho del sistema en el que corre, ya sea bancario, reservas de plazas en el cine, o obtener información sensible.
-A medida que Internet se ha extendido, hemos aprendido a la fuerza que hay gente que prefiere hacer uso de los errores de otros para sacar beneficio personal.
+La seguridad en el mundo del software ha estado relegada a un plano inferior debido a que normalmente no ha sido necesaria para el desarrollo del producto agenciado.
+Al mismo tiempo, en los años <++> cuando Internet era mayoritariamente estático, o no estaba disponible a muchos usuarios, la seguridad era una pieza del puzzle que no estaba contemplada.
+Por ello, los desarrolladores implementaban las funcionalidades sin pensar en como otra gente pudiese romper la aplicacion para sacar provecho del sistema en el que corre, ya sea bancario, reservas de plazas en el cine u obtener información sensible.
+No obstante, a medida que Internet se ha extendido, se ha demostrado que hay gente que ha utilizado dicho factor para sacar un beneficio personal.
 
-\subsection{Seguridad en la metodología ágil - Prevención contra el hacking}
-
+%TODO: Exponer caras de la seguridad
+Puesto que van a existir siempre dos caras de la misma moneda, el mundo de la seguridad debe estar siempre en continua evolucion.
 El mundo de la seguridad está en continua evolución puesto que siempre van a existir dos caras de la moneda.
-Los buenos, y los malos.
 Los buenos siempre van a ir por detrás de los malos, porque primero se tiene que atacar para saber que esta roto y como arreglarlo.
-Por eso, existen nuevas iniciativas llamadas ThreatBountyPorgrams <++>.
-Estas iniciativas por parte de las empresas intentan convencer a los hackers a que les comuniquen como han conseguido entrar en el sistema, ofreciéndoles compensación económica.
-Pero, esto no deja de ser una solucion a un problema que viene de antes, desde la fase de desarrollo.
+El sector del software ha intentado mitigar, o prevenir los ataques de ciberseguridad mediante iniciativas como por ejemplo programas de recompensa a la gente que les reporta dichos fallos o vulnerabilidades.
+Estos programas se llaman: ``Threat Bounty Programs''
 
-\subsection{El problema en a seguridad}
+Por lo general, los requisitos de seguridad se mantienen separados de otros requisitos de sistema, por tanto, no se integran en la estrategia general de desarrollo de software. \cite{Flec2003}
 
-El problema de la seguridad es que en la fase de desarrollo de software corriente, la seguridad reside a la derecha del todo, en la fase de mantenimiento del mismo.
+Esto quiere decir que los productos que no se han desarrollado con la seguridad en mente, son mas vulnerables a su explotación.
 
-%TODO: Anadir figura de proceso de desarrollo de software.
-\begin{tikzpicture}[node distance=2cm]
-  %Nodes
-  \node (RA) [process] {Requirement analysis};
-  \node (P) [process, right of=RA, xshift=2cm] {Planning};
-  \node (SDD) [process, right of=P, xshift=2cm] {Software Design and development};
-  \node (T) [process, right of=SDD, xshift=2cm] {Testing};
-  \node (D) [process, right of=T, xshift=2cm] {Deployment};
-  \node (M) [process, right of=D, xshift=2cm] {Maintenance};
-  %Arrows
-  \draw [arrow] (RA) -- (P);
-  \draw [arrow] (P) -- (SDD);
-  \draw [arrow] (SDD) -- (T);
-  \draw [arrow] (T) -- (D);
-  \draw [arrow] (D) -- (M);
-\end{tikzpicture}
+Las desventajas de esta metodología de desarrollo son varias, desde una potencial multa, si se tratan datos sensibles de usuarios, hasta una explotación de los servicios que ofrece la empresa para beneficio del individuo.
 
+Cabe destacar la ausencia de cualquier aspecto relacionado con la seguridad en el paper que popularizo el desarrollo en cascada. \cite{royce1970}
+
+\subsection{La seguridad en la metodología ágil}
+
+La metodología ágil destaca por su modularidad, y capacidad de reacción frente a cambios de requisitos, o nuevas prioridades en el proyecto.
+Al poder adaptarse a nuevas vertientes y filosofías, como la de DevOps, se forman distintas expresiones de desarrollo ágil, en el que el nexo de union es la automatización de revisiones en forma de Pipeline.
+
+Al unificar el desarrollo ágil, la filosofía DevOps y la seguridad, aparece una nueva forma de desarrollo de software que no aliena el campo de la seguridad (DevSecOps), y lo integra de pleno en el desarrollo de software como uno mas de los requisitos necesarios para construir el proyecto. 
+A raíz de esta idea, nacen nuevos conceptos como los ``Abuser stories'' \cite{Bor2006} en el que se aplica la seguridad a conceptos previos, como los ``User Stories'' \cite{UserStories}.
+%TODO: Explicar que son los user stories.
+En el caso anterior, se puede mostrar como se integra la seguridad de pleno en el desarrollo de software.
 
 \subsection{Historia Inicio del fenómeno DevSecOps}
 
