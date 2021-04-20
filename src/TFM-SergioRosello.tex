@@ -189,6 +189,18 @@ hmargin=3cm
 
 % REFERENCES 
 
+\usepackage{color}
+
+% used for cite command, and changing the color the URL and dates are.
+\usepackage{hyperref} 
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=blue,
+    linktoc=all,
+    citecolor=black
+           }
+
 % APA bibliography setup
 \usepackage[style=apa, backend=biber, natbib=true, hyperref=true, uniquelist=false, sortcites]{biblatex}
 
@@ -228,62 +240,50 @@ hmargin=3cm
 
 \section{Evolución del desarrollo de software, desde su concepción hasta la actualidad}
 
-El software solo es posible gracias al hardware en el que se ejecuta.
+Hablar del desarrollo del software desde su concepción hasta su actualidad require especial atención ya que el software solo es posible gracias al hardware sobre el que se ejecuta.
 Naturalmente, este campo ha adoptado las costumbres y características del mundo del Hardware.
 
-Inicialmente, en 1950, actualizar el software de un ordenador suponía un gasto tremendo, ya que el software que corría el ordenador estaba estrictamente acoplado al hardware que hacia posible dicha ejecución.
-
+Para entender la evolución del software, nos tenemos que remontar a los años cincuenta de la década pasada, en la que mantener un ordenador suponía un gasto enorme debido a que el software que corría en el ordenador estaba tan acoplado al hardware sobre el que corría, que cada ordenador tenia su propio lenguaje de programación. 
+No fue hasta 1957 que se desarrollo FORTRAN, el primer lenguaje de programación, creando así el primer estándar de lenguaje de programación. FORTRAN 66 \cite{FORTRAN1966}.
 Al no disponer de una conexión a Internet y requerir la presencia de ingenieros enviados por parte de la compañía que fabrica el propio ordenador, las empresas que poseían un ordenador, no esperaban tener que actualizar su software regularmente.
-
 A medida que se avanzaba en la fabricación de ordenadores personales y se estandarizaba Internet, los requisitos para poder actualizar el software del ordenador empezaban a ofrecer menos resistencia.
 
+Pasamos del inicio de los lenguajes de programación al inicio de los comercios en Internet.
 A medida que evoluciona Internet, también lo hacen las aplicaciones que se alojan en el, pasamos de Internet 1.0, a  Internet 2.0, en el que las paginas web dejan de ser portales de visita, como revistas, y se empieza a poder diferenciar clientes, y adaptar el funcionamiento de la pagina al cliente especifico.
-
 Estos nuevos requisitos, incorporan nueva complejidad a la ya creciente complejidad del software, como por ejemplo, cualquier pagina que tenga que poder diferenciar a sus clientes, por lógica de negocio, debe añadir a su pila de componentes, una base de datos.
 
-Debido a esta creciente complejidad, las empresas cuyo modelo de negocio estaba basado en el software, ofrecían actualizaciones muy poco regularmente ya que el proceso de construcción y compilación de dicho software era tedioso.
-Como añadido, a mayor complejidad de aplicación, mayor era el tiempo que se tenia que designar a la compilación de las distintas piezas que componían el software. (Base de datos, Portal frontal, Sistema de lógica interna, entre otras.)
+Debido a esta creciente complejidad, las empresas cuyo modelo de negocio estaba basado en el software, ofrecían actualizaciones muy poco regularmente ya que a mayor complejidad de aplicación, mayor era el tiempo que se tenia que designar a la compilación de las distintas piezas que componían el software. (Base de datos, Portal frontal, Sistema de lógica interna, entre otras.)
+Es por esto que el proceso de Despliegue ha sido y sigue siendo uno de los puntos de estrés de muchas empresas.
 
-Debido a la complejidad de las aplicaciones generadas, el proceso de Despliegue, ha sido, y sigue siendo, uno de los puntos de estrés de muchas empresas.
+La realidad, es que desde 1957, en el que se pretendía desarrollar iterativamente e incrementalmente \cite{IID}, se ha estado pensando colectivamente en como mejorar el desarrollo de software, desde su fase de concepción, a su fase de despliegue.
+No obstante, no es hasta 2001 cuando se escribió el manifesto del desarrollo ágil \cite{agile}, en el que se destacan los pilares fundamentales sobre los que se ha construido la filosofía DevOps \cite{CD-TF}, posteriormente extendida a la filosofía DevSecOps.
 
-La realidad, es que desde 1957, en el que se pretendía desarrollar iterativamente e incrementalmente \cite{IID}, se ha estado pensando colectivamente en como mejorar el desarrollo de software, desde su fase de concepción, a su fase de despliegue, pero hasta 2001, no se escribió el manifesto del desarrollo ágil \cite{agile}, en el que se destacan los pilares fundamentales sobre los que se ha construido la filosofía DevOps \cite{CD-TF}, posteriormente extendida a la filosofía DevSecOps.
-
-Esto último es lo que se va a proceder a analizar en este trabajo.
+En conclusion, saber a cerca de la evolución del software facilita también la comprensión de los objetivos de este trabajo que se resumen en: <++> %TODO: List TFG objectives.
 
 
 \subsection{Historia de los despliegues}
 
 En esta sección analizaremos las distintas formas en las que se ha desarrollado software comúnmente, hasta hoy en día, haciendo énfasis en el desarrollo ágil, y el uso de Pipelines para garantizar cierta calidad del software antes de desplegar.
 
-\subsubsection{1950}
-
-En esta década, se empieza a pensar y desarrollar una mejor forma de construir software. \par
-El proyecto más memorable en el que se hace uso de técnicas modernas de desarrollo de software es "Project Mercury". \par
+Así pues, en la década de 1950, se empieza a pensar y desarrollar una mejor forma de construir software.
+El proyecto más memorable en el que se hace uso de técnicas modernas de desarrollo de software es "Project Mercury".
 Este proyecto, centrado en poner al hombre a la luna, requería de una capacidad de construcción de software ejemplar.
 Gerald M. Weinberg fue el arquitecto del proyecto.
-Decidieron que ``el desarrollo en cascada aplicado a un proyecto grande era bastante estúpido, o al menos, ignorante a la realidad'' \cite{GW-PM} y desarrollaron software con una metodología similar a la estipulada por XP.
+Decidieron que ``el desarrollo en cascada aplicado a un proyecto grande era bastante estúpido, o al menos, ignorante a la realidad'' \cite{GW-PM} y desarrollaron software con una metodología similar a la estipulada por XP. \cite{XP}
 
-\subsubsection{1968}
+No es sin embargo hasta 1968 cuando encontramos la primera aparición formal de desarrollo iterativo, que aparece en un documento interno de IBM en el que se describe que primero se define formalmente la funcionalidad, posteriormente se establecen unos tests, y se empieza a desarrollar, a medida que avanza el proceso, se crean nuevos tests, mas específicos, al final, el sistema, se convierte en la aplicación. \cite{ID-FB}
 
-La primera aparición formal de desarrollo iterativo aparece en un documento interno de IBM en el que se describe que primero se define formalmente la funcionalidad, posteriormente se establecen unos tests, y se empieza a desarrollar, a medida que avanza el proceso, se crean nuevos tests, mas específicos, al final, el sistema, se convierte en la aplicación. \cite{ID-FB}
+En los años setenta, se documenta por primera vez el desarrollo en cascada en el articulo que escribe el Dr. Winston W. Royce.
+Como curiosidad, Royce aconseja realizar el proceso de desarrollo compuesto por las fases de análisis de requisitos, construcción del software, testeo y despliegue dos veces, pero a medida que se ha extendido esta metodología, se ha popularizado siguiendo únicamente una de estas iteraciones, quedando en el desarrollo en cascada que se conoce hoy en día. \cite{royce1970}
+Esta metodología adaptada, heredada del articulo del Dr. Winston W. Royce sobre como desarrollar software, se popularizo enormemente, a pesar de sus desventajas en cuanto a flexibilidad, adaptabilidad y estimación de tiempos.
 
-\subsubsection{1970}
-
-Se documenta por primera vez el desarrollo en cascada en el articulo que escribe el Dr. Winston W. Royce. \par
-Como curiosidad, Royce aconseja realizar el proceso de desarrollo compuesto por las fases de análisis de requisitos, construcción del software, testeo y despliegue dos veces, pero a medida que se ha extendido esta metodología, se ha popularizado siguiendo únicamente una de estas iteraciones, quedando en el desarrollo en cascada que se conoce hoy en día. \cite{royce1970} \par
-Actualmente, una de las metodologías de desarrollo más populares, debido a su simplicidad, y sentido. \par
-
-\subsubsection{1975}
-
-Vic Basil y Joe Turner escriben un articulo explicando como desarrollaron una serie de compiladores extendidos para una familia de lenguajes de programación específicos a dominio.
+Otro notable proyecto que describe la forma en la que se han llevado a cabo sus fases de desarrollo de software, es el desarrollo de una familia de compiladores extendidos para una familia de lenguajes de programación específicos a dominio.
 En este articulo, se describe claramente el desarrollo iterativo incremental (IID). \cite{6312870}
 
 Durante los años 70, el desarrollo en cascada cobra una popularidad abismal, tanta, que los lideres de equipo encargados de proyectos tan importantes como la creación del software de la lanzadera espacial de la NASA, sentían la obligación de justificar por que no habían usado el método de de desarrollo en cascada.
 La justificación mas común para no usar el desarrollo en cascada, era que los requisitos del proyecto cambiaban continuamente, y no podían ajustar el desarrollo en cascada a estos cambios.
 
-\subsubsection{1980}
-
-Durante los años 80, muchos desarrolladores prominentes publican artículos sobre como el desarrollo en cascada no es una buena forma de construir un proyecto medianamente grande de software.
+En los años 80, muchos desarrolladores prominentes publican artículos sobre como el desarrollo en cascada no es una buena forma de construir un proyecto medianamente grande de software.
 Parafraseando el articulo titulado ``Un proceso de diseño racional: Como y por que falsearlo'' \cite{Parnas1986}
 \begin{itemize}
   \item{Un usuario raramente sabe exactamente todo lo que quiere y no puede expresar todo lo que sabe}
@@ -293,12 +293,10 @@ Parafraseando el articulo titulado ``Un proceso de diseño racional: Como y por 
 \end{itemize}
 Estas razones encabezan la lista de motivos por los que la tendencia a la hora de desarrollar software debía de virar hacia el desarrollo incremental e iterativo.
 
-\subsubsection{1990 - Presente}
-
-A medida que el desarrollo en cascada demostraba que no era lo suficientemente flexible para llevar a cabo proyectos medianamente grandes, cantidad de nuevos artículos aparecían con nuevas y mejoradas técnicas de desarrollo iterativo e incremental. \par
-Muchas de estas siguen aplicándose hoy en día, como XP (Extreme Programming), Dynamic Systems Development Method (DSDM), Scrum y FDD (Feature Driven Development), entre otras. \par
+Desde los años 90 hasta la actualidad, a medida que el desarrollo en cascada demostraba que no era lo suficientemente flexible para llevar a cabo proyectos medianamente grandes, cantidad de nuevos artículos aparecían con nuevas y mejoradas técnicas de desarrollo iterativo e incremental.
+Muchas de estas siguen aplicándose hoy en día, como XP (Extreme Programming), Dynamic Systems Development Method (DSDM), Scrum y FDD (Feature Driven Development), entre otras.
 El 1 de febrero de 2001, se celebra una reunion entre varios expertos en procesos, entre ellos, los promotores de XP, Scrum, FDD. 
-En ese momento se forma la alianza ágil (agile alliance), cuya función es promover métodos de desarrollo de software iterativo e incremental. \par
+En ese momento se forma la alianza ágil (agile alliance), cuya función es promover métodos de desarrollo de software iterativo e incremental. 
 
 \section{Desarrollo ágil}
 
@@ -466,7 +464,7 @@ Por ello, los desarrolladores implementaban las funcionalidades sin pensar en co
 No obstante, a medida que Internet se ha extendido, se ha demostrado que hay gente que ha utilizado dicho factor para sacar un beneficio personal.
 
 %TODO: Exponer caras de la seguridad
-Puesto que van a existir siempre dos caras de la misma moneda, el mundo de la seguridad debe estar siempre en continua evolucion.
+Puesto que van a existir siempre dos caras de la misma moneda, el mundo de la seguridad debe estar siempre en continua evolución.
 El mundo de la seguridad está en continua evolución puesto que siempre van a existir dos caras de la moneda.
 Los buenos siempre van a ir por detrás de los malos, porque primero se tiene que atacar para saber que esta roto y como arreglarlo.
 El sector del software ha intentado mitigar, o prevenir los ataques de ciberseguridad mediante iniciativas como por ejemplo programas de recompensa a la gente que les reporta dichos fallos o vulnerabilidades.
@@ -487,7 +485,10 @@ Al poder adaptarse a nuevas vertientes y filosofías, como la de DevOps, se form
 
 Al unificar el desarrollo ágil, la filosofía DevOps y la seguridad, aparece una nueva forma de desarrollo de software que no aliena el campo de la seguridad (DevSecOps), y lo integra de pleno en el desarrollo de software como uno mas de los requisitos necesarios para construir el proyecto. 
 A raíz de esta idea, nacen nuevos conceptos como los ``Abuser stories'' \cite{Bor2006} en el que se aplica la seguridad a conceptos previos, como los ``User Stories'' \cite{UserStories}.
-%TODO: Explicar que son los user stories.
+
+Un user story es una forma de %TODO: Explicar que son los user stories.
+\cite{XPUserStory}
+
 En el caso anterior, se puede mostrar como se integra la seguridad de pleno en el desarrollo de software.
 
 \subsection{Historia Inicio del fenómeno DevSecOps}
