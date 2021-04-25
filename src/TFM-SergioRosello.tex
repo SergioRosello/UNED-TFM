@@ -459,29 +459,23 @@ La tarea de un sistema de integración continua es la de refutar dicha suposici�
 \subsection{La seguridad en el desarrollo clásico}
  
 La seguridad en el mundo del software ha estado relegada a un plano inferior debido a que normalmente no ha sido necesaria para el desarrollo del producto agenciado.
-Al mismo tiempo, en los años <++> cuando el contenido que alojaban las paginas web en Internet era mayoritariamente estático, y no estaba disponible a muchos usuarios, la seguridad era una pieza del puzzle que no estaba contemplada.
-Por ello, los desarrolladores implementaban las funcionalidades sin pensar en como otra gente pudiese romper la aplicacion para sacar provecho del sistema en el que corre, ya sea bancario, reservas de plazas en el cine u obtener información sensible.
+Al mismo tiempo, durante los años 90 cuando el contenido que alojaban las paginas web en Internet era mayoritariamente estático, y no estaba disponible a muchos usuarios, la seguridad era una pieza del puzzle que no estaba contemplada, ya que los usuarios no tenían forma de interactuar con la web.
+Se parecía, por tanto, a un libro, cuyo contenido esta disponible al lector una vez ha sido impreso.
+La primera vez que se hace referencia a la nueva web 2.0 es en el articulo titulado ``Fragmented Future'', en el que se describe el cambio de paradigma que surgirá en la web, a partir de 1999 y se pasa de tener paginas web estáticas a aplicaciones web, en las que los usuarios van a interactuar con el contenido. \cite{DiNucci1999}
+En el desarrollo de estas aplicaciones web, los desarrolladores implementaban las funcionalidades sin pensar en como otra gente pudiese romper la aplicacion para sacar provecho del sistema en el que corre, independientemente de la naturaleza y sector de la aplicacion.
 
-A medida que la tecnología evolucionaba y se creaban las primeras empresas cuyo modelo de negocio estaba formado en torno a Internet, los datos que almacenaban estas empresas empezaban a ser cada vez mas sensibles.
-Estos datos podian incluir datos personales, métodos de pago, direcciones de los clientes 
+No obstante, a medida que la tecnología ha avanzado, ha permitido a las empresas crear modelos de negocio de giraba en torno a Internet.
+Un ejemplo bastante conocido puede ser en caso de Amazon.
+Estas empresas ofrecen su servicio, su valor a través de una pagina web, y los clientes deben estar identificados para poder obtener los beneficios que ofrecen estas empresas.
+Para llevar a cabo el modelo de negocio anterior, dichas empresas deben tener la capacidad de identificar a los clientes, por tanto se deben almacenar datos personales.
+Estos datos tienen un gran valor para los hackers, que luego pueden venderlos en el mercado negro.
+A medida que Internet se ha extendido, se ha demostrado que hay gente que ha utilizado dicho factor para sacar un beneficio personal.
 
-No obstante, a medida que la tecnología ha avanzado y ha permitido a las empresas crear modelos de negocio basados en Internet, habilitando áreas específicas para que los usuarios se identifiquen 
-
-No obstante, a medida que Internet se ha extendido, se ha demostrado que hay gente que ha utilizado dicho factor para sacar un beneficio personal.
-
-%TODO: Exponer caras de la seguridad
-Puesto que van a existir siempre dos caras de la misma moneda, el mundo de la seguridad debe estar siempre en continua evolución.
-El mundo de la seguridad está en continua evolución puesto que siempre van a existir dos caras de la moneda.
-Los buenos siempre van a ir por detrás de los malos, porque primero se tiene que atacar para saber que esta roto y como arreglarlo.
 El sector del software ha intentado mitigar, o prevenir los ataques de ciberseguridad mediante iniciativas como por ejemplo programas de recompensa a la gente que les reporta dichos fallos o vulnerabilidades.
 Estos programas se llaman: ``Threat Bounty Programs''
-
 Por lo general, los requisitos de seguridad se mantienen separados de otros requisitos de sistema, por tanto, no se integran en la estrategia general de desarrollo de software. \cite{Flec2003}
-
 Esto quiere decir que los productos que no se han desarrollado con la seguridad en mente, son mas vulnerables a su explotación.
-
 Las desventajas de esta metodología de desarrollo son varias, desde una potencial multa, si se tratan datos sensibles de usuarios, hasta una explotación de los servicios que ofrece la empresa para beneficio del individuo.
-
 Cabe destacar la ausencia de cualquier aspecto relacionado con la seguridad en el paper que popularizo el desarrollo en cascada. \cite{royce1970}
 
 \subsection{La seguridad en la metodología ágil}
