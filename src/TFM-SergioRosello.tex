@@ -455,8 +455,12 @@ En esencia, se trata de un desarrollo mas, pero en vez de que su función sea cu
 Esta es la suposición inicial.
 La tarea de un sistema de integración continua es la de refutar dicha suposición, demostrando que este candidato a producción no es adecuado para entrar a producción''\cite{Humble2010}
 
+\section{De DevOps a DevSecOps}
 
-\subsection{La seguridad en el desarrollo clásico}
+La seguridad en la metodología ágil no ha sido especialmente contemplada durante la popularización de este tipo de desarrollo, sin embargo, la metodología ágil destaca por su modularidad, y capacidad de reacción frente a cambios de requisitos, o nuevas prioridades en el proyecto.
+Al poder adaptarse a nuevas vertientes y filosofías, como la de DevOps, se forman distintas expresiones de desarrollo ágil, cada una enfatiza en su propia metodología, pero todas parten de ma misma base. \cite{agilePrinciples}.
+ 
+\subsection{La seguridad desde un punto de vista clásico}
  
 La seguridad en el mundo del software ha estado relegada a un plano inferior debido a que normalmente no ha sido necesaria para el desarrollo del producto agenciado.
 Al mismo tiempo, durante los años 90 cuando el contenido que alojaban las paginas web en Internet era mayoritariamente estático, y no estaba disponible a muchos usuarios, la seguridad era una pieza del puzzle que no estaba contemplada, ya que los usuarios no tenían forma de interactuar con la web.
@@ -475,25 +479,28 @@ El sector del software ha intentado mitigar, o prevenir los ataques de cibersegu
 Estos programas se llaman: ``Threat Bounty Programs''
 Por lo general, los requisitos de seguridad se mantienen separados de otros requisitos de sistema, por tanto, no se integran en la estrategia general de desarrollo de software. \cite{Flec2003}
 Esto quiere decir que los productos que no se han desarrollado con la seguridad en mente, son mas vulnerables a su explotación.
-Las desventajas de esta metodología de desarrollo son varias, desde una potencial multa, si se tratan datos sensibles de usuarios, hasta una explotación de los servicios que ofrece la empresa para beneficio del individuo.
+Las desventajas de esta metodología de desarrollo son varias, desde una potencial sanción, si se tratan datos sensibles de usuarios, hasta una explotación de los servicios que ofrece la empresa para beneficio del individuo.
 Cabe destacar la ausencia de cualquier aspecto relacionado con la seguridad en el paper que popularizo el desarrollo en cascada. \cite{royce1970}
 
-\subsection{La seguridad en la metodología ágil}
+El sector de la seguridad ha ido creciendo en popularidad desde 1999, en el que se funda el CVE (Common Vulnerabilities and Exposures). 
+Entonces, el campo de la ciberseguridad ha sido relegado al mantenimiento de la aplicacion una vez lanzada, pero actualmente la industria ha ido identificando la importancia de la seguridad a nivel de desarrollo y ha ido fomentando esta práctica, con filosofías como la de DevSecOps para convertirse en una parte fundamental del proceso de desarrollo de software ágil de hoy en día.
 
-La metodología ágil destaca por su modularidad, y capacidad de reacción frente a cambios de requisitos, o nuevas prioridades en el proyecto.
-Al poder adaptarse a nuevas vertientes y filosofías, como la de DevOps, se forman distintas expresiones de desarrollo ágil, en el que el nexo de union es la automatización de revisiones en forma de Pipeline.
+Al unificar el desarrollo ágil, la filosofía DevOps y la seguridad, aparece una nueva forma de desarrollo de software que no aliena el campo de la seguridad, llamada DevSecOps, y lo integra de pleno en el desarrollo de software como uno mas de los requisitos necesarios para construir el proyecto. 
+A raíz de esta idea, nacen nuevos conceptos como los ``Abuser stories'' \cite{Bor2006} en el que se aplica la seguridad a conceptos previos, como los ``User Stories''.
 
-Al unificar el desarrollo ágil, la filosofía DevOps y la seguridad, aparece una nueva forma de desarrollo de software que no aliena el campo de la seguridad (DevSecOps), y lo integra de pleno en el desarrollo de software como uno mas de los requisitos necesarios para construir el proyecto. 
-A raíz de esta idea, nacen nuevos conceptos como los ``Abuser stories'' \cite{Bor2006} en el que se aplica la seguridad a conceptos previos, como los ``User Stories'' \cite{UserStories}.
+Un user story es una breve descripción escrita por el cliente de no más de tres líneas sobre la funcionalidad que debe proporcionar la aplicacion.  \cite{XPUserStory} mientras que un ``abuser story'' es una extension de los ``User Stories'' contemplado por un ingeniero de seguridad para poder tomar decisiones informadas en base al estado de la seguridad en el momento de su definición. \cite{Bor2006}
 
-Un user story es una forma de %TODO: Explicar que son los user stories.
-\cite{XPUserStory}
+\section{DevSecOps en uso}
 
-En el caso anterior, se puede mostrar como se integra la seguridad de pleno en el desarrollo de software.
+Definir y explicar los procedimientos que se usan en DevSecOps.
 
-\subsection{Historia Inicio del fenómeno DevSecOps}
+Explicar el diagrama del flujo de desarrollo ágil + DevSecOps.
 
-\section{presente como se gestiona la seguridad en el mundo DevSecOps}
+Herramientas de desarrollo de pipelines, como análisis de código estático y dinámico.
+
+Securizacion de los entornos de desarrollo con Docker.
+
+\chapter{Implementación del modelo DevSecOps}
 
 \section{Empresas actuales, casos de éxito}
 
