@@ -459,6 +459,10 @@ La tarea de un sistema de integración continua es la de refutar dicha suposici�
 
 La seguridad en la metodología ágil no ha sido especialmente contemplada durante la popularización de este tipo de desarrollo, sin embargo, la metodología ágil destaca por su modularidad, y capacidad de reacción frente a cambios de requisitos, o nuevas prioridades en el proyecto.
 Al poder adaptarse a nuevas vertientes y filosofías, como la de DevOps, se forman distintas expresiones de desarrollo ágil, cada una enfatiza en su propia metodología, pero todas parten de ma misma base. \cite{agilePrinciples}.
+
+\subsection{Que es DevSecOps}
+
+A medida que se ha ido popularizando el concepto DevOps, empresas como Gitlab han proporcionado herramientas para llevar dicha idea a pequeñas y medianas empresas (Con la incorporación de su programa DevOps, DevSecOps, y pipelines) y estas han adaptado su ciclo de vida del este tipo de desarrollo de software, 
  
 \subsection{La seguridad desde un punto de vista clásico}
  
@@ -485,12 +489,27 @@ Cabe destacar la ausencia de cualquier aspecto relacionado con la seguridad en e
 El sector de la seguridad ha ido creciendo en popularidad desde 1999, en el que se funda el CVE (Common Vulnerabilities and Exposures). 
 Entonces, el campo de la ciberseguridad ha sido relegado al mantenimiento de la aplicacion una vez lanzada, pero actualmente la industria ha ido identificando la importancia de la seguridad a nivel de desarrollo y ha ido fomentando esta práctica, con filosofías como la de DevSecOps para convertirse en una parte fundamental del proceso de desarrollo de software ágil de hoy en día.
 
+\subsection{La seguridad desde el punto de vista DevSecOps}
+
 Al unificar el desarrollo ágil, la filosofía DevOps y la seguridad, aparece una nueva forma de desarrollo de software que no aliena el campo de la seguridad, llamada DevSecOps, y lo integra de pleno en el desarrollo de software como uno mas de los requisitos necesarios para construir el proyecto. 
 A raíz de esta idea, nacen nuevos conceptos como los ``Abuser stories'' \cite{Bor2006} en el que se aplica la seguridad a conceptos previos, como los ``User Stories''.
 
 Un user story es una breve descripción escrita por el cliente de no más de tres líneas sobre la funcionalidad que debe proporcionar la aplicacion.  \cite{XPUserStory} mientras que un ``abuser story'' es una extension de los ``User Stories'' contemplado por un ingeniero de seguridad para poder tomar decisiones informadas en base al estado de la seguridad en el momento de su definición. \cite{Bor2006}
 
+\includegraphics[width=\textwidth]{devsecops.png}
+
+Siguiendo el paradigma del desarrollo ágil con filosofía DevOps, este nuevo esquema propone a la seguridad como un factor igual de importante que el desarrollo o el despliegue.
+Las ventajas de incluir el departamento de seguridad y la practica de seguridad en el desarrollo del software, son multiples.
+La mas importante es sin duda que se transfiere la detección de fallos a una fase anterior.
+Esto quiere decir que al revisar el software que se esta generando en ámbitos de seguridad, estos problemas no van a aparecer mas adelante en el ciclo de desarrollo del mismo, sino que aparecerán directamente en la primera fase (Commit) o segunda fase (testeo).
+A diferencia del planteamiento inicial, el el que la seguridad forma parte del ciclo de mantenimiento.
+
 \section{DevSecOps en uso}
+
+Recientemente, Mike Ensor y Drew Stevens publicaron un ``paper'' titulado ``Shifting left on security''.
+En el, explican las diferentes fases de el ciclo de vida del software, y como añadir elementos de seguridad a lo largo del ``pipeline'' Desde el desarrollo de código, hasta el despliegue del mismo.
+Algunas de las técnicas que recomiendan en su ``paper'' tienen gran importancia, como el uso de registros privados, cuyas imágenes y recursos estén identificadas y sean verificadas a la hora de desplegarse, análisis estático y dinámico del código que se escribe de forma automatizada, despliegue del mismo binario, y que solamente pueda ser desplegado si es firmado de forma criptográfica por el responsable de despliegues.\cite{Ensor2021}
+
 
 Definir y explicar los procedimientos que se usan en DevSecOps.
 
@@ -500,7 +519,23 @@ Herramientas de desarrollo de pipelines, como análisis de código estático y d
 
 Securizacion de los entornos de desarrollo con Docker.
 
+%TODO Casos de uso en los que las empresas han desarrollado un trabajo de DevSecOps. Con referencias.
+
 \chapter{Implementación del modelo DevSecOps}
+
+En este trabajo, se presenta la formación del pipeline de integración continua por el que pasa el software en Scalefast.
+
+\section{Definición de procesos}
+
+Como se ha definido anteriormente, el objetivo principal de este trabajo es reciclar el pipeline que tenemos en funcionamiento actualmente en Scalefast, por uno mas actual, que sea capaz de proporcionar a los equipos las herramientas y entornos que necesitan en el momento en el que las necesitan, de esta forma, podemos reducir el tiempo de desarrollo, aumentando ademas la calidad del software que sacamos a producción.
+De esta forma, Scalefast adquiere une ventaja injusta.
+
+\subsection{Documentación y decision de procesos}
+
+Como en cualquier proceso, para poder implementarlo en una empresa medianamente grande, hace falta la cooperación de varios responsables de equipo.
+Este pipeline va a afectar tanto a los equipos de QA, como a los desarrolladores, como al equipo de Operaciones y Arquitectura.
+En definitiva, toda la parte técnica de la empresa se va a ver afectada.
+Es por esto que se debe tener en cuenta el punto de vista de todos los equipos mencionados anteriormente.
 
 \section{Empresas actuales, casos de éxito}
 
