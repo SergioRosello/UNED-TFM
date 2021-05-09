@@ -433,15 +433,15 @@ La filosofía DevOps nace como respuesta a una falta de comunicación, y crecien
 Su finalidad es establecer una comunicación constante entre las distintas fases y equipos de desarrollo, mayoritariamente entre los desarrolladores y los equipos de operaciones, que se encargan de poner el código que genera el equipo de desarrolladores a un entorno de producción. Esto no quiere decir que se excluyan a cualquier otro equipo involucrado en el desarrollo del software, como el de QA.
 
 El fenómeno DevOps se puede considerar una extension del desarrollo ágil, debido a que, en su forma mas reducida, acorta las iteraciones del desarrollo de una fecha especifica, a un commit especifico. \cite{dobra2018}
-Cada commit pasa por una serie de comprobaciones, (Pipeline) para verificar que efectivamente el código que añade a producción es adecuado para ser desplegado.
+Cada commit pasa por una serie de comprobaciones o ``jobs'' dentro de un ``pipeline'' para verificar que efectivamente el código que se quiere añadir a producción es adecuado para ser desplegado.
 
 Otras de las prioridades de la cultura DevOps es Habilitar la automatización sobre la documentación, presentar al desarrollador posibilidades (API de testeo de código), en vez de impedimentos (procesos)
 
-Como consecuencia, se crea un flujo automatizado de Integración Continua y Despliegue Continuo del código generado iterativamente a lo largo de todo el proyecto.
+Como consecuencia, se crea un flujo automatizado de Integración Continua y Despliegue Continuo del código generado iterativamente a lo largo de todo el proyecto. Este flujo se llama ``Pipeline''.
 
 La filosofía DevOps en la construcción y despliegue de software, por tanto gira en torno a establecer una serie de procesos y comprobaciones por los que tiene que pasar cada desarrollo candidato a se desplegado a producción. 
 
-Desde la concepción del proyecto, antes de desarrollar el código, se establecen los pasos mínimos por los que tiene que pasar cada candidato a producción (Commit) creando así un Pipeline, que es la union de esos pasos automatizados, de forma que, para que el candidato a producción llegue a producción, siempre tenga que pasar por estos mismos pasos y comprobaciones.
+Desde la concepción del proyecto, antes de desarrollar el código, se establecen los pasos mínimos por los que tiene que pasar cada candidato a producción (commit) creando así un ``Pipeline'', que es la union de esos pasos automatizados, de forma que, para que el candidato a producción llegue a producción, siempre tenga que pasar por estos mismos pasos y comprobaciones.
 Ya sea un apaño en producción, como un desarrollo nuevo.
 
 En la metodología ágil, el desarrollo de una nueva funcionalidad se hace de forma iterativa e incremental, empezando primero por los tests.
@@ -449,21 +449,23 @@ En el enfoque de la filosofía DevOps, la creación del Pipeline se añade anter
 
 Al igual que en el desarrollo ágil, el desarrollo del Pipeline es siempre constante, este también va creciendo de forma iterativa e incremental, añadiendo más tests, más pasos, y por tanto revisando y asegurando mayor confianza en el commit que pasa todo el pipeline.
 
-En esencia, se trata de un desarrollo mas, pero en vez de que su función sea cumplir un requisito del cliente, su función es asegurar la estabilidad y calidad del software. 
+En esencia, se trata de un desarrollo mas, pero en vez de que su función sea cumplir un requisito del cliente, su función es asegurar la estabilidad y calidad del software entregado al cliente. 
 
 ``Cada vez que se añade un cambio al servidor de control de versiones, se espera que pase todos los tests, produzca código funcional y se pueda desplegar a producción.
 Esta es la suposición inicial.
 La tarea de un sistema de integración continua es la de refutar dicha suposición, demostrando que este candidato a producción no es adecuado para entrar a producción''\cite{Humble2010}
+
+En el libro ``Accelerate'', de Nicole Forsgren, Jez Humble y Gene Kim, los autores comentan que la diferencia entre una gran empresa y una pequeña y mediana empresa, es que las grandes empresas siguen cuatro indicadores de compromiso muy de cerca, y se han bulto expertas en reducir al máximo estos mismos.
+Los indicadores de compromiso son: el plazo de entrega, la frecuencia de despliegue, el tiempo medio en restaurar (MTTR) y el porcentaje de cambio vs error.\cite{Forsgren2018}
+
+Una filosofía DevOps es clave para reducir estos indicadores.
+Con el uso de ``Pipelines'' y cambiando la cultura de la empresa, facilitando a los desarrolladores herramientas y creando flujos y políticas para que estos indicadores vayan reduciendo el tiempo medio, implica que la empresa el question tiene un potencial enorme y, por consiguiente una ventaja competitiva sobre sus competidores.
 
 \section{De DevOps a DevSecOps}
 
 La seguridad en la metodología ágil no ha sido especialmente contemplada durante la popularización de este tipo de desarrollo, sin embargo, la metodología ágil destaca por su modularidad, y capacidad de reacción frente a cambios de requisitos, o nuevas prioridades en el proyecto.
 Al poder adaptarse a nuevas vertientes y filosofías, como la de DevOps, se forman distintas expresiones de desarrollo ágil, cada una enfatiza en su propia metodología, pero todas parten de ma misma base. \cite{agilePrinciples}.
 
-\subsection{Que es DevSecOps}
-
-A medida que se ha ido popularizando el concepto DevOps, empresas como Gitlab han proporcionado herramientas para llevar dicha idea a pequeñas y medianas empresas (Con la incorporación de su programa DevOps, DevSecOps, y pipelines) y estas han adaptado su ciclo de vida del este tipo de desarrollo de software, 
- 
 \subsection{La seguridad desde un punto de vista clásico}
  
 La seguridad en el mundo del software ha estado relegada a un plano inferior debido a que normalmente no ha sido necesaria para el desarrollo del producto agenciado.
@@ -489,20 +491,37 @@ Cabe destacar la ausencia de cualquier aspecto relacionado con la seguridad en e
 El sector de la seguridad ha ido creciendo en popularidad desde 1999, en el que se funda el CVE (Common Vulnerabilities and Exposures). 
 Entonces, el campo de la ciberseguridad ha sido relegado al mantenimiento de la aplicacion una vez lanzada, pero actualmente la industria ha ido identificando la importancia de la seguridad a nivel de desarrollo y ha ido fomentando esta práctica, con filosofías como la de DevSecOps para convertirse en una parte fundamental del proceso de desarrollo de software ágil de hoy en día.
 
-\subsection{La seguridad desde el punto de vista DevSecOps}
+\subsection{Que es DevSecOps}
 
-Al unificar el desarrollo ágil, la filosofía DevOps y la seguridad, aparece una nueva forma de desarrollo de software que no aliena el campo de la seguridad, llamada DevSecOps, y lo integra de pleno en el desarrollo de software como uno mas de los requisitos necesarios para construir el proyecto. 
-A raíz de esta idea, nacen nuevos conceptos como los ``Abuser stories'' \cite{Bor2006} en el que se aplica la seguridad a conceptos previos, como los ``User Stories''.
-
-Un user story es una breve descripción escrita por el cliente de no más de tres líneas sobre la funcionalidad que debe proporcionar la aplicacion.  \cite{XPUserStory} mientras que un ``abuser story'' es una extension de los ``User Stories'' contemplado por un ingeniero de seguridad para poder tomar decisiones informadas en base al estado de la seguridad en el momento de su definición. \cite{Bor2006}
+Siguiendo la inercia del movimiento DevOps, adoptado al inicio por grandes empresas y seguido de medians y pequeñas empresas, DevSecOps es una extension de la misma filosofía, reconociendo a la seguridad de la aplicacion y del entorno en el que se ejecuta como un factor igual de importante en el ciclo de vida del software.
 
 \includegraphics[width=\textwidth]{devsecops.png}
 
-Siguiendo el paradigma del desarrollo ágil con filosofía DevOps, este nuevo esquema propone a la seguridad como un factor igual de importante que el desarrollo o el despliegue.
-Las ventajas de incluir el departamento de seguridad y la practica de seguridad en el desarrollo del software, son multiples.
-La mas importante es sin duda que se transfiere la detección de fallos a una fase anterior.
-Esto quiere decir que al revisar el software que se esta generando en ámbitos de seguridad, estos problemas no van a aparecer mas adelante en el ciclo de desarrollo del mismo, sino que aparecerán directamente en la primera fase (Commit) o segunda fase (testeo).
-A diferencia del planteamiento inicial, el el que la seguridad forma parte del ciclo de mantenimiento.
+El propósito de este movimiento es concienciar a los desarrolladores de la importancia del desarrollo seguro de código, principalmente, cambiando la cultura de la empresa, para que los desarrolladores tengan el cuenta la seguridad en el momento en el que desarrollan la aplicacion.
+
+Al igual que en el movimiento DevOps, esto se puede conseguir mediante la incorporación de ``Jobs'' que revisen el estado del código generado durante el desarrollo.
+Aun así, la mejor forma de seguir esta filosofía es creando una cultura que la reconozca y respalde, de forma que los desarrolladores no se molestan al ver que el código tiene vulnerabilidades, sino que evolucionen, mediante formaciones o reportes de los fallos de su código, a desarrollar de forma segura.
+
+El ciclo de vida del software, consiste en cinco fases: Planificación, Análisis, Diseño, Implementación y Mantenimiento.
+
+%TODO: Añade gráfico del ciclo de vida del software.
+
+Anteriormente, la seguridad formaba parte del último paso del ciclo de vida del desarrollo de software, el mantenimiento.
+Como consecuencia, en el momento en el que se halla una vulnerabilidad de seguridad, o lo que es peor, un agente u organización externos usan dicha vulnerabilidad para extraer información sensible de los usuarios de la aplicación, los recursos necesarios para arreglarla y el tiempo empleado en arreglarla, son muy elevados, al igual que el estrés y la posible sanción relacionada con la intrusion en el sistema y la Ley de Protección de Datos.
+Este hecho es uno de los principales motivos por el que las empresas que ya han adoptado el modelo DevOps, están añadiendo ``jobs'' a su ``Pipeline'', encauzando así su filosofía, de DevOps, a DevSecOps y las empresas que no han adoptado una filosofía DevOps, quieren pasar directamente a DevSecOps.
+
+El modelo de desarrollo basado en una filosofía DevSecOps, mueve las comprobaciones de seguridad desde la fase de mantenimiento, a la fase inicial, contemplando la seguridad como uno mas de los requisitos que se plantean en la fase de planificación y conservando su importancia durante el resto de fases del proyecto.
+En definitiva, la seguridad, pasa a ser una parte integral del ciclo de vida de desarrollo del software. 
+
+Para conseguir este propósito, los practicantes de dicha filosofía implementan ``jobs'', o tareas automatizadas relacionadas con la seguridad en el mismo ``Pipeline'', tan característico de DevOps.
+
+En los últimos años, el sector del software ha explotado con empresas como GitHub, GitLab o GOCE, que proporcionan a los equipos de desarrollo las herramientas básicas y los pilares fundamentales para que sus clientes adopten una filosofía DevOps y DevSecOps en la construcción de software.
+
+Un ejemplo de el uso de la filosofía DevSecOps es el concepto llamado ``Abuser storie'' \cite{Bor2006} en el que se aplica la seguridad en la fase de Planificación, a conceptos previos, como los ``User Stories''.
+
+Un user story es una breve descripción escrita por el cliente de no más de tres líneas sobre la funcionalidad que debe proporcionar la aplicacion.  \cite{XPUserStory} mientras que un ``abuser story'' es una extension de los ``User Stories'' contemplado por un ingeniero de seguridad para poder tomar decisiones informadas en base al estado de la seguridad en el momento de su definición. \cite{Bor2006}
+
+Esta forma de re-planteamiento de seguridad es exactamente el cambio de paradigma al que lleva la filosofía DevSecOps.
 
 \section{DevSecOps en uso}
 
