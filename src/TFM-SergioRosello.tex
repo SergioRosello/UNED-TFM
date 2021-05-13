@@ -495,8 +495,6 @@ Entonces, el campo de la ciberseguridad ha sido relegado al mantenimiento de la 
 
 Siguiendo la inercia del movimiento DevOps, adoptado al inicio por grandes empresas y seguido de medians y pequeñas empresas, DevSecOps es una extension de la misma filosofía, reconociendo a la seguridad de la aplicacion y del entorno en el que se ejecuta como un factor igual de importante en el ciclo de vida del software.
 
-\includegraphics[width=\textwidth]{devsecops.png}
-
 El propósito de este movimiento es concienciar a los desarrolladores de la importancia del desarrollo seguro de código, principalmente, cambiando la cultura de la empresa, para que los desarrolladores tengan el cuenta la seguridad en el momento en el que desarrollan la aplicacion.
 
 Al igual que en el movimiento DevOps, esto se puede conseguir mediante la incorporación de ``Jobs'' que revisen el estado del código generado durante el desarrollo.
@@ -510,43 +508,41 @@ Anteriormente, la seguridad formaba parte del último paso del ciclo de vida del
 Como consecuencia, en el momento en el que se halla una vulnerabilidad de seguridad, o lo que es peor, un agente u organización externos usan dicha vulnerabilidad para extraer información sensible de los usuarios de la aplicación, los recursos necesarios para arreglarla y el tiempo empleado en arreglarla, son muy elevados, al igual que el estrés y la posible sanción relacionada con la intrusion en el sistema y la Ley de Protección de Datos.
 Este hecho es uno de los principales motivos por el que las empresas que ya han adoptado el modelo DevOps, están añadiendo ``jobs'' a su ``Pipeline'', encauzando así su filosofía, de DevOps, a DevSecOps y las empresas que no han adoptado una filosofía DevOps, quieren pasar directamente a DevSecOps.
 
-El modelo de desarrollo basado en una filosofía DevSecOps, mueve las comprobaciones de seguridad desde la fase de mantenimiento, a la fase inicial, contemplando la seguridad como uno mas de los requisitos que se plantean en la fase de planificación y conservando su importancia durante el resto de fases del proyecto.
+\includegraphics[width=\textwidth]{devsecops.png}
+
+Como podemos observar en el gráfico anterior, el modelo de desarrollo basado en una filosofía DevSecOps, mueve las comprobaciones de seguridad desde la fase de mantenimiento, a la fase inicial, contemplando la seguridad como uno más de los requisitos que se plantean en la fase de planificación y conservando su importancia durante el resto de fases del proyecto.
 En definitiva, la seguridad, pasa a ser una parte integral del ciclo de vida de desarrollo del software. 
 
 Para conseguir este propósito, los practicantes de dicha filosofía implementan ``jobs'', o tareas automatizadas relacionadas con la seguridad en el mismo ``Pipeline'', tan característico de DevOps.
 
-En los últimos años, el sector del software ha explotado con empresas como GitHub, GitLab o GOCE, que proporcionan a los equipos de desarrollo las herramientas básicas y los pilares fundamentales para que sus clientes adopten una filosofía DevOps y DevSecOps en la construcción de software.
+En los últimos años, el sector del software ha explotado con empresas como GitHub, GitLab o GoCD, que proporcionan a los equipos de desarrollo las herramientas básicas y los pilares fundamentales para que sus clientes adopten una filosofía DevOps y DevSecOps en la construcción de software.\cite{Google2019}
 
 Un ejemplo de el uso de la filosofía DevSecOps es el concepto llamado ``Abuser storie'' \cite{Bor2006} en el que se aplica la seguridad en la fase de Planificación, a conceptos previos, como los ``User Stories''.
 
 Un user story es una breve descripción escrita por el cliente de no más de tres líneas sobre la funcionalidad que debe proporcionar la aplicacion.  \cite{XPUserStory} mientras que un ``abuser story'' es una extension de los ``User Stories'' contemplado por un ingeniero de seguridad para poder tomar decisiones informadas en base al estado de la seguridad en el momento de su definición. \cite{Bor2006}
 
-Esta forma de re-planteamiento de seguridad es exactamente el cambio de paradigma al que lleva la filosofía DevSecOps.
+Esta forma de re plantearse la seguridad es exactamente el cambio de paradigma que lleva a la filosofía DevSecOps.
 
-\section{DevSecOps en uso}
-
-Recientemente, Mike Ensor y Drew Stevens publicaron un ``paper'' titulado ``Shifting left on security''.
-En el, explican las diferentes fases de el ciclo de vida del software, y como añadir elementos de seguridad a lo largo del ``pipeline'' Desde el desarrollo de código, hasta el despliegue del mismo.
-Algunas de las técnicas que recomiendan en su ``paper'' tienen gran importancia, como el uso de registros privados, cuyas imágenes y recursos estén identificadas y sean verificadas a la hora de desplegarse, análisis estático y dinámico del código que se escribe de forma automatizada, despliegue del mismo binario, y que solamente pueda ser desplegado si es firmado de forma criptográfica por el responsable de despliegues.\cite{Ensor2021}
-
-
-Definir y explicar los procedimientos que se usan en DevSecOps.
-
-Explicar el diagrama del flujo de desarrollo ágil + DevSecOps.
-
-Herramientas de desarrollo de pipelines, como análisis de código estático y dinámico.
-
-Securizacion de los entornos de desarrollo con Docker.
-
-%TODO Casos de uso en los que las empresas han desarrollado un trabajo de DevSecOps. Con referencias.
 
 \chapter{Implementación del modelo DevSecOps}
 
-En este trabajo, se presenta la formación del pipeline de integración continua por el que pasa el software en Scalefast.
+El contenido de esta sección, define el problema al que nos enfrentamos, analizando los principales problemas con el pipeline actual en Scalefast.
+Posteriormente, definiremos los objetivos a los que queremos llegar, detallando la razón por la cual se piensa que es el camino correcto en este momento para Scalefast.
+Una vez definidos los objetivos, vamos a detallar el ciclo de desarrollo y puesta en producción de uno de nuestros objetivos detallados anteriormente para terminar redactando la conclusion a la que se ha llegado tras realizar este análisis del estado actual del pipeline y su subsecuente esfuerzo por evolucionarlo, de forma paralela a la dirección que esta llevando la industria.
+
+\section{Análisis del estado actual del pipeline} %DEFINICIÓN DEL PROBLEMA
+
+En Scalefast, se sigue un modelo de desarrollo similar al descrito anteriormente, en la metodología ágil.
+Actualmente, la empresa tiene un pipeline de integración continua, en el que se pasan varios ``jobs'' o pruebas automáticas en cada commit que se sube al repositorio de código.
+Un pipeline es una pieza clave del ciclo de vida del software, responsable de asegurar la calidad de los desarrollos que integramos a producción y que por ende, definen la calidad de la empresa.
+Dicho esto, es importante recordar que el desarrollo del pipeline debe seguir siempre el modelo de desarrollo de software que el mismo promueve, que es el desarrollo iterativo e incremental y su desarrollo no tiene fin.
+En vista de la progresión de Scalefast, debemos evolucionar el pipeline, haciendo que tienda mas hacia la integración y despliegues continuous, centrando ademas el desarrollo de software en la seguridad.
+
+A medida que Scalefast ha crecido tanto en clientes, como en empleados y proyectos que abarcamos, se han identificado una serie de problemas con el pipeline que usamos actualmente.
 
 \section{Definición de procesos}
 
-Como se ha definido anteriormente, el objetivo principal de este trabajo es reciclar el pipeline que tenemos en funcionamiento actualmente en Scalefast, por uno mas actual, que sea capaz de proporcionar a los equipos las herramientas y entornos que necesitan en el momento en el que las necesitan, de esta forma, podemos reducir el tiempo de desarrollo, aumentando ademas la calidad del software que sacamos a producción.
+Como se ha definido anteriormente, el objetivo principal de este trabajo es reciclar el pipeline que tenemos en funcionamiento actualmente en Scalefast, por uno mas actual, que sea capaz de proporcionar a los equipos las herramientas y entornos que necesitan en el momento en el que las necesitan, de esta forma, podemos reducir el tiempo de desarrollo, aumentando ademas la calidad y seguridad del software que sacamos a producción.
 De esta forma, Scalefast adquiere une ventaja injusta.
 
 \subsection{Documentación y decision de procesos}
@@ -556,20 +552,14 @@ Este pipeline va a afectar tanto a los equipos de QA, como a los desarrolladores
 En definitiva, toda la parte técnica de la empresa se va a ver afectada.
 Es por esto que se debe tener en cuenta el punto de vista de todos los equipos mencionados anteriormente.
 
-\section{Empresas actuales, casos de éxito}
+\section{DevSecOps en uso}
 
-\begin{itemize}
-  \item{IBM}
-  \item{Netflix}
-  \item{Amazon}
-\end{itemize}
+Recientemente, Mike Ensor y Drew Stevens publicaron un ``paper'' titulado ``Shifting left on security''.
+En él, explican las diferentes fases de el ciclo de vida del software, y como añadir elementos de seguridad a lo largo del ``pipeline''. 
+Desde la planificación del proyecto, hasta el despliegue del mismo.
+Algunas de las técnicas que recomiendan en su ``paper'' tienen gran importancia, como el uso de registros privados, cuyas imágenes y recursos estén identificadas y sean verificadas a la hora de desplegarse, análisis estático y dinámico del código que se escribe de forma automatizada, despliegue del mismo binario, y que solamente pueda ser desplegado si es firmado de forma criptográfica por el responsable de despliegues.\cite{Ensor2021}
 
-\subsection{Presente Aplicaciones Off the Shelf}
-
-\begin{itemize}
-  \item{Larch Darkly}
-\end{itemize}
-
+En esta sección, se describen mas en detalle dichas herramientas y se describe la implementación de alguna de ellas en el pipeline de Scalefast.
 
 \include{bibliography}
 
