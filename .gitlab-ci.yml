@@ -5,6 +5,9 @@ compile_pdf:
   script:
     - cd src/
     - latexmk -pdf TFM-SergioRosello.tex
+    - makeglossaries TFM-SergioRosello
+    - latexmk -pdf TFM-SergioRosello.tex
+    - cp TFM-SergioRosello.pdf ../
   artifacts:
     paths:
       - $CI_PROJECT_DIR/src/TFM-SergioRosello.pdf
