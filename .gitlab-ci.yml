@@ -4,8 +4,6 @@ compile_pdf:
     - docker
   script:
     - cd src/
-    - latexmk -pdf TFM-SergioRosello.tex || true
-    - makeglossaries TFM-SergioRosello
     - latexmk -pdf TFM-SergioRosello.tex
     - cp TFM-SergioRosello.pdf ../
   artifacts:
