@@ -303,19 +303,52 @@ El propósito del mismo en el primer capítulo es proporcionar al lector una
 visión inclusiva de los procesos empleados para la construcción del software y
 de su evolución a través de los años.
 Para llevar a cabo esta parte, hago uso del brillante articulo escrito por 
-Craig Larman y Victor R. Basili para la IEEE Computer Society en junio de 2003.
+Craig Larman y Victor R. Basili para la IEEE Computer Society en junio de 2003,
+en el que hacen un resumen de las diferentes formas en las que se ha 
+desarrollado software hasta la actualidad.
 
 Una vez llegamos a la actualidad en la construcción de software, se habla de la
 filosofía DevOps, adoptada por grandes empresas como Google, Amazon o Netflix y
 extendida a las demás empresas a lo largo de los años.
-Es importante mostrar la %TODO: Acabar
+Me parece vital que queden claros conceptos como \gls{DevOps} o \gls{DevSecOps}
+e intento definirlos, siendo consciente de la necesidad del movimiento de no 
+ser reducido a una definición común.
+Esto es debido a que, al ser una idea abstracta, cada organización que quiera
+implementar la filosofía DevOps, va a tener que hacerlo ajustándose a su propia
+cultura, sus propios procesos y su propio ritmo.
 
-Una vez tengamos clara esta estructura, nos adentramos en dos de las
-definiciones clave de este trabajo.
-Estas son \gls{DevOps} y \gls{DevSecOps}.
-De
+En la segunda parte de este documento pretendo mostrar el proceso que se ha
+seguido en Scalefast para transformar el pipeline actual, basado en Integración
+Continua, a un \gls{pipeline} que es útil en un mayor sector del ciclo de visa
+de un proyecto, desde integración a despliegue continuos, sin dejar de lado el
+desarrollo de software de forma segura.
+Concretamente, el proyecto en el que me centrare yo sera en definir los pasos
+relacionados con la \gls{App-Sec} que se van a ejecutar en el Pipeline.
+Para realizar esta tarea, se crea una documentación gráfica, que describe las
+fases clave de todo el ciclo de vida del desarrollo, no solo la parte
+relacionada con la seguridad. 
+Desde su inicio, en el que se definen las características de la aplicacion,
+hasta la fase de monitorización, en la que se revisa continuamente el estado 
+del proyecto para garantizar su correcto funcionamiento.
+Crear este análisis del estado al que queremos llegar es importante porque nos
+proporciona una idea global de los pasos que tenemos que seguir y nos permite
+desarrollar una estrategia para llevar a cabo dicha estrategia.
+%TODO: Por que es importante esto?
 
-La estructura de este documento sigue un orden
+Al acabar de definir el \gls{pipeline} ideal, se pretende adaptarlo a las
+limitaciones técnicas, económicas, o estratégicas de la empresa y 
+posteriormente definir cuales son las tareas que podemos llevar a cabo y cuales
+las que no podemos llevar a cabo y prescindir de ellas.
+
+En la siguiente sección, se pretende describir el proceso de desarrollo de una
+de estas tareas.
+Pasando así por las fases del ciclo de vida del desarrollo descritas en la sección anterior.
+
+Es en el tercer capitulo donde describo las conclusiones obtenidas a lo largo 
+de este trabajo.
+
+%TODO: Definir bien la
+% estructura del documento antes de continuar.
 
 \chapter{Estado del arte}
 
