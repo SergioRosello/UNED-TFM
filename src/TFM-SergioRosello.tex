@@ -249,28 +249,39 @@ hmargin=3cm
 La razón que me llevo a la elección del tema \textit{Definición y puesta en 
 funcionamiento del sistema operacional de seguridad en el ciclo de 
 desarrollo/despliegue (DevSecOps)} reside en mi deseo por unir dos sectores del 
-mundo del software no muy interrelacionados. 
-La seguridad, y la metodología ágil de desarrollo.
+mundo del software no muy interrelacionados.
+La seguridad, y la metodología de desarrollo ágil.
 
-Mi carrera profesional es comparativamente corta, a medida que ha ido
-avanzando, he ido identificado ciertos aspectos de mis responsabilidades
-laborales que me han llamado más la atención.  Siempre he sabido que uno de los
-valores principales en torno a los que encauzo mi vida es el aprendizaje
-continuo, esa es la razón principal por la que me he inscrito al master de
-Ciberseguridad con la UNED mientras llevaba una vida laboral activa.  Durante el
-estudio de las distintas asignaturas que forman el master, una de las que más ha
+Mi carrera profesional es comparativamente corta, ya que tengo un par de años
+como ingeniero QA y recientemente, estoy trabajando como DevOps en Scalefast. 
+Aunque lleve poco tiempo en el sector empresarial del desarrollo de software,
+pienso que he tenido suficiente tiempo, o suficiente suerte como para observar
+ciertos aspectos de mis responsabilidades laborales que me han ido interesando
+cada vez mas.
+
+Una de las observaciones que he hecho sobre mi mismo durante mi experiencia en
+este mundo es que el aprendizaje continuo es uno de mis intereses mas grandes.
+Esa es la razón principal por la que me he inscrito al master de Ciberseguridad
+con la UNED mientras llevaba una vida laboral activa.  Durante el estudio de 
+las distintas asignaturas que forman el master, una de las que más ha 
 estimulado mi creatividad y aspiraciones futuras ha sido Auditoria y
-monitorización de la seguridad
-Este proyecto es la union de dos de mis intereses dentro del universo del
-Software.
+monitorización de la seguridad. %TODO: Por que?
+La reciente experiencia como DevOps en Scalefast me ha permitido formar parte 
+de áreas del ciclo de vida del desarrollo que únicamente había visto desde la
+lejanía y que únicamente conocía teóricamente.
+Gracias a la exposición a estas areas dada por mis responsabilidades como
+DevOps, me he dado cuenta de me interesa bastante mas de lo que me esperaba
+definir y analizar la forma en la que tenemos implementado el Pipeline y buscar
+formas de mejorarlo para agilizar el proceso de desarrollo.
+Dicho esto, puedo concluir que este proyecto es la union de dos de mis 
+intereses dentro del universo del Software. 
 La metodología ágil y su vertiente DevOps, con la seguridad.
 
 % OBJETIVO PRINCIPAL DEL TRABAJO - Explorar la union entre los procesos de
 % desarrollo que desencadenan en una construcción de software de calidad
 % teniendo siempre en cuenta la seguridad.
-Dada la situación en la que me encuentro laboralmente, empleado como DevOps en
-Scalefast, pienso que estoy en una situación única para poder observar gran
-parte del ciclo de vida del software.
+Dada la situación en la que me encuentro laboralmente, pienso que estoy en una 
+situación única para poder observar gran parte del ciclo de vida del software.
 Una de las partes fundamentales de el DevOps es fomentar la comunicación entre
 los distintos departamentos que forman parte del ciclo de vida del desarrollo.
 Ya sea mediante reuniones presenciales de definición de procesos, como
@@ -319,14 +330,31 @@ cultura, sus propios procesos y su propio ritmo.
 
 En la segunda parte de este documento pretendo mostrar el proceso que se ha
 seguido en Scalefast para transformar el pipeline actual, basado en Integración
-Continua, a un \gls{pipeline} que es útil en un mayor sector del ciclo de visa
+Continua, a un \gls{pipeline} que es útil en un mayor área del ciclo de vida
 de un proyecto, desde integración a despliegue continuos, sin dejar de lado el
-desarrollo de software de forma segura.
-Concretamente, el proyecto en el que me centrare yo sera en definir los pasos
-relacionados con la \gls{App-Sec} que se van a ejecutar en el Pipeline.
-Para realizar esta tarea, se crea una documentación gráfica, que describe las
-fases clave de todo el ciclo de vida del desarrollo, no solo la parte
-relacionada con la seguridad. 
+desarrollo de software seguro.
+
+La idea que se ha seguido a la hora de realizar este trabajo es en definir las
+características idílicas del ciclo de vida en relación a \gls{App-Sec} y una 
+vez tengamos claras cuales son, ir concretando los requisitos necesarios para
+cada una de las tareas.
+Para llevar el proyecto a termino, se empieza creando una documentación 
+gráfica, sobre la que nos vamos a apoyar y una documentación mas extensa en la
+que podemos obtener información concreta, por ejemplo, de las distintas 
+opciones en las herramientas que podemos usar para realizar un análisis 
+estático del código.
+
+%TODO: Asegurar que es lo que vamos a hacer después, porque no lo se aun
+Seguidamente, creamos una estrategia de desarrollo, representada en forma de
+proyecto. <++>
+Del pipeline que se quiere implementar, se obtienen la cantidad de gente que se
+necesita contratar para llevar la construcción y el mantenimiento de las
+aflicciones que se van a integrar en el ciclo de vida del proyecto.
+
+Si nos damos cuenta, la propia construcción del pipeline queda representada en
+un mismo pipeline.
+La única diferencia, es que el cliente en este caso es interno, y no externo.
+
 Desde su inicio, en el que se definen las características de la aplicacion,
 hasta la fase de monitorización, en la que se revisa continuamente el estado 
 del proyecto para garantizar su correcto funcionamiento.
