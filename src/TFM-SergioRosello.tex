@@ -248,8 +248,9 @@ hmargin=3cm
 
 La razón que me llevo a la elección del tema \textit{Definición y puesta en 
 funcionamiento del sistema operacional de seguridad en el ciclo de 
-desarrollo/despliegue (DevSecOps)} reside en mi deseo por unir dos sectores del 
-mundo del software no muy interrelacionados.
+desarrollo/despliegue (DevSecOps)} reside en mi deseo por unir dos de los
+sectores del mundo del software, que hasta hace poco, no han estado muy 
+interrelacionados.
 La seguridad, y la metodología de desarrollo ágil.
 
 Mi carrera profesional es comparativamente corta, ya que tengo un par de años
@@ -261,27 +262,33 @@ cada vez mas.
 
 Una de las observaciones que he hecho sobre mi mismo durante mi experiencia en
 este mundo es que el aprendizaje continuo es uno de mis intereses mas grandes.
-Esa es la razón principal por la que me he inscrito al master de Ciberseguridad
-con la UNED mientras llevaba una vida laboral activa.  Durante el estudio de 
-las distintas asignaturas que forman el master, una de las que más ha 
-estimulado mi creatividad y aspiraciones futuras ha sido Auditoria y
-monitorización de la seguridad. %TODO: Por que?
-La reciente experiencia como DevOps en Scalefast me ha permitido formar parte 
+Esta es la razón principal por la que me he inscrito al master de 
+Ciberseguridad con la UNED mientras llevaba una vida laboral activa.  
+Durante el estudio de las distintas asignaturas que forman el master, una de 
+las que más ha estimulado mi creatividad y aspiraciones futuras ha sido
+Auditoria y monitorización de la seguridad. 
+Durante el tiempo que he dedicado a estudiar dicha asignatura, he aprendido que
+garantizar que tu aplicación es segura, conlleva un tratado de
+datos y registros masivo, y que para poder monitorizar dichos registros, hacen
+falta tanto el dominio de las herramientas disponibles, como un conocimiento
+profundo de la propia aplicacion sobre la que trabajas.
+
+La reciente experiencia como DevOps en Scalefast me ha permitido formar parte
 de áreas del ciclo de vida del desarrollo que únicamente había visto desde la
-lejanía y que únicamente conocía teóricamente.
-Gracias a la exposición a estas areas dada por mis responsabilidades como
-DevOps, me he dado cuenta de me interesa bastante mas de lo que me esperaba
-definir y analizar la forma en la que tenemos implementado el Pipeline y buscar
-formas de mejorarlo para agilizar el proceso de desarrollo.
-Dicho esto, puedo concluir que este proyecto es la union de dos de mis 
-intereses dentro del universo del Software. 
+lejanía y que solo conocía teóricamente.
+Gracias a la exposición a estas areas, me he dado cuenta de que mi interés es superior al esperado.
+Una de las tareas en las que me he visto involucrado que mas me ha interesado 
+ha sido la definición y análisis del estado del Pipeline y la búsqueda de su
+evolución para garantizar un desarrollo mas ágil y seguro dentro de la
+organización.
+Dicho esto, puedo concluir que en este proyecto pretendo unir dos de mis intereses dentro del universo del software.  
 La metodología ágil y su vertiente DevOps, con la seguridad.
 
 % OBJETIVO PRINCIPAL DEL TRABAJO - Explorar la union entre los procesos de
 % desarrollo que desencadenan en una construcción de software de calidad
 % teniendo siempre en cuenta la seguridad.
 Dada la situación en la que me encuentro laboralmente, pienso que estoy en una 
-situación única para poder observar gran parte del ciclo de vida del software.
+posición única para poder observar gran parte del ciclo de vida del software.
 Una de las partes fundamentales de el DevOps es fomentar la comunicación entre
 los distintos departamentos que forman parte del ciclo de vida del desarrollo.
 Ya sea mediante reuniones presenciales de definición de procesos, como
@@ -290,6 +297,17 @@ utilidad e intención es agilizar el proceso de desarrollo del software.
 Ademas de la responsabilidad mencionada anteriormente, otra parte fundamental
 que debemos desempeñar los DevOps es contagiar a los desarrolladores una
 cultura de automatismo, desarrollo ágil, y responsabilidad sobre su código.  
+De este modo, y teniendo en cuenta siempre la meta a la que se quiere llegar
+como DevOps en Scalefast, que es proporcionar a los desarrolladores las
+herramientas que necesitan para asegurar una calidad del software propia de 
+Scalefast, ademas de agilizar los procesos existentes en nuestro \gls{SDLC}, el
+objetivo de este trabajo es llevar a cabo el proceso de transición de un
+modelo de integración continua, pero despliegue manual, en el que la seguridad
+entra en juego en la ultima fase del \gls{SDLC}, a un modelo \gls{DevSecOps}
+moderno, en el que la seguridad del desarrollo se transfiere a las primeras
+fases del desarrollo, agilizando y asegurando de esta forma el desarrollo, en 
+el que la integración y despliegue se automatizan hasta el momento en el que se
+pretende sacar el software al entorno de producción.
 %TODO: Cambiar la cultura que debemos extender a los desarrolladores.
 
 Como estudiante del master de ciberseguridad, he de responder al creciente
@@ -318,27 +336,37 @@ Craig Larman y Victor R. Basili para la IEEE Computer Society en junio de 2003,
 en el que hacen un resumen de las diferentes formas en las que se ha 
 desarrollado software hasta la actualidad.
 
-Una vez llegamos a la actualidad en la construcción de software, se habla de la
-filosofía DevOps, adoptada por grandes empresas como Google, Amazon o Netflix y
-extendida a las demás empresas a lo largo de los años.
+Una vez llegamos a la actualidad, me parece esencial describir el desarrollo
+ágil, y destacar que este no es una invención de Silicon Valley, y que este
+movimiento o forma de desarrollo no nace de la nada, sino que evoluciona de
+forma iterativa e incremental a medida que se van identificando las carencias 
+en la forma de desarrollo y añadiendo remedios a estas.
+Después de definir que es el desarrollo ágil como lo conocemos en la actualidad,
+pasamos a describir una de las formas en la que se podría llevar a cabo este
+desarrollo. 
+
+Hablar de desarrollo ágil en la actualidad desencadena
+inevitablemente en hablar de la filosofía \gls{DevOps} y \gls{DevSecOps}.
 Me parece vital que queden claros conceptos como \gls{DevOps} o \gls{DevSecOps}
 e intento definirlos, siendo consciente de la necesidad del movimiento de no 
 ser reducido a una definición común.
 Esto es debido a que, al ser una idea abstracta, cada organización que quiera
 implementar la filosofía DevOps, va a tener que hacerlo ajustándose a su propia
 cultura, sus propios procesos y su propio ritmo.
+En la siguiente sección analizo la primera, para luego dar paso al análisis de
+la filosofía \gls{DevSecOps}.
 
 En la segunda parte de este documento pretendo mostrar el proceso que se ha
 seguido en Scalefast para transformar el pipeline actual, basado en Integración
-Continua, a un \gls{pipeline} que es útil en un mayor área del ciclo de vida
+Continua, a un \gls{pipeline} que es útil en una mayor área del ciclo de vida
 de un proyecto, desde integración a despliegue continuos, sin dejar de lado el
 desarrollo de software seguro.
 
-La idea que se ha seguido a la hora de realizar este trabajo es en definir las
-características idílicas del ciclo de vida en relación a \gls{App-Sec} y una 
-vez tengamos claras cuales son, ir concretando los requisitos necesarios para
-cada una de las tareas.
-Para llevar el proyecto a termino, se empieza creando una documentación 
+La idea que se ha seguido a la hora de realizar este trabajo es definir las
+características idílicas del \gls{SDLC} que guardan relación con \gls{App-Sec}.
+Una vez tengamos claras cuales son, ir concretando los requisitos necesarios
+para realizar cada una de las tareas.
+Para llevar a termino el proyecto, se empieza creando una documentación 
 gráfica, sobre la que nos vamos a apoyar y una documentación mas extensa en la
 que podemos obtener información concreta, por ejemplo, de las distintas 
 opciones en las herramientas que podemos usar para realizar un análisis 
