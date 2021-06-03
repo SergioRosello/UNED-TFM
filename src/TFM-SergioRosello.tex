@@ -273,6 +273,20 @@ datos y registros masivo, y que para poder monitorizar dichos registros, hacen
 falta tanto el dominio de las herramientas disponibles, como un conocimiento
 profundo de la propia aplicacion sobre la que trabajas.
 
+Para poder explicar el motivo de este trabajo, antes debo poner al lector en
+contexto explicando el sector de negocio en el que se encuentra Scalefast y la
+necesidad que pretende cubrir con el puesto de \gls{DevOps}.
+Scalefast es una empresa que proporciona a empresas una plataforma desde la que
+pueden basar toda su estrategia de venta on-line.
+Recientemente, muchas empresas que se centraban en venta directa a otras
+empresas, se han querido especializar en la venta directa al consumidor.
+Este es el motivo por el cual Scalefast ha crecido drásticamente en
+popularidad, y las tareas que antes eran gestionables entre pocos, ahora deben
+ser automatizadas para poder seguir el ritmo al que el mercado la hace crecer.
+En vista de esta necesidad, se crearon varios puestos de \gls{DevOps}, uno de
+los cuales, he sido afortunado de cubrir.
+%TODO: Cual era la intencion con el puesto de DevOps? Por que hacia falta?
+
 La reciente experiencia como DevOps en Scalefast me ha permitido formar parte
 de áreas del ciclo de vida del desarrollo que únicamente había visto desde la
 lejanía y que solo conocía teóricamente.
@@ -302,13 +316,12 @@ como DevOps en Scalefast, que es proporcionar a los desarrolladores las
 herramientas que necesitan para asegurar una calidad del software propia de 
 Scalefast, ademas de agilizar los procesos existentes en nuestro \gls{SDLC}, el
 objetivo de este trabajo es llevar a cabo el proceso de transición de un
-modelo de integración continua, pero despliegue manual, en el que la seguridad
-entra en juego en la ultima fase del \gls{SDLC}, a un modelo \gls{DevSecOps}
+modelo de integración continua y despliegue manual, en el que la seguridad
+entra en juego en la última fase del \gls{SDLC}, a un modelo \gls{DevSecOps}
 moderno, en el que la seguridad del desarrollo se transfiere a las primeras
 fases del desarrollo, agilizando y asegurando de esta forma el desarrollo, en 
 el que la integración y despliegue se automatizan hasta el momento en el que se
 pretende sacar el software al entorno de producción.
-%TODO: Cambiar la cultura que debemos extender a los desarrolladores.
 
 Como estudiante del master de ciberseguridad, he de responder al creciente
 interés en el mundo del desarrollo ágil por promover el desarrollo de software
@@ -316,18 +329,18 @@ de forma segura desde el inicio del ciclo de vida de la aplicación.
 Esta evolución del movimiento DevOps, se denomina DevSecOps.
  
 La situación el la que me encuentro me permite aplicar los conocimientos
-adquiridos en el Master de forma practica en el mudo laboral real.
+adquiridos en el Master de forma práctica en el mudo laboral real.
 Implementando la parte de \gls{App-Sec} al ciclo de vida de desarrollo de
 software.
 La filosofía de desarrollo que lleva a cabo la ejecución de dichas
-responsabilidades se denomina comúnmente como DevSecOps.
+responsabilidades es denominada comúnmente como \gls{DevSecOps}.
 
 %TODO: 3. Escribir una descripción de como esta estructurado el documento, a
 %nivel de capitulo, con referencias. (Pug parlar en primera persona) y citar las referencias (para poder llevar a cabo esta sección, ha sido necesaria la
 %aportación de X)
 
-Dada la naturaleza de este trabajo, me parece necesario hablar de la forma en
-la que está estructurado este documento.
+Llegados a este punto creo que es buen momento para hablar de la forma en la 
+que está estructurado este documento.
 El propósito del mismo en el primer capítulo es proporcionar al lector una
 visión inclusiva de los procesos empleados para la construcción del software y
 de su evolución a través de los años.
@@ -347,9 +360,9 @@ desarrollo.
 
 Hablar de desarrollo ágil en la actualidad desencadena
 inevitablemente en hablar de la filosofía \gls{DevOps} y \gls{DevSecOps}.
-Me parece vital que queden claros conceptos como \gls{DevOps} o \gls{DevSecOps}
-e intento definirlos, siendo consciente de la necesidad del movimiento de no 
-ser reducido a una definición común.
+Me parece vital que queden claros estos conceptos e intento definirlos, siendo
+consciente de la necesidad del movimiento de no ser reducido a una definición
+común.
 Esto es debido a que, al ser una idea abstracta, cada organización que quiera
 implementar la filosofía DevOps, va a tener que hacerlo ajustándose a su propia
 cultura, sus propios procesos y su propio ritmo.
@@ -362,17 +375,25 @@ Continua, a un \gls{pipeline} que es útil en una mayor área del ciclo de vida
 de un proyecto, desde integración a despliegue continuos, sin dejar de lado el
 desarrollo de software seguro.
 
-La idea que se ha seguido a la hora de realizar este trabajo es definir las
-características idílicas del \gls{SDLC} que guardan relación con \gls{App-Sec}.
+La idea que se ha seguido a la hora de escribir esta sección es definir las
+características idílicas de un \gls{SDLC} que guardan relación con \gls{App-Sec}.
 Una vez tengamos claras cuales son, ir concretando los requisitos necesarios
 para realizar cada una de las tareas.
+Esto implica calcular el tiempo que vamos a tardar en hacer todas las tareas, 
+si se va a necesitar contratar a expertos que nos asesoren en las nuevas tareas
+, o que tareas se van a dejar de lado debido a incompatibilidades con el estado
+actual de la tecnología con la que trabajamos.
 Para llevar a termino el proyecto, se empieza creando una documentación 
 gráfica, sobre la que nos vamos a apoyar y una documentación mas extensa en la
 que podemos obtener información concreta, por ejemplo, de las distintas 
 opciones en las herramientas que podemos usar para realizar un análisis 
 estático del código.
+%TODO: Escribir el nombre de la sección en la que se crea la tabla 
+Esta parte queda descrita en la sección bajo el nombre <++>. 
 
 %TODO: Asegurar que es lo que vamos a hacer después, porque no lo se aun
+% Hasta aquí puedo escribir ahora, porque no he llagado mas lejos.
+% lo demás sera mentira, y seguramente se tenga que cambiar
 Seguidamente, creamos una estrategia de desarrollo, representada en forma de
 proyecto. <++>
 Del pipeline que se quiere implementar, se obtienen la cantidad de gente que se
