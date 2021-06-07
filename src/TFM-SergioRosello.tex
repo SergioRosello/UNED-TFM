@@ -285,7 +285,7 @@ popularidad, y las tareas que antes eran gestionables entre pocos, ahora deben
 ser automatizadas para poder seguir el ritmo al que el mercado la hace crecer.
 En vista de esta necesidad, se crearon varios puestos de \gls{DevOps}, uno de
 los cuales, he sido afortunado de cubrir.
-%TODO: Cual era la intencion con el puesto de DevOps? Por que hacia falta?
+%TODO: Cual era la intención con el puesto de DevOps? Por que hacia falta?
 
 La reciente experiencia como DevOps en Scalefast me ha permitido formar parte
 de áreas del ciclo de vida del desarrollo que únicamente había visto desde la
@@ -391,14 +391,17 @@ estático del código.
 %TODO: Escribir el nombre de la sección en la que se crea la tabla 
 Esta parte queda descrita en la sección bajo el nombre <++>. 
 
+%TODO: Crear otra seccion para describir la forma en la que se ha hecho esto
+A continuación, se analizan las tareas que surgen del diagrama, las organizamos
+en una tabla y hacemos una estimación del tiempo que nos va a llevar completar
+cada una de las tareas identificadas, ademas de su totalidad.
+El propósito de este ejercicio es crear el cronograma de los desarrollos que se
+van a realizar y crear un plan a medio o largo plazo de las responsabilidades
+como equipo de seguridad.
+
 %TODO: Asegurar que es lo que vamos a hacer después, porque no lo se aun
 % Hasta aquí puedo escribir ahora, porque no he llagado mas lejos.
 % lo demás sera mentira, y seguramente se tenga que cambiar
-Seguidamente, creamos una estrategia de desarrollo, representada en forma de
-proyecto. <++>
-Del pipeline que se quiere implementar, se obtienen la cantidad de gente que se
-necesita contratar para llevar la construcción y el mantenimiento de las
-aflicciones que se van a integrar en el ciclo de vida del proyecto.
 
 Si nos damos cuenta, la propia construcción del pipeline queda representada en
 un mismo pipeline.
@@ -965,16 +968,20 @@ decisiones informadas en base al estado de la seguridad en el momento de su
 definición. \cite{Bor2006}
 
 Esta forma de re plantearse la seguridad es exactamente el cambio de paradigma
-que lleva a la filosofía DevSecOps.
+necesario que lleva de la filosofía \gls{DevOps}, a la filosofía 
+\gls{DevSecOps}.
 
 
 \chapter{Implementación del modelo DevSecOps}
 
 El contenido de esta sección, define el problema al que nos enfrentamos,
-analizando los principales problemas con el \textit{\gls{pipeline}} actual en
-Scalefast.  Posteriormente, definiremos los objetivos a los que queremos llegar,
-detallando la razón por la cual se piensa que es el camino correcto en este
-momento para Scalefast.
+analizando los principales problemas con el \textit{\gls{pipeline}} actual de
+Scalefast.
+Seguidamente, se realiza la primera tarea para preparar el nuevo enfoque del
+pipeline.
+Esta es la concepción de un pipeline \gls{DevSecOps} idílico, al que vamos a
+tener que acercarnos lo mas posible.
+
 %TODO: eliminar objetivos de la fase y re formular
 Una vez definidos los objetivos, vamos a detallar el ciclo de desarrollo y
 puesta en producción de uno de nuestros objetivos detallados anteriormente.
@@ -986,21 +993,39 @@ está llevando a cabo la industria del software ágil.
 \section{Análisis del estado actual del pipeline} %DEFINICIÓN DEL PROBLEMA
 
 En Scalefast, se sigue un modelo de desarrollo similar al descrito
-anteriormente, en la metodología ágil.  Actualmente, la empresa tiene un
+anteriormente, en la metodología ágil.
+Actualmente, la empresa tiene un
 \textit{\gls{pipeline}} de integración continua, en el que se pasan varios
-``jobs'' o pruebas automáticas en cada commit vinculado a un \acrfull{mr} que se
-sube al repositorio de código.  Un \textit{\gls{pipeline}} es una pieza clave
-del ciclo de vida del software, responsable de asegurar la calidad de los
-desarrollos que integramos a producción y que por ende, definen la calidad de la
-empresa.  Dicho esto, es importante recordar que el desarrollo del
+``jobs'' o pruebas automáticas en cada commit vinculado a un \acrfull{mr} que se sube al repositorio de código.
+Un \textit{\gls{pipeline}} es la pieza clave
+del ciclo de vida del software, responsable de asegurar la calidad de los desarrollos que se integran a producción y que por ende, definen la calidad de la empresa.  
+Dicho esto, es importante recordar que el desarrollo del
 \textit{\gls{pipeline}} debe seguir siempre el modelo de desarrollo de software
-que el mismo promueve, el desarrollo iterativo e incremental comprendido esto,
-es evidente que su desarrollo no tiene fin.  En vista de la progresión de
-Scalefast, debemos evolucionar el pipeline, haciendo que tienda mas hacia la
-integración y despliegues continuous, centrando ademas el desarrollo de software
-en la seguridad.  A medida que Scalefast ha crecido tanto en clientes, como en
+que él mismo promueve, el desarrollo iterativo e incremental comprendido esto,
+es evidente que su desarrollo no tiene fin.  
+En vista de la progresión de Scalefast, debemos evolucionar el pipeline,
+haciendo que tienda mas hacia la integración y despliegues continuous, 
+centrando ademas el desarrollo de software en la seguridad.
+A medida que Scalefast ha crecido tanto en clientes, como en
 empleados y proyectos que abarcamos, se han identificado una serie de problemas
 con el \textit{\gls{pipeline}} que usamos actualmente.
+
+\begin{itemize}
+  \item{Se introducen cambios a producción manualmente}
+  \item{No se pueden repetir despliegues}
+  \item{No existe una forma de revertir los cambios añadidos a prod}
+  \item{No se revisa siempre el código de la misma forma}
+  \item{La revision es susceptible a modificaciones manuales}
+  \item{No se replican entornos entre fases (pruebas, \gls{staging} y producción)}
+  \item{No existe responsabilidad de código}
+\end{itemize}
+
+De entre estos problemas detectados, algunos se pueden solventar añadiendo
+herramientas directamente y otros son problemas culturales, que se tienen que
+abordar de distinta forma.
+
+Dado el corto periodo de tiempo del que se dispone para realizar este trabajo,
+los problemas culturales quedaran redactados, pero no solventados. 
 
 \section{Definición de procesos}
 
