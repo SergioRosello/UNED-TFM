@@ -391,7 +391,7 @@ estático del código.
 %TODO: Escribir el nombre de la sección en la que se crea la tabla 
 Esta parte queda descrita en la sección bajo el nombre <++>. 
 
-%TODO: Crear otra seccion para describir la forma en la que se ha hecho esto
+%TODO: Crear otra sección para describir la forma en la que se ha hecho esto
 A continuación, se analizan las tareas que surgen del diagrama, las organizamos
 en una tabla y hacemos una estimación del tiempo que nos va a llevar completar
 cada una de las tareas identificadas, ademas de su totalidad.
@@ -403,32 +403,18 @@ como equipo de seguridad.
 % Hasta aquí puedo escribir ahora, porque no he llagado mas lejos.
 % lo demás sera mentira, y seguramente se tenga que cambiar
 
-Si nos damos cuenta, la propia construcción del pipeline queda representada en
-un mismo pipeline.
+Analizando el proceso, la propia construcción del pipeline queda representada 
+en un mismo pipeline.
 La única diferencia, es que el cliente en este caso es interno, y no externo.
 
-Desde su inicio, en el que se definen las características de la aplicacion,
-hasta la fase de monitorización, en la que se revisa continuamente el estado 
-del proyecto para garantizar su correcto funcionamiento.
-Crear este análisis del estado al que queremos llegar es importante porque nos
-proporciona una idea global de los pasos que tenemos que seguir y nos permite
-desarrollar una estrategia para llevar a cabo dicha estrategia.
-%TODO: Por que es importante esto?
+En la siguiente sección, se describe el proceso de desarrollo de una de estas 
+tareas.
+Pasando así por las fases del ciclo de vida del desarrollo. 
 
-Al acabar de definir el \gls{pipeline} ideal, se pretende adaptarlo a las
-limitaciones técnicas, económicas, o estratégicas de la empresa y 
-posteriormente definir cuales son las tareas que podemos llevar a cabo y cuales
-las que no podemos llevar a cabo y prescindir de ellas.
-
-En la siguiente sección, se pretende describir el proceso de desarrollo de una
-de estas tareas.
-Pasando así por las fases del ciclo de vida del desarrollo descritas en la sección anterior.
-
-Es en el tercer capitulo donde describo las conclusiones obtenidas a lo largo 
-de este trabajo.
-
-%TODO: Definir bien la
-% estructura del documento antes de continuar.
+Es al acabar este desarrollo, cuando se conoce el ciclo de vida de desarrollo
+intrínseco en la creación de un Pipeline enfocado hacia la seguridad.
+Acabamos, por tanto este trabajo con una retrospectiva del trabajo realizado y
+una comparativa con el estado anterior del Pipeline de Scalefast.
 
 \chapter{Estado del arte}
 
@@ -974,41 +960,45 @@ necesario que lleva de la filosofía \gls{DevOps}, a la filosofía
 
 \chapter{Implementación del modelo DevSecOps}
 
-El contenido de esta sección, define el problema al que nos enfrentamos,
-analizando los principales problemas con el \textit{\gls{pipeline}} actual de
-Scalefast.
-Seguidamente, se realiza la primera tarea para preparar el nuevo enfoque del
-pipeline.
-Esta es la concepción de un pipeline \gls{DevSecOps} idílico, al que vamos a
-tener que acercarnos lo mas posible.
+En la primera sección de este capitulo, se pretende describir la forma en la que se ha construido el
+pipeline DevSecOps, analizando cada una de las fases del ciclo de desarrollo y
+añadiendo las revisiones o \gls{job}s necesarios para que el \gls{pipeline}
+conserve la practicalidad, pero asegure la seguridad y calidad del software.
+Posteriormente se procede a analizar las tareas inferidas y asignarles un 
+tiempo de investigación y desarrollo estimado (L0) ademas de una prioridad de
+desarrollo.
+En base a estos factores, se distribuyen las tareas entre los integrantes del
+equipo \gls{App-Sec}, creando una estrategia de desarrollo del propio
+\gls{pipeline} a medio-largo plazo.
 
-%TODO: eliminar objetivos de la fase y re formular
-Una vez definidos los objetivos, vamos a detallar el ciclo de desarrollo y
-puesta en producción de uno de nuestros objetivos detallados anteriormente.
-Para terminar, se desarrollará la conclusion a la que se ha llegado tras
-realizar este análisis del estado actual del \textit{\gls{pipeline}} y su
-subsecuente esfuerzo por evolucionarlo de una forma paralela a la dirección que
-está llevando a cabo la industria del software ágil.
+En la segunda sección de este capitulo, se describe el desarrollo de una de
+estas tareas, desde su asignación, a su finalización, añadiéndola al
+\gls{pipeline} para que pueda garantizar la seguridad y calidad del desarrollo
+de nuestro producto, en Scalefast.
 
 \section{Análisis del estado actual del pipeline} %DEFINICIÓN DEL PROBLEMA
 
 En Scalefast, se sigue un modelo de desarrollo similar al descrito
 anteriormente, en la metodología ágil.
-Actualmente, la empresa tiene un
-\textit{\gls{pipeline}} de integración continua, en el que se pasan varios
-``jobs'' o pruebas automáticas en cada commit vinculado a un \acrfull{mr} que se sube al repositorio de código.
-Un \textit{\gls{pipeline}} es la pieza clave
-del ciclo de vida del software, responsable de asegurar la calidad de los desarrollos que se integran a producción y que por ende, definen la calidad de la empresa.  
-Dicho esto, es importante recordar que el desarrollo del
-\textit{\gls{pipeline}} debe seguir siempre el modelo de desarrollo de software
-que él mismo promueve, el desarrollo iterativo e incremental comprendido esto,
-es evidente que su desarrollo no tiene fin.  
+Actualmente, la empresa tiene un \textit{\gls{pipeline}} de integración 
+continua, en el que se pasan varios ``jobs'' o pruebas automáticas en cada
+commit vinculado a un \acrfull{mr} que se sube al repositorio de código.  
+Un \textit{\gls{pipeline}} es la pieza clave del ciclo de vida del software,
+responsable de asegurar la calidad de los desarrollos que se integran a
+producción y que por ende, de forma indirecta, definen la calidad de la 
+empresa.  
+Dicho esto, es importante recordar que el desarrollo del 
+\textit{\gls{pipeline}} debe seguir siempre el modelo de desarrollo de 
+software que él mismo promueve, el desarrollo iterativo e incremental.
+Comprendido esto, es evidente que su desarrollo deberá seguir siendo una
+prioridad de la empresa.
 En vista de la progresión de Scalefast, debemos evolucionar el pipeline,
 haciendo que tienda mas hacia la integración y despliegues continuous, 
-centrando ademas el desarrollo de software en la seguridad.
-A medida que Scalefast ha crecido tanto en clientes, como en
-empleados y proyectos que abarcamos, se han identificado una serie de problemas
-con el \textit{\gls{pipeline}} que usamos actualmente.
+centrando ademas el desarrollo de software en la seguridad.  
+A medida que Scalefast ha crecido, tanto en clientes como en empleados y 
+proyectos que abarcamos, se han identificado una serie de problemas con 
+el \textit{\gls{pipeline}} que usamos actualmente.
+Mas adelante se describen estas limitaciones.
 
 \begin{itemize}
   \item{Se introducen cambios a producción manualmente}
@@ -1024,8 +1014,9 @@ De entre estos problemas detectados, algunos se pueden solventar añadiendo
 herramientas directamente y otros son problemas culturales, que se tienen que
 abordar de distinta forma.
 
-Dado el corto periodo de tiempo del que se dispone para realizar este trabajo,
-los problemas culturales quedaran redactados, pero no solventados. 
+Al redactar este trabajo, se pretende mostrar la mayor parte del ciclo de
+planificación e implementación del proyecto, pero debido a su naturaleza y gran
+dimension, resulta imposible contenerlo íntegramente en el presente documento.
 
 \section{Definición de procesos}
 
