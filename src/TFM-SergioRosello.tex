@@ -213,6 +213,11 @@ hmargin=3cm
 \usepackage[acronym]{glossaries}
 \makeglossaries
 
+
+
+%Declare a new custom dash command
+\DeclareRobustCommand\dash{ \unskip\nobreak\thinspace\textemdash\thinspace\ignorespaces}
+
 %-------------
 %	DOCUMENT
 %-------------
@@ -336,7 +341,8 @@ La filosofía de desarrollo que lleva a cabo la ejecución de dichas
 responsabilidades es denominada comúnmente como \gls{DevSecOps}.
 
 %TODO: 3. Escribir una descripción de como esta estructurado el documento, a
-%nivel de capitulo, con referencias. (Pug parlar en primera persona) y citar las referencias (para poder llevar a cabo esta sección, ha sido necesaria la
+%nivel de capitulo, con referencias. (Pug parlar en primera persona) y citar 
+%las referencias (para poder llevar a cabo esta sección, ha sido necesaria la
 %aportación de X)
 
 Llegados a este punto creo que es buen momento para hablar de la forma en la 
@@ -960,16 +966,23 @@ necesario que lleva de la filosofía \gls{DevOps}, a la filosofía
 
 \chapter{Implementación del modelo DevSecOps}
 
-En la primera sección de este capitulo, se pretende describir la forma en la que se ha construido el
-pipeline DevSecOps, analizando cada una de las fases del ciclo de desarrollo y
-añadiendo las revisiones o \gls{job}s necesarios para que el \gls{pipeline}
+En la primera sección de este capitulo, se pretende describir la forma en la que
+se ha construido el pipeline DevSecOps, analizando cada una de las fases del
+ciclo de desarrollo en su estado actual e identifncando los problemas que
+presenta.
+Posteriormente, teniendo en cuenta los problemas descritos en la seccion
+anterior, se crea un pipeline conceptual, en el que se definen, a nivel de
+seguridad las revisiones o \gls{job}s necesarios para que el \gls{pipeline}
 conserve la practicalidad, pero asegure la seguridad y calidad del software.
-Posteriormente se procede a analizar las tareas inferidas y asignarles un 
-tiempo de investigación y desarrollo estimado (L0) ademas de una prioridad de
+Posteriormente se procede a analizar las tareas inferidas y asignarles un tiempo
+de investigación y desarrollo estimado (L0) ademas de una prioridad de
 desarrollo.
-En base a estos factores, se distribuyen las tareas entre los integrantes del
-equipo \gls{App-Sec}, creando una estrategia de desarrollo del propio
-\gls{pipeline} a medio-largo plazo.
+Una vez definidas las tareas, se ordenan y se crea la estrategia de desarrollo
+necesara, ademas de los objetivos a los que hay que llegar a medio y largo
+plazo.
+Para terminar, se definen una serie de indicadores, para medir los resultados de
+los cambios que tenemos pensado implementar en el ciclo de vida del desarrollo
+de software, a nivel de seguridad en Scalefast.
 
 En la segunda sección de este capitulo, se describe el desarrollo de una de
 estas tareas, desde su asignación, a su finalización, añadiéndola al
@@ -995,6 +1008,28 @@ prioridad de la empresa.
 En vista de la progresión de Scalefast, debemos evolucionar el pipeline,
 haciendo que tienda mas hacia la integración y despliegues continuous, 
 centrando ademas el desarrollo de software en la seguridad.  
+
+\subsection{Problemas encontrados y mejoras}
+
+Una de las razones por las que se decide actualizar el \textit{\gls{pipeline}}
+es porque se quiere promover el desarrollo seguro desde el inicio del ciclo de
+vida del proyecto.  Actualmente, la forma que tenemos de revisar la seguridad
+del proyecto que creamos es mediante un análisis manual de seguridad una vez ha
+terminado el desarrollo del proyecto.  Los inconvenientes heredados de seguir
+esta metodología de desarrollo actualmente son que en el momento en el que se
+encuentra una vulnerabilidad, el tiempo que se tarda en desarrollar una solución
+para el problema incluye el tiempo en analizar el problema, la asignación al
+desarrollador responsable de ese fallo de seguridad, o a uno nuevo, el
+planteamiento de la solución del problema, el desarrollo de la misma, la
+revision, para asegurar que el fallo esta neutralizado y la subsecuente revision
+para asegurar que no se han añadido fallos de regresión o nuevas
+vulnerabilidades.  En cambio, si se incluye un analista de seguridad desde la
+fase de concepción del proyecto, durante el ciclo de vida del desarrollo y
+ademas, se crean \textit{\gls{job}s} para analizar la parte mas automatizable
+del desarrollo, entonces, se reduce considerablemente la probabilidad de
+encontrar un fallo en los últimos pasos del desarrollo del proyecto.  Este es el
+punto al que queremos llegar.
+
 A medida que Scalefast ha crecido, tanto en clientes como en empleados y 
 proyectos que abarcamos, se han identificado una serie de problemas con 
 el \textit{\gls{pipeline}} que usamos actualmente.
@@ -1018,78 +1053,37 @@ Al redactar este trabajo, se pretende mostrar la mayor parte del ciclo de
 planificación e implementación del proyecto, pero debido a su naturaleza y gran
 dimension, resulta imposible contenerlo íntegramente en el presente documento.
 
-\section{Definición de procesos}
-
-Como se ha definido previamente, el objetivo principal de este trabajo es
-reciclar el \textit{\gls{pipeline}} que tenemos en funcionamiento actualmente en
-Scalefast por uno mas actual, que sea capaz de proporcionar a los equipos las
-herramientas y entornos que necesitan en el momento en el que las necesitan, de
-esta forma, podemos reducir el tiempo de desarrollo, aumentando ademas la
-calidad y seguridad del software que sacamos a producción.  De esta forma,
-Scalefast adquiere une ventaja competitiva injusta.
-
-\subsection{Documentación y decision de procesos}
-
-Para poder implementar el \textit{\gls{pipeline}} en forma de proceso en una
-empresa medianamente grande, hace falta la cooperación de varios responsables de
-equipo.  Este \textit{\gls{pipeline}} va a afectar tanto a los equipos de QA, a
-los desarrolladores, y al equipo de Operaciones y Arquitectura.  En definitiva,
-toda la parte técnica de la empresa se va a ver afectada ya que se debe tener en
-cuenta el punto de vista de todos los equipos mencionados anteriormente para que
-el resultado generado aporte beneficios a todos los equipos implicados.
-
-\subsubsection{Análisis del \textit{\gls{pipeline}} desde el punto de vista de
-seguridad}
-
-Desde el equipo de seguridad, se ha decidido crear un \textit{\gls{pipeline}}
-conceptual, con todas las comprobaciones y herramientas que se han considerado
-oportunas.  A partir de este esquema, comparamos el estado actual de nuestro
-\textit{\gls{pipeline}} y definimos una serie de perfiles, procesos y
-desarrollos necesarios para llevarlo desde el punto actual, a la mejor version
-del pipeline, en términos de seguridad que podamos.  Posteriormente creamos el
-plan de desarrollo, exactamente igual que si se tratase de un proyecto de un
-cliente externo.
-
-Una vez se tenia claro que el \textit{\gls{pipeline}} se iba a actualizar, cada
-equipo ha confeccionado una lista de acciones que quieren que ejecute el
-\textit{\gls{pipeline}} para verificar que el código generado cumple con los
-requisitos de calidad propios de Scalefast.
-
-% Definir el estado del pipeline actual ANTES vs DESPUÉS
-Una de las razones por las que se decide actualizar el \textit{\gls{pipeline}}
-es porque se quiere promover el desarrollo seguro desde el inicio del ciclo de
-vida del proyecto.  Actualmente, la forma que tenemos de revisar la seguridad
-del proyecto que creamos es mediante un análisis manual de seguridad una vez ha
-terminado el desarrollo del proyecto.  Los inconvenientes heredados de seguir
-esta metodología de desarrollo actualmente son que en el momento en el que se
-encuentra una vulnerabilidad, el tiempo que se tarda en desarrollar una solución
-para el problema incluye el tiempo en analizar el problema, la asignación al
-desarrollador responsable de ese fallo de seguridad, o a uno nuevo, el
-planteamiento de la solución del problema, el desarrollo de la misma, la
-revision, para asegurar que el fallo esta neutralizado y la subsecuente revision
-para asegurar que no se han añadido fallos de regresión o nuevas
-vulnerabilidades.  En cambio, si se incluye un analista de seguridad desde la
-fase de concepción del proyecto, durante el ciclo de vida del desarrollo y
-ademas, se crean \textit{\gls{job}s} para analizar la parte mas automatizarle
-del desarrollo, entonces, se reduce considerablemente la probabilidad de
-encontrar un fallo en los últimos pasos del desarrollo del proyecto.  Este es el
-punto al que queremos llegar.
-
-\section{DevSecOps en uso}
+\section{Desarrollo conceptual del pipeline de seguridad}
+%TODO: Seguir escribiendo por aqui
 
 Recientemente, Mike Ensor y Drew Stevens publicaron un ``paper'' titulado
 ``Shifting left on security''.  En él, explican las diferentes fases de el ciclo
 de vida del software, y como añadir elementos de seguridad a lo largo del
 ``pipeline''.  Desde la planificación del proyecto, hasta el despliegue del
 mismo.  Algunas de las técnicas que recomiendan en su ``paper'' tienen gran
-importancia, como el uso de registros privados, cuyas imágenes y recursos estén
-identificadas y sean verificadas a la hora de desplegarse, análisis estático y
-dinámico del código que se escribe de forma automatizada, despliegue del mismo
-binario, y que solamente pueda ser desplegado si es firmado de forma
-criptográfica por el responsable de despliegues.\cite{Ensor2021}
+importancia, como el uso de registros de imágenes privados, cuyas imágenes y 
+recursos estén identificadas y sean verificadas a la hora de desplegarse,
+análisis estático y dinámico del código que se escribe de forma automatizada,
+despliegue del mismo binario, y que solamente pueda ser desplegado si es firmado
+de forma criptográfica por el responsable de despliegues.\cite{Ensor2021}
 
 En esta sección, se describen mas en detalle dichas herramientas y se describe
 la implementación de alguna de ellas en el \textit{\gls{pipeline}} de Scalefast.
+
+\subsection{Repaso a las herramientas disponibles}
+% Concretar que herramientas se quieren usar, por que, y con que finalidad.
+
+\subsection{Creación conceptual del pipeline}
+
+\section{Implementación de la estrategia del cambio de pipeline}
+
+\subsection{Inferencia de tareas y tiempos a partir del diagrama}
+
+\subsection{Estrategia a largo plazo de implementación del pipeline de seguridad}
+
+\subsection{Indicadores de éxito frente a los cambios}
+
+\chapter{Desarrollo de una tarea para el pipeline de seguridad}
 
 \clearpage
 
