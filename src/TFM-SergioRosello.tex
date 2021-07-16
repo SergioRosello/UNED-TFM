@@ -968,9 +968,9 @@ necesario que lleva de la filosofía \gls{DevOps}, a la filosofía
 
 En la primera sección de este capitulo, se pretende describir la forma en la que
 se ha construido el pipeline DevSecOps, analizando cada una de las fases del
-ciclo de desarrollo en su estado actual e identifncando los problemas que
+ciclo de desarrollo en su estado actual e identificando los problemas que
 presenta.
-Posteriormente, teniendo en cuenta los problemas descritos en la seccion
+Posteriormente, teniendo en cuenta los problemas descritos en la sección
 anterior, se crea un pipeline conceptual, en el que se definen, a nivel de
 seguridad las revisiones o \gls{job}s necesarios para que el \gls{pipeline}
 conserve la practicalidad, pero asegure la seguridad y calidad del software.
@@ -978,7 +978,7 @@ Posteriormente se procede a analizar las tareas inferidas y asignarles un tiempo
 de investigación y desarrollo estimado (L0) ademas de una prioridad de
 desarrollo.
 Una vez definidas las tareas, se ordenan y se crea la estrategia de desarrollo
-necesara, ademas de los objetivos a los que hay que llegar a medio y largo
+necesaria, ademas de los objetivos a los que hay que llegar a medio y largo
 plazo.
 Para terminar, se definen una serie de indicadores, para medir los resultados de
 los cambios que tenemos pensado implementar en el ciclo de vida del desarrollo
@@ -1054,24 +1054,58 @@ planificación e implementación del proyecto, pero debido a su naturaleza y gra
 dimension, resulta imposible contenerlo íntegramente en el presente documento.
 
 \section{Desarrollo conceptual del pipeline de seguridad}
-%TODO: Seguir escribiendo por aqui
 
 Recientemente, Mike Ensor y Drew Stevens publicaron un ``paper'' titulado
 ``Shifting left on security''.  En él, explican las diferentes fases de el ciclo
 de vida del software, y como añadir elementos de seguridad a lo largo del
-``pipeline''.  Desde la planificación del proyecto, hasta el despliegue del
-mismo.  Algunas de las técnicas que recomiendan en su ``paper'' tienen gran
+``pipeline''. 
+Desde la planificación del proyecto, hasta el despliegue del mismo.
+Algunas de las técnicas que recomiendan en su ``paper'' tienen gran
 importancia, como el uso de registros de imágenes privados, cuyas imágenes y 
 recursos estén identificadas y sean verificadas a la hora de desplegarse,
 análisis estático y dinámico del código que se escribe de forma automatizada,
 despliegue del mismo binario, y que solamente pueda ser desplegado si es firmado
 de forma criptográfica por el responsable de despliegues.\cite{Ensor2021}
 
-En esta sección, se describen mas en detalle dichas herramientas y se describe
-la implementación de alguna de ellas en el \textit{\gls{pipeline}} de Scalefast.
+En esta sección, se describen mas en detalle dichas herramientas y se documenta
+el proceso de creación del pipeline a nivel conceptual.
 
-\subsection{Repaso a las herramientas disponibles}
+\subsection{Repaso a las tareas disponibles}
+%TODO: Seguir escribiendo por aquí
 % Concretar que herramientas se quieren usar, por que, y con que finalidad.
+
+%TODO: Una introducción histórica, de como las herramientas automatizadas que
+%nosotros estamos incluyendo fueron usadas previamente por hackers para entrar
+%en sistemas.
+
+Existen una gran variedad de tareas o comprobaciones disponibles para mejorar el 
+ciclo de vida del Software a nivel de seguridad.
+Por cada tarea, existen multitud de herramientas que la pueden realizar a mayor
+o menor medida, este es el motivo por el cual nos centramos en las tareas a 
+nivel conceptual ya que cada equipo va a disponer de un presupuesto o tiempo 
+determinados.
+Nuestro propósito final debe ser siempre la automatización de dichas
+herramientas para incluirlas en la fase adecuada del Pipeline de forma que
+a medida que el código que se registra en el sistema de control de versiones va 
+pasando cada una de las fases del Pipeline, vamos aumentando nuestro nivel de 
+confianza en el mismo.
+
+Los distintos tipos de revisiones de seguridad que se pueden realizar sobre el
+código provienen de las distintas formas que se han conseguido vulnerar los
+sistemas en el pasado.
+En el sector de la seguridad, el atacante siempre tiene la ventaja, puesto a que
+nunca se puede tener un sistema completamente seguro debido a la cantidad de
+dependencias, fallos de seguridad a la hora del desarrollo y sistemas sobre los
+que esta construido el proyecto.
+Dicho esto, se pueden tomar medidas preventivas, para que nuestros sistemas no
+queden expuestos a ataques conocidos.
+Con esta finalidad en mente, se automatizan las tareas a modo de Pipeline para prevenir
+errores detectables con análisis automáticos.
+En esto se resume la revision automática de seguridad que se le pasa al codito
+programado.
+
+% Tipos de revisiones que se pueden hacer. (Que analiza que herramienta)
+
 
 \subsection{Creación conceptual del pipeline}
 
