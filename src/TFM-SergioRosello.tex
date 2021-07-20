@@ -1092,7 +1092,8 @@ confianza en el mismo.
 
 Los distintos tipos de revisiones de seguridad que se pueden realizar sobre el
 código provienen de las distintas formas que se han conseguido vulnerar los
-sistemas en el pasado.
+sistemas en el pasado o de ataques conceptuales que podrían realizarse sobre la
+plataforma.
 En el sector de la seguridad, el atacante siempre tiene la ventaja, puesto a que
 nunca se puede tener un sistema completamente seguro debido a la cantidad de
 dependencias, fallos de seguridad a la hora del desarrollo y sistemas sobre los
@@ -1101,13 +1102,67 @@ Dicho esto, se pueden tomar medidas preventivas, para que nuestros sistemas no
 queden expuestos a ataques conocidos.
 Con esta finalidad en mente, se automatizan las tareas a modo de Pipeline para prevenir
 errores detectables con análisis automáticos.
-En esto se resume la revision automática de seguridad que se le pasa al codito
-programado.
 
 % Tipos de revisiones que se pueden hacer. (Que analiza que herramienta)
+Siguiendo la investigación, se han seleccionado varias formas de revision del
+Pipeline que pueden ser de gran utilidad para asegurar la calidad a nivel de
+seguridad del código.
+
 
 
 \subsection{Creación conceptual del pipeline}
+
+En este momento de la investigación, se tiene una serie de tareas que se deben
+aplicar para mejorar la seguridad del desarrollo, pero estas deben ser aplicadas
+en momentos distintos del desarrollo. 
+Cuanto antes se pueda aplicar una revision, mejor, ya que vamos a reducir el
+nivel de esfuerzo que va a hacer falta para cambiar el desarrollo, si
+encontrásemos ese error en una fase mas avanzada del desarrollo.
+Por ejemplo, si encontramos duplicidad de código cuando este está
+desplegado en producción, se tiene que crear un desarrollo nuevo, con todas sus
+fases (Definición, Commit, Testeo, Despliegue y Monitorización), mientras que si
+encontramos la misma duplicidad de código en la fase de desarrollo, el
+desarrollador puede cambiar en ese momento el código que esta duplicado y este
+nunca llegara a producción reduciendo así el tiempo destinado a esa misma tarea
+ademas de las posibles repercusiones de seguridad que puedan suponer para
+producción. 
+
+Para definir la estrategia de automatización de despliegues, se ha procedido a
+crear un diagrama que resuma, en un vistazo todo el ciclo de vida del código
+,desde su concepción, hasta su monitorización.
+A lo largo de la linea temporal de este diagrama, se visualizan las tareas que,
+se ha decidido implementar.
+Algunas de estas tareas llevan mucho tiempo de implementar y otras, son bastante
+mas sencillas de llevar a cabo.
+
+\begin{figure}[H] \includegraphics[width=\textwidth]{SDLC-Sec} \end{figure}
+
+La asignación de las tareas a un espacio temporal real, para ir asignándoles
+prioridades, se describirá en la siguiente sección.
+
+Como podemos ver en el diagrama, este está dividido en varias filas.
+Cada una de estas filas agrupa una serie de fases, eventos, detonantes, o tareas
+que ocurren a medida que se desenvuelve el ciclo de vida del proyecto.
+
+En las siguientes secciones, se describen las secciones del diagrama, para lograr
+una comprensión global del mismo.
+Recordemos que la finalidad de este diagrama es proporcionar una vision idílica
+del estado al que queremos llegar.
+De este diagrama, se van a extrapolar las tareas necesarias y se les va a
+asignar una prioridad y un tiempo de desarrollo. 
+
+\subsubsection{Fase} 
+
+Es la sección mas abstracta.
+Describe a muy alto nivel los estados en los que se encuentra el desarrollo.
+No nos detendremos mucho en esta sección, ya que no es especifica de la
+seguridad.
+
+%TODO: Seguir escribiendo por aquí
+
+\subsubsection{Eventos}
+\subsubsection{Detonantes}
+\subsubsection{Tareas}
 
 \section{Implementación de la estrategia del cambio de pipeline}
 
