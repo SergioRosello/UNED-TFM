@@ -1153,10 +1153,45 @@ asignar una prioridad y un tiempo de desarrollo.
 
 \subsubsection{Fase} 
 
-Es la sección mas abstracta.
-Describe a muy alto nivel los estados en los que se encuentra el desarrollo.
-No nos detendremos mucho en esta sección, ya que no es especifica de la
-seguridad.
+En esta parte del diagrama, se representa la parte mas abstracta, o de alto
+nivel del ciclo de vida del desarrollo.
+Se introducen los estados.
+La definición del proyecto, la fase de desarrollo, la fase de pruebas, la fase
+de despliegue y la fase de mantenimiento.
+En esta metodología, todos los desarrollos son iterativos e incrementales.
+Esta característica intrínseca del desarrollo ágil tiende a crear un 
+desarrollo cíclico.
+De ahí, las flechas ínter conexas entre las fases.
+
+Entrando mas en detalle, en la sección de definición y análisis del desarrollo,
+se reúnen los responsables de cada area que se va a ocupar del desarrollo con el
+cliente y se especifican las características del proyecto, requisitos
+funcionales y no funcionales ademas del tiempo de desarrollo estimado.
+Cada proyecto esta compuesto de funcionalidades y cada una de estas
+funcionalidades, a su vez, están divididas en tareas.
+Una vez está el proyecto completamente definido se divide en funcionalidades y
+se les asigna a los equipos estas funcionalidades.
+Cada miembro de un equipo se puede encargar de una o varias tareas. 
+Cuando una o todas las tareas han sido completadas, se pasa a la fase de
+pruebas.
+Es importante remarcar que cada tarea pasa a su vez por cada una de las
+secciones de desarrollo.
+A nivel de desarrollo de una tarea individual, el desarrollador implementa
+pruebas unitarias, para asegurar que cumple los requisitos especificados y
+cuando acaba el desarrollo, despliega sus cambios a una maquina de integración,
+en la que se pasara otra fase de tests, esta vez mas general, asegurando que se
+cumplen las funcionalidades.
+En el momento en el que todas las funcionalidades han sido implementadas, se
+proceda a la fase de despliegue.
+En esta fase, se pone en el entorno de producción la funcionalidad implementada.
+Seguida de esta fase, se monitorizan los cambios añadidos, para asegurara que no
+se han producido fallos de regresión y que todo funciona como debe.
+En el caso extremo en el que los cambios dejen inoperative el entorno de
+producción, se quitan los cambios de producción y se crean nuevas tareas
+para solucionar los cambios.
+En el caso en el que se detecten nuevos fallos no críticos, se crean nuevas
+tareas, también llamadas bugs, que se deben arreglar, y estas vuelven a pasar
+por todo el ciclo de desarrollo.
 
 %TODO: Seguir escribiendo por aquí
 
@@ -1173,6 +1208,24 @@ seguridad.
 \subsection{Indicadores de éxito frente a los cambios}
 
 \chapter{Desarrollo de una tarea para el pipeline de seguridad}
+
+\section{Securizacion de claves}
+
+% Explicar como se ha llegado a HASHICORP Vault.
+
+% Las ventajas que ofrece, frente a lo clásico
+
+% La implementación.
+
+%     Creación de la VPC, con las sub-redes y las maquinas (Runner y EC2)
+
+% Los resultados de la prueba de concepto
+
+% La implementación de esa prueba de concepto a la realidad (Securizar pipelines de v3 web runner)
+
+\chapter{Conclusiones}
+
+\section{Indicadores de éxito}
 
 \clearpage
 
