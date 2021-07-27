@@ -1187,17 +1187,60 @@ En esta fase, se pone en el entorno de producción la funcionalidad implementada
 Seguida de esta fase, se monitorizan los cambios añadidos, para asegurara que no
 se han producido fallos de regresión y que todo funciona como debe.
 En el caso extremo en el que los cambios dejen inoperative el entorno de
-producción, se quitan los cambios de producción y se crean nuevas tareas
-para solucionar los cambios.
+producción, se quitan los cambios de producción para estabilizarlo y se crean
+nuevas tareas para solucionar los fallos.
 En el caso en el que se detecten nuevos fallos no críticos, se crean nuevas
 tareas, también llamadas bugs, que se deben arreglar, y estas vuelven a pasar
 por todo el ciclo de desarrollo.
 
-%TODO: Seguir escribiendo por aquí
+En cada una de estas secciones, se ha establecido una serie de revisiones o
+tareas para asegurar que la calidad de la seguridad es la mejor posible.
+En combinación con estas tareas, también se debe tener en cuenta las tareas que
+no tienen relación con la seguridad, no añadidas a este gráfico, por motivos de
+complejidad y acotación.
 
 \subsubsection{Eventos}
+
+Una vez vista la sección mas teórica, se presentan los eventos externos. 
+Estos no necesariamente tienen una conexión directa con la seguridad.
+Su principal función es contextualizar el diagrama.
+En esta sección, se introduce el concepto de entornos.
+Estos entornos, representados por un rectángulo con el borde superior derecho
+doblado simbolizan la arquitectura sobre la que se debe ejecutar el desarrollo.
+En cada sección del ciclo de vida de desarrollo, se debe tener un entorno.
+Este estrategia de desarrollo se centra en asegurar que los despliegues no van a
+romper el código en el entorno de producción, porque ya se ha despegado el
+código de producción en un entorno idéntico previamente.
+Como beneficio a nivel de seguridad, desplegar el proyecto en un entorno de
+staging, proporciona al analista de seguridad la opción de realizar cualquier
+tipo de comprobación necesaria. 
+De este modo, se pueden realizar tareas como \gls{PenTest}s, tanto automáticas
+como manuales sobre el producto a analizar, asegurando aun mas su robustez frente
+a atacantes externos.
+
 \subsubsection{Detonantes}
+ 
+Esta sección sirve como hilo conductor del diagrama, explicando que el flujo de
+desarrollo va de izquierda a derecha.
+A lo largo de esta línea conductora, aparecen una serie de acciones que realizan
+uno o varios equipos involucrados en el desarrollo del proyecto.
+Cada una de las acciones inicia las tareas a las que apunta en la sección
+inferior.
+
 \subsubsection{Tareas}
+
+Finalmente llegamos a la sección más importante del diagrama.
+En esta parte se especifican las tareas automáticas o manuales que se deben
+pasar satisfactoriamente para que el código del proyecto pase a ser desplegado
+en el entorno de producción.
+A medida que el desarrollo va cobrando forma, va avanzando a lo largo del
+\gls{pipeline}.
+La tarea del pipeline es ordenar las tareas de esta sección para que se tenga
+que invertir el menor tiempo posible en la revision del código.
+La función del código es demostrar que es capaz de pasar satisfactoriamente por
+todas las revisiones establecidas a lo largo del \gls{pipeline}.
+
+%TODO: Seguir escribiendo por aquí
 
 \section{Implementación de la estrategia del cambio de pipeline}
 
