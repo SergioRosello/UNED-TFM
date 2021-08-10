@@ -964,6 +964,7 @@ necesario que lleva de la filosofía \gls{DevOps}, a la filosofía
 \gls{DevSecOps}.
 
 
+% Parte principal del documento
 \chapter{Implementación del modelo DevSecOps}
 
 En la primera sección de este capitulo, se pretende describir la forma en la que
@@ -1070,13 +1071,9 @@ de forma criptográfica por el responsable de despliegues.\cite{Ensor2021}
 En esta sección, se describen mas en detalle dichas herramientas y se documenta
 el proceso de creación del pipeline a nivel conceptual.
 
-\subsection{Repaso a las tareas disponibles}
+\subsection{Tareas DevSecOps para el Pipeline}
 %TODO: Seguir escribiendo por aquí
 % Concretar que herramientas se quieren usar, por que, y con que finalidad.
-
-%TODO: Una introducción histórica, de como las herramientas automatizadas que
-%nosotros estamos incluyendo fueron usadas previamente por hackers para entrar
-%en sistemas.
 
 Existen una gran variedad de tareas o comprobaciones disponibles para mejorar el 
 ciclo de vida del Software a nivel de seguridad.
@@ -1107,8 +1104,36 @@ errores detectables con análisis automáticos.
 Siguiendo la investigación, se han seleccionado varias formas de revision del
 Pipeline que pueden ser de gran utilidad para asegurar la calidad a nivel de
 seguridad del código.
+Estas se pueden dividir a grandes rasgos en: Infraestructura y aplicacion.
 
+Como dicen \cite{Ensor2021} Stevens, Para poder garantizar la protección y
+seguridad del software sobre el que se esta ejecutando el código de la
+organization, es necesario disponer con de una infraestructura segura. 
+Hoy en día, esta tarea pasa a ser responsabilidad de proveedores de
+infraestructura en la nube, como pueden ser \href{https://aws.amazon.com/}{AWS}
+o \href{https://console.cloud.google.com/}{GCP}.
+No obstante, si que hay una serie de comprobaciones que podemos realizar 
+sobre contenedores.
+Posteriormente se entra en detalle sobre este aspecto.
 
+Como no es necesario revisar la arquitectura sobre la que corre la
+aplicacion cada vez que se ejecuta un \Gls{pipeline}, no se va a entrar en 
+detalle sobre las formas que existen para protegerla.
+
+Podemos entonces reducir en campo de revisiones a la capa de aplicacion.
+En esta capa, según la fase de desarrollo en la que nos encontremos, debemos
+prestar atención a distintas areas.
+
+\subsubsection{area de definición y análisis del proyecto}
+
+%TODO: seguir escribiendo por aqui
+Esta es la parte inicial en cualquier proyecto.
+En ella, se analizan los requisitos del proyecto y se
+
+\subsubsection{Area de desarrollo del cedido fuente}
+\subsubsection{Area de testeo del código}
+\subsubsection{Area de despliegue}
+\subsubsection{Area de monitorización}
 
 \subsection{Creación conceptual del pipeline}
 
@@ -1235,10 +1260,14 @@ pasar satisfactoriamente para que el código del proyecto pase a ser desplegado
 en el entorno de producción.
 A medida que el desarrollo va cobrando forma, va avanzando a lo largo del
 \gls{pipeline}.
-La tarea del pipeline es ordenar las tareas de esta sección para que se tenga
+La finalidad del pipeline es ordenar las tareas de esta sección para que se tenga
 que invertir el menor tiempo posible en la revision del código.
 La función del código es demostrar que es capaz de pasar satisfactoriamente por
 todas las revisiones establecidas a lo largo del \gls{pipeline}.
+ 
+% Describir la serie de investigaciones y referencias encontradas, que dicen que
+% un pipeline DevSecOps debe tener estos requisitos, para ir bien.
+En esta fase, se ha realizado una prueba d
 
 %TODO: Seguir escribiendo por aquí
 
