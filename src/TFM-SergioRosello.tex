@@ -1124,16 +1124,26 @@ Podemos entonces reducir en campo de revisiones a la capa de aplicacion.
 En esta capa, según la fase de desarrollo en la que nos encontremos, debemos
 prestar atención a distintas areas.
 
-\subsubsection{area de definición y análisis del proyecto}
+\subsubsection{Definición y análisis del proyecto}
 
-%TODO: seguir escribiendo por aqui
-Esta es la parte inicial en cualquier proyecto.
-En ella, se analizan los requisitos del proyecto y se
+%TODO: seguir escribiendo por aquí
+En esta fase, mucha mas organizativa del ciclo de vida del desarrollo, no se
+pueden crear tareas automatizables para revisar la seguridad del software, ya
+que este aun no ha sido escrito.
+En su contra, las técnicas que debemos aplicar son de carácter manual.
 
-\subsubsection{Area de desarrollo del cedido fuente}
-\subsubsection{Area de testeo del código}
-\subsubsection{Area de despliegue}
-\subsubsection{Area de monitorización}
+Entre las técnicas que se pueden aplicar, existe el modelado de riesgos, y las
+historias de abuso.
+Esta primera técnica consiste en seguir el model \gls{STRIDE}, que garantiza
+que, si se separa el producto en sus componentes y cada uno de estos  cumple con
+los seis requisitos de \gls{STRIDE} \cite{Loren1999}, (Spoofing, Tampering, Repudiation,
+Information Disclosure, Denial of Service y Elevation of privilege), entonces,
+el producto es seguro.
+
+\subsubsection{Desarrollo del cedido fuente}
+\subsubsection{Testeo del código}
+\subsubsection{Despliegue}
+\subsubsection{Monitorización}
 
 \subsection{Creación conceptual del pipeline}
 
