@@ -1134,11 +1134,24 @@ En su contra, las técnicas que debemos aplicar son de carácter manual.
 
 Entre las técnicas que se pueden aplicar, existe el modelado de riesgos, y las
 historias de abuso.
-Esta primera técnica consiste en seguir el model \gls{STRIDE}, que garantiza
-que, si se separa el producto en sus componentes y cada uno de estos  cumple con
-los seis requisitos de \gls{STRIDE} \cite{Loren1999}, (Spoofing, Tampering, Repudiation,
-Information Disclosure, Denial of Service y Elevation of privilege), entonces,
-el producto es seguro.
+Esta primera técnica consiste en seguir un modelo, como por ejemplo
+\gls{STRIDE}, que sirve para analizar y encontrar los riesgos de seguridad en un
+sistema.  
+El modelo \gls{STRIDE} garantiza que si se separa el producto en sus
+componentes y cada uno de estos cumple con los seis requisitos de \gls{STRIDE}
+\cite{Loren1999}, (Spoofing, Tampering, Repudiation, Information Disclosure,
+Denial of Service y Elevation of privilege), entonces, el producto es seguro.
+
+En el segundo caso, las historias de abuso, son casos particulares de historias
+de usuario.
+
+En 2005, Johan Peeters introduce este concepto, definiendolo de la siguiente
+manera: 
+Las historias de abuso identifican la forma en la que los atacantes pueden
+abusar del sistema y comprometer los recursos de los accionistas.
+Por tanto, especifican requisitos de seguridad del sistema.
+Al igual que las historias de usuario, lo hacen breve e
+informalmente.\cite{Peeters2005}
 
 \subsubsection{Desarrollo del cedido fuente}
 \subsubsection{Testeo del código}
