@@ -1144,16 +1144,68 @@ Denial of Service y Elevation of privilege), entonces, el producto es seguro.
 
 En el segundo caso, las historias de abuso, son casos particulares de historias
 de usuario.
-
-En 2005, Johan Peeters introduce este concepto, definiendolo de la siguiente
+En 2005, Johan Peeters introduce este concepto, definiéndolo de la siguiente
 manera: 
 Las historias de abuso identifican la forma en la que los atacantes pueden
 abusar del sistema y comprometer los recursos de los accionistas.
 Por tanto, especifican requisitos de seguridad del sistema.
 Al igual que las historias de usuario, lo hacen breve e
-informalmente.\cite{Peeters2005}
+informalmente. \cite{Peeters2005}
 
-\subsubsection{Desarrollo del cedido fuente}
+\subsubsection{Desarrollo del código fuente}
+
+En la investigación inicial, para averiguar las herramientas que usa la
+industria para analizar el código fuente de la aplicacion, aparecen regularmente
+las mismas técnicas.
+
+%TODO: Análisis de secretos
+Cuando se desarrolla código, existen una serie de consideraciones que debemos
+tener en cuenta.
+Debido a la naturaleza perezosa de las personas, se tienden a dejar contraseñas,
+configuraciones o claves de \gls{API} en los propios archivos de texto sobre los
+que se escribe el código.
+Estos archivos de texto, se suben a un sistema de control de versiones.
+Este flujo almacena una nueva version del archivo cada vez que se guarda en el
+sistema de control de versiones,
+por lo tanto, esta información sensible permanecerá indefinidamente en el historial de
+cambios del sistema.
+Para prevenir esto, se han creado herramientas que previenen que el desarrollador
+guarde en el sistema de control de versiones dicha información sensible.
+Estas herramientas se llaman analizadores de secretos.
+
+
+% Tests funcionales
+En esta sección, se pretende poder revisar el código fuente mientras este sigue
+en desarrollo, por tanto, las pruebas darán un resultado negativo hasta que se
+hayan completado todos los requisitos funcionales representados en los
+pipelines como tests de funcionalidad.
+
+% Composición del código
+Ademas de la funcionalidad, se puede revisar la composición del software.
+Se analizan las librerías y dependencias externas que utiliza el software que
+estamos construyendo en nuestro proyecto en búsqueda de vulnerabilidades y 
+posibles vectores de ataque introducidos por las dependencias o librerías.
+Este tipo de técnica se llama análisis de composición de software.
+La finalidad es asegurar que los componentes de nuestro sistema no tienen
+vulnerabilidades conocidas, o que si las tienen, estemos preparados para asumir
+el riesgo que introducen en nuestro sistema.
+A medida que han ido evolucionando las herramientas que se encargan de realizar
+los análisis de composición de software, también han ido evolucionando la
+cantidad de opciones que incluyen.
+Hoy en día, estas herramientas son capaces de detectar que nuestro sistema usa
+una librería que incluye una vulnerabilidad y actualizar dicha
+librería para que nuestro sistema ya no presente esta vulnerabilidad,
+automatizando todo el proceso de análisis de vulnerabilidades de los
+componentes de nuestro sistema y posterior actualización de los mismos.
+
+%TODO: Análisis de código estático
+
+%TODO: Peer review
+Finalmente, se incorpora al ciclo de vida del software una tarea de revision del
+código escrito por un compañero, para validar que el código esta bien escrito y
+este no presenta ningún problema propio de la plataforma no detectable por las 
+herramientas de análisis automáticas.
+
 \subsubsection{Testeo del código}
 \subsubsection{Despliegue}
 \subsubsection{Monitorización}
