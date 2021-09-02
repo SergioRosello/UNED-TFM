@@ -1124,6 +1124,25 @@ Podemos entonces reducir en campo de revisiones a la capa de aplicacion.
 En esta capa, según la fase de desarrollo en la que nos encontremos, debemos
 prestar atención a distintas areas.
 
+% Hacer ver la necesidad de usar herramientas de seguridad automatizadas, e
+% implementarlas en el ciclo de vida del software.
+Según revela el estudio anual \nocite{sonatype2020} realizado en 2020 por
+\href{https://sonatype.com}{Sonatype}, podemos observar que la mayor parte de
+las empresas están concienciadas con la seguridad, pero que solo son las que
+tienen una actitud mas madura respecto a DevOps, las que adoptan una serie de
+tecnologías mas actualizadas, como pueden ser análisis de contenedores o
+análisis dinámico.
+
+\begin{figure}[H] \includegraphics[width=\textwidth]{sonatype-tools} \end{figure}
+
+En la gráfica superior, se resalta que las empresas maduras en el campo DevOps,
+usan tecnologías automatizadas, como \gls{CSA}, \gls{DAST}, \gls{SCA} y
+\gls{IAST}.
+Dado que se pretende rediseñar el \gls{SDLC} para que tenga en cuenta la
+seguridad en la aplicacion, es interesante revisar estas aplicaciones, para ver
+si se ajustan a lo que se quiere en Scalefast.
+A continuación, se analizan, entre otras, estas tecnologías.
+
 \subsubsection{Definición y análisis del proyecto}
 
 %TODO: seguir escribiendo por aquí
@@ -1153,11 +1172,7 @@ Al igual que las historias de usuario, lo hacen breve e
 informalmente. \cite{Peeters2005}
 
 \subsubsection{Desarrollo del código fuente}
-
-En la investigación inicial, para averiguar las herramientas que usa la
-industria para analizar el código fuente de la aplicacion, aparecen regularmente
-las mismas técnicas.
-
+ 
 %TODO: Análisis de secretos
 Cuando se desarrolla código, existen una serie de consideraciones que debemos
 tener en cuenta.
@@ -1173,7 +1188,6 @@ Para prevenir esto, se han creado herramientas que previenen que el desarrollado
 guarde en el sistema de control de versiones dicha información sensible.
 Estas herramientas se llaman analizadores de secretos.
 
-
 % Tests funcionales
 En esta sección, se pretende poder revisar el código fuente mientras este sigue
 en desarrollo, por tanto, las pruebas darán un resultado negativo hasta que se
@@ -1185,7 +1199,7 @@ Ademas de la funcionalidad, se puede revisar la composición del software.
 Se analizan las librerías y dependencias externas que utiliza el software que
 estamos construyendo en nuestro proyecto en búsqueda de vulnerabilidades y 
 posibles vectores de ataque introducidos por las dependencias o librerías.
-Este tipo de técnica se llama análisis de composición de software.
+Este tipo de técnica se llama análisis de composición de software, o \gls{SCA}.
 La finalidad es asegurar que los componentes de nuestro sistema no tienen
 vulnerabilidades conocidas, o que si las tienen, estemos preparados para asumir
 el riesgo que introducen en nuestro sistema.
@@ -1199,6 +1213,13 @@ automatizando todo el proceso de análisis de vulnerabilidades de los
 componentes de nuestro sistema y posterior actualización de los mismos.
 
 %TODO: Análisis de código estático
+Otra herramienta que puede ayudar en el análisis de vulnerabilidades en el
+sistema, es el análisis de código estático, o \gls{SAST}.
+Aunque algunas características de esta herramienta se solapan con las
+características de otras herramientas automatizadas de análisis de código,
+siempre se debería usar.
+Es considerada la herramienta de análisis de código por defecto en los ciclos de
+vida del software, y asienta las bases de estos.
 
 %TODO: Peer review
 Finalmente, se incorpora al ciclo de vida del software una tarea de revision del
@@ -1206,7 +1227,53 @@ código escrito por un compañero, para validar que el código esta bien escrito
 este no presenta ningún problema propio de la plataforma no detectable por las 
 herramientas de análisis automáticas.
 
+Todas estas herramientas, de las que se ha hablado hasta ahora, se solapan en
+alguna funcionalidad unas con otras, pero las ventajas de crear un ciclo de vida
+seguro aunando cada una de estas herramientas, sobrepasa las 
+
+
 \subsubsection{Testeo del código}
+
+Para llegar a esta fase del \gls{SDLC}, el código ha debido pasar
+satisfactoriamente por la fase de definición y análisis y por la fase de
+desarrollo.
+En cada una de estas dos fases, se revisa, de forma manual o automatizada varias
+secciones de la aplicación.
+Esto indica que la confianza en el código incrementa.
+En el momento en el que pase esta fase, la probabilidad con la que el código en
+question se despliegue al entorno de producción se eleva considerablemente.
+Es por esto, que esta fase debe ser mas complicada de superar que las dos fases
+anteriores.
+En esta fase entran en juego tecnologías de análisis como \gls{SAST}, \gls{CSA},
+\gls{DAST}, tests no funcionales y tests específicos de la plataforma de
+Scalefast.
+
+%SAST
+El análisis de código estático del proyecto entero difiere del análisis estático
+de la fase anterior porque este tiene en consideración el proyecto entero, no
+solamente la parte en la que esta trabajando el desarrollador o grupo de
+desarrolladores.
+Ademas de asegurar una buena practica de programación, esta revision permite
+mantener una medida de calidad general del proyecto, comparable a lo largo del
+tiempo y versiones.
+En el momento en el que todo el proyecto no supere un valor establecido con
+anterioridad, este commit no pasara el \gls{pipeline} y los desarrolladores
+deberán arreglar el problema.
+El commit tampoco parará la prueba de código estático si no sigue un estilo
+previamente definido o si detecta posibles indicadores de programación insegura,
+ya que esta herramienta lo revisa.
+
+%CSA
+%TODO: Acabar de escribir por aquí
+A medida que las 
+
+%DAST
+
+%Non-funcional tests
+
+%Platform-specific tests (Common errors with our programming style, and
+%plataforma)
+
 \subsubsection{Despliegue}
 \subsubsection{Monitorización}
 
