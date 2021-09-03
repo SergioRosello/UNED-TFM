@@ -251,176 +251,157 @@ hmargin=3cm
 
 % EXPLICAR POR QUE HE ELEGIDO ESTE TEMA 
 
-La razón que me llevo a la elección del tema \textit{Definición y puesta en 
-funcionamiento del sistema operacional de seguridad en el ciclo de 
+La razón que me llevo a la elección del tema \textit{Definición y puesta en
+funcionamiento del sistema operacional de seguridad en el ciclo de
 desarrollo/despliegue (DevSecOps)} reside en mi deseo por unir dos de los
-sectores del mundo del software, que hasta hace poco, no han estado muy 
-interrelacionados.
-La seguridad, y la metodología de desarrollo ágil.
+sectores del mundo del software, que hasta hace poco, no han estado muy
+interrelacionados: la seguridad y la metodología de desarrollo ágil.
 
-Mi carrera profesional es comparativamente corta, ya que tengo un par de años
-como ingeniero QA y recientemente, estoy trabajando como DevOps en Scalefast. 
-Aunque lleve poco tiempo en el sector empresarial del desarrollo de software,
-pienso que he tenido suficiente tiempo, o suficiente suerte como para observar
-ciertos aspectos de mis responsabilidades laborales que me han ido interesando
-cada vez mas.
+No obstante, este objetivo también nace del desarrollo en estos últimos años en
+mi carrera profesional, tanto como ingeniero en QA como en DevOps en Scalfast.
+Ambos me han llevado a focalizar mi futuro profesional hacia el sector de la
+Auditoria y la monitorización de la seguridad. Así mismo, tanto la evolución
+personal como la  profesional, han hecho que me diera cuenta que garantizar que
+una aplicación sea segura conlleva un tratado de datos y registros masivo. Así
+pues, para poder monitorizar dichos registros, hacen falta tanto el dominio de
+las herramientas disponibles, como un conocimiento profundo de la propia
+aplicación sobre la que trabajas.
 
-Una de las observaciones que he hecho sobre mi mismo durante mi experiencia en
-este mundo es que el aprendizaje continuo es uno de mis intereses mas grandes.
-Esta es la razón principal por la que me he inscrito al master de 
-Ciberseguridad con la UNED mientras llevaba una vida laboral activa.  
-Durante el estudio de las distintas asignaturas que forman el master, una de 
-las que más ha estimulado mi creatividad y aspiraciones futuras ha sido
-Auditoria y monitorización de la seguridad. 
-Durante el tiempo que he dedicado a estudiar dicha asignatura, he aprendido que
-garantizar que tu aplicación es segura, conlleva un tratado de
-datos y registros masivo, y que para poder monitorizar dichos registros, hacen
-falta tanto el dominio de las herramientas disponibles, como un conocimiento
-profundo de la propia aplicacion sobre la que trabajas.
-
-Para poder explicar el motivo de este trabajo, antes debo poner al lector en
-contexto explicando el sector de negocio en el que se encuentra Scalefast y la
-necesidad que pretende cubrir con el puesto de \gls{DevOps}.
-Scalefast es una empresa que proporciona a empresas una plataforma desde la que
-pueden basar toda su estrategia de venta on-line.
-Recientemente, muchas empresas que se centraban en venta directa a otras
-empresas, se han querido especializar en la venta directa al consumidor.
-Este es el motivo por el cual Scalefast ha crecido drásticamente en
-popularidad, y las tareas que antes eran gestionables entre pocos, ahora deben
-ser automatizadas para poder seguir el ritmo al que el mercado la hace crecer.
-En vista de esta necesidad, se crearon varios puestos de \gls{DevOps}, uno de
-los cuales, he sido afortunado de cubrir.
+Antes de meterme de lleno en el desarrollo de este proyecto, es necesario poner
+en contexto el sector de negocio en el que se encuentra Scalefast y la necesidad
+que pretende cubrir con el puesto de \gls{DevOps}.  Scalefast es una empresa que
+proporciona a empresas una plataforma desde la que pueden basar toda su
+estrategia de venta on-line.  Recientemente, muchas empresas que se centraban en
+venta directa a otras empresas, se han querido especializar en la venta directa
+al consumidor.  Este es el motivo por el cual Scalefast ha crecido drásticamente
+en popularidad, y las tareas que antes eran gestionables entre pocos, ahora
+deben ser automatizadas para poder seguir el ritmo al que el mercado la hace
+crecer.  En vista de esta necesidad, se crearon varios puestos de \gls{DevOps},
+uno de los cuales, he sido afortunado de cubrir.
 %TODO: Cual era la intención con el puesto de DevOps? Por que hacia falta?
 
-La reciente experiencia como DevOps en Scalefast me ha permitido formar parte
-de áreas del ciclo de vida del desarrollo que únicamente había visto desde la
-lejanía y que solo conocía teóricamente.
-Gracias a la exposición a estas areas, me he dado cuenta de que mi interés es superior al esperado.
-Una de las tareas en las que me he visto involucrado que mas me ha interesado 
-ha sido la definición y análisis del estado del Pipeline y la búsqueda de su
-evolución para garantizar un desarrollo mas ágil y seguro dentro de la
-organización.
-Dicho esto, puedo concluir que en este proyecto pretendo unir dos de mis intereses dentro del universo del software.  
-La metodología ágil y su vertiente DevOps, con la seguridad.
+La reciente experiencia como DevOps en Scalefast me ha permitido formar parte de
+áreas del ciclo de vida del desarrollo que únicamente había visto desde la
+lejanía y que solo conocía teóricamente.  Gracias a la formación en  estas
+áreas, me he dado cuenta de que mi interés es superior al esperado. Siendo más
+concretos, una de las tareas que he llevado cabo: la definición, análisis del
+estado del Pipeline y la búsqueda de su evolución para garantizar un desarrollo
+más ágil y seguro dentro de la organización, ha sido lo que me hecho, en
+definitiva, elegir este tema de Trabajo de Fin de Máster. Dicho esto, puedo
+concluir que en este proyecto pretende unir dos de mis intereses dentro del
+universo del software: la metodología ágil y su vertiente DevOps, con la
+seguridad.
 
 % OBJETIVO PRINCIPAL DEL TRABAJO - Explorar la union entre los procesos de
 % desarrollo que desencadenan en una construcción de software de calidad
 % teniendo siempre en cuenta la seguridad.
-Dada la situación en la que me encuentro laboralmente, pienso que estoy en una 
-posición única para poder observar gran parte del ciclo de vida del software.
-Una de las partes fundamentales de el DevOps es fomentar la comunicación entre
-los distintos departamentos que forman parte del ciclo de vida del desarrollo.
-Ya sea mediante reuniones presenciales de definición de procesos, como
-implementando tareas (jobs) automatizadas que forman parte de un pipeline cuya
-utilidad e intención es agilizar el proceso de desarrollo del software.
-Ademas de la responsabilidad mencionada anteriormente, otra parte fundamental
-que debemos desempeñar los DevOps es contagiar a los desarrolladores una
-cultura de automatismo, desarrollo ágil, y responsabilidad sobre su código.  
+Dicho esto, el sector en el que me encuentro actualmente son claves para poder
+observar gran parte del ciclo de vida del software y llevar a cabo este
+proyecto.Y, es que, una de las partes fundamentales de el DevOps es fomentar la
+comunicación entre los distintos departamentos que forman parte del ciclo de
+vida del desarrollo.  Esto ocurre mediante reuniones presenciales de definición
+de procesos así como implementando tareas (jobs) automatizadas que forman parte
+de un pipeline cuya utilidad e intención es agilizar el proceso de desarrollo
+del software.  Además de la responsabilidad mencionada anteriormente, otra parte
+fundamental que debemos desempeñar los DevOps es contagiar a los desarrolladores
+una cultura de automatismo, desarrollo ágil, y responsabilidad sobre su código.
 De este modo, y teniendo en cuenta siempre la meta a la que se quiere llegar
-como DevOps en Scalefast, que es proporcionar a los desarrolladores las
-herramientas que necesitan para asegurar una calidad del software propia de 
-Scalefast, ademas de agilizar los procesos existentes en nuestro \gls{SDLC}, el
-objetivo de este trabajo es llevar a cabo el proceso de transición de un
-modelo de integración continua y despliegue manual, en el que la seguridad
-entra en juego en la última fase del \gls{SDLC}, a un modelo \gls{DevSecOps}
-moderno, en el que la seguridad del desarrollo se transfiere a las primeras
-fases del desarrollo, agilizando y asegurando de esta forma el desarrollo, en 
-el que la integración y despliegue se automatizan hasta el momento en el que se
-pretende sacar el software al entorno de producción.
+como DevOps en Scalefast, es decir, proporcionar a los desarrolladores las
+herramientas que necesitan para asegurar una calidad del software propia de
+Scalefast y agilizar los procesos existentes en nuestro \gls{SDLC}, el objetivo
+de este trabajo es llevar a cabo el proceso de transición de un modelo de
+integración continua y despliegue manual, en el que la seguridad entra en juego
+en la última fase del \gls{SDLC}, a un modelo \gls{DevSecOps} moderno, en el que
+la seguridad del desarrollo se transfiere a las primeras fases del desarrollo,
+agilizando y asegurando de esta forma el desarrollo, en el que la integración y
+despliegue se automatizan hasta el momento en el que se pretende sacar el
+software al entorno de producción.
 
-Como estudiante del master de ciberseguridad, he de responder al creciente
-interés en el mundo del desarrollo ágil por promover el desarrollo de software
-de forma segura desde el inicio del ciclo de vida de la aplicación.
+Como estudiante del máster de ciberseguridad, he de aprendido a reconocer el
+creciente interés en el mundo del desarrollo ágil por promover el desarrollo de
+software de forma segura desde el inicio del ciclo de vida de la aplicación.
 Esta evolución del movimiento DevOps, se denomina DevSecOps.
  
-La situación el la que me encuentro me permite aplicar los conocimientos
-adquiridos en el Master de forma práctica en el mudo laboral real.
-Implementando la parte de \gls{App-Sec} al ciclo de vida de desarrollo de
-software.
-La filosofía de desarrollo que lleva a cabo la ejecución de dichas
-responsabilidades es denominada comúnmente como \gls{DevSecOps}.
+Llegados a este punto, los conocimientos adquiridos en el Máster han sido una
+fuente importante a la hora de implementar la parte de \gls{App-Sec} al ciclo de
+vida de desarrollo de software en el mundo laboral. Esta filosofía de desarrollo
+que lleva a cabo la ejecución de dichas responsabilidades se denominada
+comúnmente como \gls{DevSecOps}.
 
 %TODO: 3. Escribir una descripción de como esta estructurado el documento, a
-%nivel de capitulo, con referencias. (Pug parlar en primera persona) y citar 
-%las referencias (para poder llevar a cabo esta sección, ha sido necesaria la
+%nivel de capitulo, con referencias. (Pug parlar en primera persona) y citar las
+%referencias (para poder llevar a cabo esta sección, ha sido necesaria la
 %aportación de X)
 
-Llegados a este punto creo que es buen momento para hablar de la forma en la 
-que está estructurado este documento.
-El propósito del mismo en el primer capítulo es proporcionar al lector una
-visión inclusiva de los procesos empleados para la construcción del software y
-de su evolución a través de los años.
-Para llevar a cabo esta parte, hago uso del brillante articulo escrito por 
-Craig Larman y Victor R. Basili para la IEEE Computer Society en junio de 2003,
-en el que hacen un resumen de las diferentes formas en las que se ha 
-desarrollado software hasta la actualidad.
+Por otro lado, es importante a la hora de realizar este proyecto tener en cuenta
+la estructura del documento. Así pues, el objetivo del primer capítulo es
+proporcionar al lector una visión inclusiva de los procesos empleados para la
+construcción del software y de su evolución a través de los años.  Para llevar a
+cabo esta parte, hago uso del brillante articulo escrito por Craig Larman y
+Victor R. Basili para la IEEE Computer Society en junio de 2003, en el que hacen
+un resumen de las diferentes formas en las que se ha desarrollado software hasta
+la actualidad.
 
 Una vez llegamos a la actualidad, me parece esencial describir el desarrollo
 ágil, y destacar que este no es una invención de Silicon Valley, y que este
 movimiento o forma de desarrollo no nace de la nada, sino que evoluciona de
-forma iterativa e incremental a medida que se van identificando las carencias 
-en la forma de desarrollo y añadiendo remedios a estas.
-Después de definir que es el desarrollo ágil como lo conocemos en la actualidad,
-pasamos a describir una de las formas en la que se podría llevar a cabo este
-desarrollo. 
+forma iterativa e incremental a medida que se van identificando las carencias en
+la forma de desarrollo y añadiendo remedios a estas.  Después de definir que es
+el desarrollo ágil como lo conocemos en la actualidad, pasamos a describir una
+de las formas en la que se podría llevar a cabo este desarrollo. 
 
-Hablar de desarrollo ágil en la actualidad desencadena
-inevitablemente en hablar de la filosofía \gls{DevOps} y \gls{DevSecOps}.
-Me parece vital que queden claros estos conceptos e intento definirlos, siendo
-consciente de la necesidad del movimiento de no ser reducido a una definición
-común.
-Esto es debido a que, al ser una idea abstracta, cada organización que quiera
-implementar la filosofía DevOps, va a tener que hacerlo ajustándose a su propia
-cultura, sus propios procesos y su propio ritmo.
-En la siguiente sección analizo la primera, para luego dar paso al análisis de
-la filosofía \gls{DevSecOps}.
+Hablar de desarrollo ágil en la actualidad desencadena inevitablemente en hablar
+de la filosofía \gls{DevOps} y \gls{DevSecOps}. Por ello, es necesario definir
+estos conceptos siendo también consciente de la necesidad del movimiento de
+querer ser reducido a una definición común.  Esto es debido a que, al ser una
+idea abstracta, cada organización que quiera implementar la filosofía DevOps, va
+a tener que hacerlo ajustándose a su propia cultura, sus propios procesos y su
+propio ritmo.  En la siguiente sección analizo la primera, para luego dar paso
+al análisis de la filosofía \gls{DevSecOps}.
 
 En la segunda parte de este documento pretendo mostrar el proceso que se ha
 seguido en Scalefast para transformar el pipeline actual, basado en Integración
-Continua, a un \gls{pipeline} que es útil en una mayor área del ciclo de vida
-de un proyecto, desde integración a despliegue continuos, sin dejar de lado el
+Continua, a un \gls{pipeline} que es útil en una mayor área del ciclo de vida de
+un proyecto, desde integración a despliegue continuos, sin dejar de lado el
 desarrollo de software seguro.
 
 La idea que se ha seguido a la hora de escribir esta sección es definir las
-características idílicas de un \gls{SDLC} que guardan relación con \gls{App-Sec}.
-Una vez tengamos claras cuales son, ir concretando los requisitos necesarios
-para realizar cada una de las tareas.
-Esto implica calcular el tiempo que vamos a tardar en hacer todas las tareas, 
-si se va a necesitar contratar a expertos que nos asesoren en las nuevas tareas
-, o que tareas se van a dejar de lado debido a incompatibilidades con el estado
-actual de la tecnología con la que trabajamos.
-Para llevar a termino el proyecto, se empieza creando una documentación 
-gráfica, sobre la que nos vamos a apoyar y una documentación mas extensa en la
-que podemos obtener información concreta, por ejemplo, de las distintas 
-opciones en las herramientas que podemos usar para realizar un análisis 
-estático del código.
+características idílicas de un \gls{SDLC} que guardan relación con
+\gls{App-Sec}.  Una vez tengamos claras cuales son, ir concretando los
+requisitos necesarios para realizar cada una de las tareas.  Esto implica
+calcular el tiempo que vamos a tardar en hacer todas las tareas, si se va a
+necesitar contratar a expertos que nos asesoren en las nuevas tareas , o que
+tareas se van a dejar de lado debido a incompatibilidades con el estado actual
+de la tecnología con la que trabajamos.  Para llevar a termino el proyecto, se
+empieza creando una documentación gráfica, sobre la que nos vamos a apoyar y una
+documentación mas extensa en la que podemos obtener información concreta, por
+ejemplo, de las distintas opciones en las herramientas que podemos usar para
+realizar un análisis estático del código.
 %TODO: Escribir el nombre de la sección en la que se crea la tabla 
 Esta parte queda descrita en la sección bajo el nombre <++>. 
 
 %TODO: Crear otra sección para describir la forma en la que se ha hecho esto
-A continuación, se analizan las tareas que surgen del diagrama, las organizamos
-en una tabla y hacemos una estimación del tiempo que nos va a llevar completar
-cada una de las tareas identificadas, ademas de su totalidad.
+A continuación, se analizaran las tareas que surgen del diagrama, las
+organizaremos en una tabla y haremos una estimación del tiempo que nos va a
+llevar completar cada una de las tareas identificadas además de su totalidad.
 El propósito de este ejercicio es crear el cronograma de los desarrollos que se
 van a realizar y crear un plan a medio o largo plazo de las responsabilidades
 como equipo de seguridad.
 
-%TODO: Asegurar que es lo que vamos a hacer después, porque no lo se aun
-% Hasta aquí puedo escribir ahora, porque no he llagado mas lejos.
-% lo demás sera mentira, y seguramente se tenga que cambiar
+%TODO: Asegurar que es lo que vamos a hacer después, porque no lo se aun Hasta
+%aquí puedo escribir ahora, porque no he llagado mas lejos.  lo demás sera
+%mentira, y seguramente se tenga que cambiar
 
-Analizando el proceso, la propia construcción del pipeline queda representada 
-en un mismo pipeline.
-La única diferencia, es que el cliente en este caso es interno, y no externo.
+Analizando el proceso, la propia construcción del pipeline queda representada en
+un mismo pipeline.  La única diferencia es que en este caso el cliente en es es
+interno y no externo. En la siguiente sección, se describe el proceso de
+desarrollo de una de estas tareas.  Pasando así por las fases del ciclo de vida
+del desarrollo. 
 
-En la siguiente sección, se describe el proceso de desarrollo de una de estas 
-tareas.
-Pasando así por las fases del ciclo de vida del desarrollo. 
-
-Es al acabar este desarrollo, cuando se conoce el ciclo de vida de desarrollo
-intrínseco en la creación de un Pipeline enfocado hacia la seguridad.
-Acabamos, por tanto este trabajo con una retrospectiva del trabajo realizado y
-una comparativa con el estado anterior del Pipeline de Scalefast.
+Es al acabar este proceso cuando se conoce el ciclo de vida de desarrollo
+intrínseco en la creación de un Pipeline enfocado hacia la seguridad.  Por tanto
+acabamos este trabajo con una retrospectiva del trabajo realizado y una
+comparativa con el estado anterior del Pipeline de Scalefast.
 
 \chapter{Estado del arte}
 
@@ -428,23 +409,23 @@ una comparativa con el estado anterior del Pipeline de Scalefast.
 actualidad}
 
 Hablar del desarrollo del software desde su concepción hasta su actualidad
-require especial atención ya que el software solo es posible gracias al hardware
-sobre el que se ejecuta.  Naturalmente, este campo ha adoptado las costumbres y
-características del mundo del Hardware.
+requiere especial atención ya que el software solo es posible gracias al
+hardware sobre el que se ejecuta.  Naturalmente, este campo ha adoptado las
+costumbres y características del mundo del Hardware.
 
 Para entender la evolución del software, nos tenemos que remontar a los años
 cincuenta de la década pasada, en la que mantener un ordenador suponía un gasto
 enorme debido a que el software que corría en el ordenador estaba tan acoplado
 al hardware sobre el que corría, que cada ordenador tenia su propio lenguaje de
 programación.  No fue hasta 1957 que se desarrollo FORTRAN, el primer lenguaje
-de programación, creando así el primer estándar de lenguaje de programación.
-FORTRAN 66 \cite{FORTRAN1966}.  Al no disponer de una conexión a Internet y
-requerir la presencia de ingenieros enviados por parte de la compañía que
-fabrica el propio ordenador, las empresas que poseían un ordenador, no esperaban
-tener que actualizar su software regularmente.  A medida que se avanzaba en la
-fabricación de ordenadores personales y se estandarizaba Internet, los
-requisitos para poder actualizar el software del ordenador empezaban a ofrecer
-menos resistencia.
+de programación, creando así el primer estándar de lenguaje de programación
+llamado FORTRAN 66 \nocite{FORTRAN1966}.  Al no disponer de una conexión a
+Internet y requerir la presencia de ingenieros enviados por parte de la compañía
+que fabrica el propio ordenador, las empresas que poseían un ordenador, no
+esperaban tener que actualizar su software regularmente.  A medida que se
+avanzaba en la fabricación de ordenadores personales y se estandarizaba
+Internet, los requisitos para poder actualizar el software del ordenador
+empezaban a ofrecer menos resistencia.
 
 Pasamos del inicio de los lenguajes de programación al inicio de los comercios
 en Internet.  A medida que evoluciona Internet, también lo hacen las
@@ -472,9 +453,9 @@ escribió el manifesto del desarrollo ágil \cite{agile}, en el que se destacan
 los pilares fundamentales sobre los que se ha construido la filosofía DevOps
 \cite{CD-TF}, posteriormente extendida a la filosofía DevSecOps.
 
-En conclusion, saber a cerca de la evolución del software facilita también la
-comprensión de los objetivos de este trabajo que se resumen en: <++> %TODO: List
-TFG objectives.
+En conclusión, saber a cerca de la evolución del software facilita también la
+comprensión de los objetivos de este trabajo que se resumen en: <++> 
+%TODO: List TFG objectives.
 
 
 \subsection{Historia de los despliegues}
@@ -490,11 +471,13 @@ técnicas modernas de desarrollo de software es "Project Mercury".  Este
 proyecto, centrado en poner al hombre a la luna, requería de una capacidad de
 construcción de software ejemplar.  Gerald M. Weinberg fue el arquitecto del
 proyecto.  Decidieron que ``el desarrollo en cascada aplicado a un proyecto
-grande era bastante estúpido, o al menos, ignorante a la realidad'' \cite{GW-PM}
-y desarrollaron software con una metodología similar a la estipulada por XP.
-\cite{XP}
+grande era bastante estúpido, o al menos, ignorante a la realidad''
+(\cite{GW-PM}) Por este motivo, decidieron desarrollar software con una
+metodología similar a la estipulada por XP \nocite{XP} ya que contienen
+similitudes como: (listar <++> similitudes)
+%TODO: Explicar que es XP, y como funciona
 
-No es sin embargo hasta 1968 cuando encontramos la primera aparición formal de
+No es, sin embargo, hasta 1968 cuando encontramos la primera aparición formal de
 desarrollo iterativo, que aparece en un documento interno de IBM en el que se
 describe que primero se define formalmente la funcionalidad, posteriormente se
 establecen unos tests, y se empieza a desarrollar, a medida que avanza el
@@ -528,18 +511,17 @@ desarrollo en cascada a estos cambios.
 
 En los años 80, muchos desarrolladores prominentes publican artículos sobre como
 el desarrollo en cascada no es una buena forma de construir un proyecto
-medianamente grande de software.  Parafraseando el articulo titulado ``Un
-proceso de diseño racional: Como y por que falsearlo'' \cite{Parnas1986}
+medianamente grande de software.  Tomando como referencia el articulo``Un
+proceso de diseño racional: Como y por que falsearlo'' \cite{Parnas1986}:
 \begin{itemize} \item{Un usuario raramente sabe exactamente todo lo que quiere y
     no puede expresar todo lo que sabe} \item{Existen muchos detalles de
       implementación que no se pueden anticipar, aunque tengamos todos los
-      requisitos claros} \item{Aunque sepamos todos los detalles, como humanos,
-      no podemos procesar tanta complejidad} \item{Aunque pudiésemos procesar
-        toda esta complejidad, existen fuerzas exteriores, que hacen que cambien
-        los requisitos o invaliden decisiones previas} \end{itemize} Estas
-        razones encabezan la lista de motivos por los que la tendencia a la hora
-        de desarrollar software debía de virar hacia el desarrollo incremental e
-        iterativo.
+    requisitos claros} \item{Aunque sepamos todos los detalles, como humanos, no
+    podemos procesar tanta complejidad} \item{Aunque pudiésemos procesar toda
+      esta complejidad, existen fuerzas exteriores, que hacen que cambien los
+requisitos o invaliden decisiones previas} \end{itemize} Estas razones encabezan
+la lista de motivos por los que la tendencia a la hora de desarrollar software
+debía de girar hacia el desarrollo incremental e iterativo.
 
 Desde los años 90 hasta la actualidad, a medida que el desarrollo en cascada
 demostraba que no era lo suficientemente flexible para llevar a cabo proyectos
@@ -554,8 +536,8 @@ desarrollo de software iterativo e incremental.
 
 \section{Desarrollo ágil}
 
-Como se ha reverenciado anteriormente, el desarrollo ágil forma parte del ADAN
-del desarrollo de software.  Muchos de los proyectos mas complejos se han
+Como se ha hecho referencia anteriormente, el desarrollo ágil forma parte del
+ADAN del desarrollo de software.  Muchos de los proyectos más complejos se han
 construido usando técnicas que recuerdan mucho a la metodología ágil.
 \cite{GW-PM} Afortunadamente, a medida que nos adentramos en la actualidad,
 podemos observar como el uso de la metodología ágil aumenta en popularidad
@@ -565,46 +547,37 @@ siguiendo la metodología ágil. \cite{stateofagile}
 \subsection{Que es el desarrollo ágil}
 
 
-El termino ``Desarrollo Ágil'' se acuñó en 2001, en una reunion que celebraron
+El termino ``Desarrollo Ágil'' se acuñó en 2001, en una reunió que celebraron
 distintos representares de alternativas al popular desarrollo en cascada.  En
-esta reunion, asistieron representares de técnicas de desarrollo como Extreme
+esta reunión, asistieron representares de técnicas de desarrollo como Extreme
 Programming, SCRUM, DSDM, Adaptive Software Development, Crystal, Feature-Driven
 Development, Pragmatic Programming y otros simpatizantes.  La finalidad era
 asentar unas bases sobre las que todos estuviesen de acuerdo.
 
-Al terminar, se acuñó el término desarrollo ágil.
+Al terminar, se acuñó el término desarrollo ágil y se definieron los principales
+valores de esta idea. Se aglutinan según \cite{agilePrinciples} en: 
 
-Los principales valores del desarrollo ágil son los siguientes:
-\cite{agilePrinciples}
-
-\begin{itemize} 
-  \item{Nuestra mayor prioridad es satisfacer al cliente mediante la entrega 
-        temprana y continua de software con valor.} 
-  \item{Aceptamos que los requisitos cambien, incluso en etapas tardías del 
-        desarrollo. Los procesos Ágiles aprovechan el cambio para proporcionar 
-        ventaja competitiva al cliente.} 
-  \item{Entregamos software funcional frecuentemente, entre dos semanas y dos 
-        meses, con preferencia al periodo de tiempo más corto posible.} 
-  \item{Los responsables de negocio y los desarrolladores trabajamos juntos de 
-        forma cotidiana durante todo el proyecto.} 
-  \item{Los proyectos se desarrollan en torno a individuos motivados. Hay que 
-        darles el entorno y el apoyo que necesitan, y confiarles la ejecución 
-        del trabajo.} 
-  \item{El método más eficiente y efectivo de comunicar información al equipo de
-        desarrollo y entre sus miembros es la conversación cara a cara.} 
-  \item{El software funcionando es la medida principal de progreso.}
-  \item{Los procesos Ágiles promueven el desarrollo sostenible. Los promotores,
-        desarrolladores y usuarios debemos ser capaces de mantener un ritmo
-        constante de forma indefinida.} 
-  \item{La atención continua a la excelencia técnica y al buen diseño mejora la 
-        Agilidad.} 
-  \item{La simplicidad, o el arte de maximizar la cantidad de trabajo no 
-        realizado, es esencial.} 
-  \item{Las mejores arquitecturas, requisitos y diseños emergen de equipos 
-        auto-organizados.} 
-  \item{A intervalos regulares el equipo reflexiona sobre cómo ser más efectivo 
-        para a continuación ajustar y perfeccionar su comportamiento en 
-        consecuencia.} 
+\begin{itemize} \item{Nuestra mayor prioridad es satisfacer al cliente mediante
+    la entrega temprana y continua de software con valor.} \item{Aceptamos que
+      los requisitos cambien, incluso en etapas tardías del desarrollo. Los
+      procesos Ágiles aprovechan el cambio para proporcionar ventaja competitiva
+    al cliente.} \item{Entregamos software funcional frecuentemente, entre dos
+    semanas y dos meses, con preferencia al periodo de tiempo más corto
+  posible.} \item{Los responsables de negocio y los desarrolladores trabajamos
+    juntos de forma cotidiana durante todo el proyecto.} \item{Los proyectos se
+    desarrollan en torno a individuos motivados. Hay que darles el entorno y el
+  apoyo que necesitan, y confiarles la ejecución del trabajo.} \item{El método
+    más eficiente y efectivo de comunicar información al equipo de desarrollo y
+  entre sus miembros es la conversación cara a cara.} \item{El software
+  funcionando es la medida principal de progreso.} \item{Los procesos Ágiles
+    promueven el desarrollo sostenible. Los promotores, desarrolladores y
+  usuarios debemos ser capaces de mantener un ritmo constante de forma
+indefinida.} \item{La atención continua a la excelencia técnica y al buen diseño
+  mejora la Agilidad.} \item{La simplicidad, o el arte de maximizar la cantidad
+  de trabajo no realizado, es esencial.} \item{Las mejores arquitecturas,
+  requisitos y diseños emergen de equipos auto-organizados.} \item{A intervalos
+    regulares el equipo reflexiona sobre cómo ser más efectivo para a
+continuación ajustar y perfeccionar su comportamiento en consecuencia.}
 \end{itemize}
 
 \subsection{Como llevar a cabo el desarrollo ágil}
@@ -613,13 +586,14 @@ Una vez repasados los valores del desarrollo ágil, debemos ahondar más en como
 repercuten estos en el día a día de un proyecto de software que usa la
 metodología ágil.
 
-Cada uno de los pasos descritos a continuación forma parte de una iteración
-dentro del proceso de desarrollo de software.  Estas fases, van construyendo
-sobre las previas, hasta que se completa la aplicación.
+Cada uno de los pasos que se describirán a continuación: firma de contrato, test
+de aceptación, desarrollo y testeo del código y el despliegue del código,forman
+parte de una iteración dentro del proceso de desarrollo de software.  Estas
+fases, van construyendo sobre las previas, hasta que se completa la aplicación.
 
 \subsubsection{Firma del contrato}
 
-Al inicio de la colaboración, se tiene una reunion, en la que el cliente y la
+Al inicio de la colaboración, se tiene una reunión, en la que el cliente y la
 empresa trabajan conjuntamente para asentar las bases sobre las que se
 construirá el proyecto.  Este tipo de enfoque se llama ``top-down approach''
 %TODO: Cite needed
@@ -721,9 +695,9 @@ directamente pueden llevar a una empresa a la bancarrota en cuestión de minutos
 \section{De desarrollo ágil, a DevOps}
 
 Llegados a este punto, hay que tener en cuenta que para llevar a cabo cualquier
-tipo de proyecto, deben haber como mínimo dos partes implicadas.  El cliente y
-la empresa que va a llevar a cabo la vision del cliente.  Estas dos partes
-pueden ser tan complejas o simples como se quiera, pero deben existir.  Desde un
+tipo de proyecto deben haber como mínimo dos partes implicadas.  El cliente y la
+empresa que va a llevar a cabo la vision del cliente.  Estas dos partes pueden
+ser tan complejas o simples como se quiera, pero deben existir.  Desde un
 proyecto llevado a cabo únicamente por una persona a un proyecto distribuido
 separado entre distintas zonas horarias.
 
@@ -753,32 +727,30 @@ fuera mal de igual manera. \cite{10.1109/AGILE.2006.53}
 \subsection{Que es DevOps}
 
 
-La filosofía DevOps nace como respuesta a una falta de comunicación, y creciente
-frustración entre equipos dentro de un mismo desarrollo.
+La filosofía DevOps nace como respuesta a una falta de comunicación y creciente
+frustración entre equipos dentro de un mismo desarrollo. Su finalidad es
+establecer una comunicación constante entre las distintas fases y equipos de
+desarrollo, mayoritariamente entre los desarrolladores y los equipos de
+operaciones, que se encargan de poner el código que genera el equipo de
+desarrolladores a un entorno de producción. Esto no quiere decir que se excluyan
+a cualquier otro equipo involucrado en el desarrollo del software, como el de
+QA.
 
-Su finalidad es establecer una comunicación constante entre las distintas fases
-y equipos de desarrollo, mayoritariamente entre los desarrolladores y los
-equipos de operaciones, que se encargan de poner el código que genera el equipo
-de desarrolladores a un entorno de producción. Esto no quiere decir que se
-excluyan a cualquier otro equipo involucrado en el desarrollo del software, como
-el de QA.
-
-El fenómeno DevOps se puede considerar una extension del desarrollo ágil, debido
+El fenómeno DevOps se puede considerar una extensión del desarrollo ágil, debido
 a que, en su forma mas reducida, acorta las iteraciones del desarrollo de una
 fecha especifica, a un commit especifico. \cite{dobra2018} Cada commit pasa por
 una serie de comprobaciones o ``jobs'' dentro de un ``pipeline'' para verificar
 que efectivamente el código que se quiere añadir a producción es adecuado para
 ser desplegado.
 
-Otras de las prioridades de la cultura DevOps es Habilitar la automatización
+Otras de las prioridades de la cultura DevOps es habilitar la automatización
 sobre la documentación, presentar al desarrollador posibilidades (API de testeo
-de código), en vez de impedimentos (procesos)
+de código), en vez de impedimentos (procesos). Como consecuencia, se crea un
+flujo automatizado de Integración Continua y Despliegue Continuo del código
+generado iterativamente a lo largo de todo el proyecto. Este flujo se llama
+``Pipeline''.
 
-Como consecuencia, se crea un flujo automatizado de Integración Continua y
-Despliegue Continuo del código generado iterativamente a lo largo de todo el
-proyecto. Este flujo se llama ``Pipeline''.
-
-La filosofía DevOps en la construcción y despliegue de software, por tanto gira
+La filosofía DevOps en la construcción y despliegue de software, por tanto, gira
 en torno a establecer una serie de procesos y comprobaciones por los que tiene
 que pasar cada desarrollo candidato a se desplegado a producción. 
 
@@ -803,7 +775,8 @@ commit que pasa todo el pipeline.
 
 En esencia, se trata de un desarrollo mas, pero en vez de que su función sea
 cumplir un requisito del cliente, su función es asegurar la estabilidad y
-calidad del software entregado al cliente. 
+calidad del software entregado al cliente. Y, es que como argumental Humble y
+Farley: 
 
 ``Cada vez que se añade un cambio al servidor de control de versiones, se espera
 que pase todos los tests, produzca código funcional y se pueda desplegar a
@@ -812,13 +785,13 @@ integración continua es la de refutar dicha suposición, demostrando que este
 candidato a producción no es adecuado para entrar a
 producción''\cite{Humble2010}
 
-En el libro ``Accelerate'', de Nicole Forsgren, Jez Humble y Gene Kim, los
-autores comentan que la diferencia entre una gran empresa y una pequeña y
-mediana empresa, es que las grandes empresas siguen cuatro indicadores de
-compromiso muy de cerca, y se han bulto expertas en reducir al máximo estos
-mismos.  Los indicadores de compromiso son: el plazo de entrega, la frecuencia
-de despliegue, el tiempo medio en restaurar (MTTR) y el porcentaje de cambio vs
-error.\cite{Forsgren2018}
+Por otro lado, es interesante tener como referencia el libro ``Accelerate'', de
+Nicole Forsgren, Jez Humble y Gene Kim, donde los autores comentan que la
+diferencia entre una gran empresa y una pequeña y mediana empresa, es que las
+grandes empresas siguen cuatro indicadores de compromiso muy de cerca, y se han
+bulto expertas en reducir al máximo estos mismos.  Los indicadores de compromiso
+son: el plazo de entrega, la frecuencia de despliegue, el tiempo medio en
+restaurar (MTTR) y el porcentaje de cambio vs error.\cite{Forsgren2018}
 
 Una filosofía DevOps es clave para reducir estos indicadores.  Con el uso de
 ``Pipelines'' y cambiando la cultura de la empresa, facilitando a los
@@ -864,10 +837,10 @@ poder obtener los beneficios que ofrecen estas empresas.  Para llevar a cabo el
 modelo de negocio anterior, dichas empresas deben tener la capacidad de
 identificar a los clientes, por tanto se deben almacenar datos personales.
 Estos datos tienen un gran valor para los hackers, que luego pueden venderlos en
-el mercado negro.  A medida que Internet se ha extendido, se ha demostrado que
+el mercado negro.  A medida que Internet se ha extendido se ha demostrado que
 hay gente que ha utilizado dicho factor para sacar un beneficio personal.
 
-El sector del software ha intentado mitigar, o prevenir los ataques de
+El sector del software ha intentado mitigar o prevenir los ataques de
 ciberseguridad mediante iniciativas como por ejemplo programas de recompensa a
 la gente que les reporta dichos fallos o vulnerabilidades.  Estos programas se
 llaman: ``Threat Bounty Programs'' Por lo general, los requisitos de seguridad
@@ -946,21 +919,18 @@ En los últimos años, el sector del software ha explotado con empresas como
 GitHub, GitLab o GoCD, que proporcionan a los equipos de desarrollo las
 herramientas básicas y los pilares fundamentales para que sus clientes adopten
 una filosofía DevOps y DevSecOps en la construcción de
-software.\cite{Google2019}
-
-Un ejemplo de el uso de la filosofía DevSecOps es el concepto llamado ``Abuser
-storie'' \cite{Bor2006} en el que se aplica la seguridad en la fase de
-Planificación, a conceptos previos, como los ``User Stories''.
-
-Un user story es una breve descripción escrita por el cliente de no más de tres
-líneas sobre la funcionalidad que debe proporcionar la aplicacion.
+software.\cite{Google2019}. Un ejemplo de el uso de la filosofía DevSecOps es el
+concepto llamado ``Abuser storie'' \cite{Bor2006} en el que se aplica la
+seguridad en la fase de Planificación, a conceptos previos, como los ``User
+Stories''. Un user story es una breve descripción escrita por el cliente de no
+más de tres líneas sobre la funcionalidad que debe proporcionar la aplicacion.
 \cite{XPUserStory} mientras que un ``abuser story'' es una extension de los
 ``User Stories'' contemplado por un ingeniero de seguridad para poder tomar
 decisiones informadas en base al estado de la seguridad en el momento de su
 definición. \cite{Bor2006}
 
-Esta forma de re plantearse la seguridad es exactamente el cambio de paradigma
-necesario que lleva de la filosofía \gls{DevOps}, a la filosofía 
+Esta forma de replantearse la seguridad es exactamente el cambio de paradigma
+necesario que lleva de la filosofía \gls{DevOps}, a la filosofía
 \gls{DevSecOps}.
 
 
@@ -970,20 +940,17 @@ necesario que lleva de la filosofía \gls{DevOps}, a la filosofía
 En la primera sección de este capitulo, se pretende describir la forma en la que
 se ha construido el pipeline DevSecOps, analizando cada una de las fases del
 ciclo de desarrollo en su estado actual e identificando los problemas que
-presenta.
-Posteriormente, teniendo en cuenta los problemas descritos en la sección
-anterior, se crea un pipeline conceptual, en el que se definen, a nivel de
-seguridad las revisiones o \gls{job}s necesarios para que el \gls{pipeline}
+presenta.  Posteriormente, teniendo en cuenta los problemas descritos en la
+sección anterior, se crea un pipeline conceptual, en el que se definen, a nivel
+de seguridad las revisiones o \gls{job}s necesarios para que el \gls{pipeline}
 conserve la practicalidad, pero asegure la seguridad y calidad del software.
 Posteriormente se procede a analizar las tareas inferidas y asignarles un tiempo
 de investigación y desarrollo estimado (L0) ademas de una prioridad de
-desarrollo.
-Una vez definidas las tareas, se ordenan y se crea la estrategia de desarrollo
-necesaria, ademas de los objetivos a los que hay que llegar a medio y largo
-plazo.
-Para terminar, se definen una serie de indicadores, para medir los resultados de
-los cambios que tenemos pensado implementar en el ciclo de vida del desarrollo
-de software, a nivel de seguridad en Scalefast.
+desarrollo.  Una vez definidas las tareas, se ordenan y se crea la estrategia de
+desarrollo necesaria, ademas de los objetivos a los que hay que llegar a medio y
+largo plazo.  Para terminar, se definen una serie de indicadores, para medir los
+resultados de los cambios que tenemos pensado implementar en el ciclo de vida
+del desarrollo de software, a nivel de seguridad en Scalefast.
 
 En la segunda sección de este capitulo, se describe el desarrollo de una de
 estas tareas, desde su asignación, a su finalización, añadiéndola al
@@ -993,22 +960,20 @@ de nuestro producto, en Scalefast.
 \section{Análisis del estado actual del pipeline} %DEFINICIÓN DEL PROBLEMA
 
 En Scalefast, se sigue un modelo de desarrollo similar al descrito
-anteriormente, en la metodología ágil.
-Actualmente, la empresa tiene un \textit{\gls{pipeline}} de integración 
-continua, en el que se pasan varios ``jobs'' o pruebas automáticas en cada
-commit vinculado a un \acrfull{mr} que se sube al repositorio de código.  
-Un \textit{\gls{pipeline}} es la pieza clave del ciclo de vida del software,
-responsable de asegurar la calidad de los desarrollos que se integran a
-producción y que por ende, de forma indirecta, definen la calidad de la 
-empresa.  
-Dicho esto, es importante recordar que el desarrollo del 
-\textit{\gls{pipeline}} debe seguir siempre el modelo de desarrollo de 
-software que él mismo promueve, el desarrollo iterativo e incremental.
-Comprendido esto, es evidente que su desarrollo deberá seguir siendo una
-prioridad de la empresa.
-En vista de la progresión de Scalefast, debemos evolucionar el pipeline,
-haciendo que tienda mas hacia la integración y despliegues continuous, 
-centrando ademas el desarrollo de software en la seguridad.  
+anteriormente, en la metodología ágil.  Actualmente, la empresa tiene un
+\textit{\gls{pipeline}} de integración continua, en el que se pasan varios
+``jobs'' o pruebas automáticas en cada commit vinculado a un \acrfull{mr} que se
+sube al repositorio de código.  Un \textit{\gls{pipeline}} es la pieza clave del
+ciclo de vida del software, responsable de asegurar la calidad de los
+desarrollos que se integran a producción y que por ende, de forma indirecta,
+definen la calidad de la empresa.  Dicho esto, es importante recordar que el
+desarrollo del \textit{\gls{pipeline}} debe seguir siempre el modelo de
+desarrollo de software que él mismo promueve, el desarrollo iterativo e
+incremental.  Comprendido esto, es evidente que su desarrollo deberá seguir
+siendo una prioridad de la empresa.  En vista de la progresión de Scalefast,
+debemos evolucionar el pipeline, haciendo que tienda mas hacia la integración y
+despliegues continuous, centrando ademas el desarrollo de software en la
+seguridad.  
 
 \subsection{Problemas encontrados y mejoras}
 
@@ -1031,97 +996,84 @@ del desarrollo, entonces, se reduce considerablemente la probabilidad de
 encontrar un fallo en los últimos pasos del desarrollo del proyecto.  Este es el
 punto al que queremos llegar.
 
-A medida que Scalefast ha crecido, tanto en clientes como en empleados y 
-proyectos que abarcamos, se han identificado una serie de problemas con 
-el \textit{\gls{pipeline}} que usamos actualmente.
-Mas adelante se describen estas limitaciones.
+A medida que Scalefast ha crecido, tanto en clientes como en empleados y
+proyectos que abarcamos, se han identificado una serie de problemas con el
+\textit{\gls{pipeline}} que usamos actualmente: 
 
-\begin{itemize}
-  \item{Se introducen cambios a producción manualmente}
-  \item{No se pueden repetir despliegues}
-  \item{No existe una forma de revertir los cambios añadidos a prod}
-  \item{No se revisa siempre el código de la misma forma}
-  \item{La revision es susceptible a modificaciones manuales}
-  \item{No se replican entornos entre fases (pruebas, \gls{staging} y producción)}
-  \item{No existe responsabilidad de código}
-\end{itemize}
+\begin{itemize} \item{Se introducen cambios a producción manualmente} \item{No
+    se pueden repetir despliegues} \item{No existe una forma de revertir los
+    cambios añadidos a prod} \item{No se revisa siempre el código de la misma
+    forma} \item{La revision es susceptible a modificaciones manuales} \item{No
+se replican entornos entre fases (pruebas, \gls{staging} y producción)} \item{No
+existe responsabilidad de código} \end{itemize}
 
 De entre estos problemas detectados, algunos se pueden solventar añadiendo
 herramientas directamente y otros son problemas culturales, que se tienen que
 abordar de distinta forma.
 
-Al redactar este trabajo, se pretende mostrar la mayor parte del ciclo de
-planificación e implementación del proyecto, pero debido a su naturaleza y gran
-dimension, resulta imposible contenerlo íntegramente en el presente documento.
 
 \section{Desarrollo conceptual del pipeline de seguridad}
 
 Recientemente, Mike Ensor y Drew Stevens publicaron un ``paper'' titulado
 ``Shifting left on security''.  En él, explican las diferentes fases de el ciclo
 de vida del software, y como añadir elementos de seguridad a lo largo del
-``pipeline''. 
-Desde la planificación del proyecto, hasta el despliegue del mismo.
-Algunas de las técnicas que recomiendan en su ``paper'' tienen gran
-importancia, como el uso de registros de imágenes privados, cuyas imágenes y 
-recursos estén identificadas y sean verificadas a la hora de desplegarse,
-análisis estático y dinámico del código que se escribe de forma automatizada,
-despliegue del mismo binario, y que solamente pueda ser desplegado si es firmado
+``pipeline''.  Desde la planificación del proyecto, hasta el despliegue del
+mismo.  Algunas de las técnicas que recomiendan en su ``paper'' tienen gran
+importancia. Por ejemplo,  el uso de registros de imágenes privadas, cuyas
+imágenes y recursos están identificadas y verificadas a la hora de desplegarse;
+el análisis estático y dinámico del código que se escribe de forma automatizada;
+el despliegue del mismo binario que solamente pueda ser desplegado si es firmado
 de forma criptográfica por el responsable de despliegues.\cite{Ensor2021}
 
-En esta sección, se describen mas en detalle dichas herramientas y se documenta
+En esta sección, se describen más en detalle dichas herramientas y se documenta
 el proceso de creación del pipeline a nivel conceptual.
 
 \subsection{Tareas DevSecOps para el Pipeline}
-%TODO: Seguir escribiendo por aquí
-% Concretar que herramientas se quieren usar, por que, y con que finalidad.
+%TODO: Seguir escribiendo por aquí Concretar que herramientas se quieren usar,
+%por que, y con que finalidad.
 
-Existen una gran variedad de tareas o comprobaciones disponibles para mejorar el 
-ciclo de vida del Software a nivel de seguridad.
-Por cada tarea, existen multitud de herramientas que la pueden realizar a mayor
-o menor medida, este es el motivo por el cual nos centramos en las tareas a 
-nivel conceptual ya que cada equipo va a disponer de un presupuesto o tiempo 
-determinados.
-Nuestro propósito final debe ser siempre la automatización de dichas
-herramientas para incluirlas en la fase adecuada del Pipeline de forma que
-a medida que el código que se registra en el sistema de control de versiones va 
-pasando cada una de las fases del Pipeline, vamos aumentando nuestro nivel de 
-confianza en el mismo.
+Existen una gran variedad de tareas o comprobaciones disponibles para mejorar el
+ciclo de vida del Software a nivel de seguridad.  Por cada tarea, existen
+multitud de herramientas que la pueden realizar a mayor o menor medida, este es
+el motivo por el cual nos centramos en las tareas a nivel conceptual ya que cada
+equipo va a disponer de un presupuesto o tiempo determinados.  Nuestro propósito
+final debe ser siempre la automatización de dichas herramientas para incluirlas
+en la fase adecuada del Pipeline de forma que a medida que el código que se
+registra en el sistema de control de versiones va pasando cada una de las fases
+del Pipeline, vamos aumentando nuestro nivel de confianza en el mismo.
 
 Los distintos tipos de revisiones de seguridad que se pueden realizar sobre el
 código provienen de las distintas formas que se han conseguido vulnerar los
 sistemas en el pasado o de ataques conceptuales que podrían realizarse sobre la
-plataforma.
-En el sector de la seguridad, el atacante siempre tiene la ventaja, puesto a que
-nunca se puede tener un sistema completamente seguro debido a la cantidad de
-dependencias, fallos de seguridad a la hora del desarrollo y sistemas sobre los
-que esta construido el proyecto.
-Dicho esto, se pueden tomar medidas preventivas, para que nuestros sistemas no
-queden expuestos a ataques conocidos.
-Con esta finalidad en mente, se automatizan las tareas a modo de Pipeline para prevenir
-errores detectables con análisis automáticos.
+plataforma.  En el sector de la seguridad, el atacante siempre tiene la ventaja,
+puesto a que nunca se puede tener un sistema completamente seguro debido a la
+cantidad de dependencias, fallos de seguridad a la hora del desarrollo y
+sistemas sobre los que esta construido el proyecto.  Dicho esto, se pueden tomar
+medidas preventivas, para que nuestros sistemas no queden expuestos a ataques
+conocidos.  Con esta finalidad en mente, se automatizan las tareas a modo de
+Pipeline para prevenir errores detectables con análisis automáticos.
 
 % Tipos de revisiones que se pueden hacer. (Que analiza que herramienta)
 Siguiendo la investigación, se han seleccionado varias formas de revision del
 Pipeline que pueden ser de gran utilidad para asegurar la calidad a nivel de
-seguridad del código.
-Estas se pueden dividir a grandes rasgos en: Infraestructura y aplicacion.
+seguridad del código.  Estas se pueden dividir a grandes rasgos en:
+Infraestructura y aplicacion.
 
-Como dicen \cite{Ensor2021} Stevens, Para poder garantizar la protección y
+Como explican \cite{Ensor2021} Stevens, para poder garantizar la protección y
 seguridad del software sobre el que se esta ejecutando el código de la
-organization, es necesario disponer con de una infraestructura segura. 
-Hoy en día, esta tarea pasa a ser responsabilidad de proveedores de
-infraestructura en la nube, como pueden ser \href{https://aws.amazon.com/}{AWS}
-o \href{https://console.cloud.google.com/}{GCP}.
-No obstante, si que hay una serie de comprobaciones que podemos realizar 
-sobre contenedores.
-Posteriormente se entra en detalle sobre este aspecto.
+organización es necesario disponer con de una infraestructura segura.  Hoy en
+día, esta tarea pasa a ser responsabilidad de proveedores de infraestructura en
+la nube, como pueden ser \href{https://aws.amazon.com/}{AWS} o
+\href{https://console.cloud.google.com/}{GCP}.  No obstante, si que hay una
+serie de comprobaciones que podemos realizar sobre contenedores.  Posteriormente
+se entra en detalle sobre este aspecto.
 
-Como no es necesario revisar la arquitectura sobre la que corre la
-aplicacion cada vez que se ejecuta un \Gls{pipeline}, no se va a entrar en 
+Por otro lado, como no es necesario revisar la arquitectura sobre la que corre
+la aplicacion cada vez que se ejecuta un \Gls{pipeline}, no se va a entrar en
 detalle sobre las formas que existen para protegerla.
 
-Podemos entonces reducir en campo de revisiones a la capa de aplicacion.
-En esta capa, según la fase de desarrollo en la que nos encontremos, debemos
+Podemos entonces reducir en campo de revisiones a la capa de aplicacion.  En
+esta capa, según la fase de desarrollo en la que nos encontremos, debemos
 prestar atención a distintas areas.
 
 % Hacer ver la necesidad de usar herramientas de seguridad automatizadas, e
@@ -1133,138 +1085,124 @@ tienen una actitud mas madura respecto a DevOps, las que adoptan una serie de
 tecnologías mas actualizadas, como pueden ser análisis de contenedores o
 análisis dinámico.
 
-\begin{figure}[H] \includegraphics[width=\textwidth]{sonatype-tools} \end{figure}
+\begin{figure}[H] \includegraphics[width=\textwidth]{sonatype-tools}
+\end{figure}
 
 En la gráfica superior, se resalta que las empresas maduras en el campo DevOps,
 usan tecnologías automatizadas, como \gls{CSA}, \gls{DAST}, \gls{SCA} y
-\gls{IAST}.
-Dado que se pretende rediseñar el \gls{SDLC} para que tenga en cuenta la
-seguridad en la aplicacion, es interesante revisar estas aplicaciones, para ver
-si se ajustan a lo que se quiere en Scalefast.
-A continuación, se analizan, entre otras, estas tecnologías.
+\gls{IAST}.  Dado que se pretende rediseñar el \gls{SDLC} para que tenga en
+cuenta la seguridad en la aplicacion, es interesante revisar estas aplicaciones,
+para ver si se ajustan a lo que se quiere en Scalefast.  A continuación, se
+analizan, entre otras, estas tecnologías.
 
 \subsubsection{Definición y análisis del proyecto}
 
 %TODO: seguir escribiendo por aquí
 En esta fase, mucha mas organizativa del ciclo de vida del desarrollo, no se
 pueden crear tareas automatizables para revisar la seguridad del software, ya
-que este aun no ha sido escrito.
-En su contra, las técnicas que debemos aplicar son de carácter manual.
+que este aun no ha sido escrito.  En su contra, las técnicas que debemos aplicar
+son de carácter manual.
 
 Entre las técnicas que se pueden aplicar, existe el modelado de riesgos, y las
-historias de abuso.
-Esta primera técnica consiste en seguir un modelo, como por ejemplo
-\gls{STRIDE}, que sirve para analizar y encontrar los riesgos de seguridad en un
-sistema.  
-El modelo \gls{STRIDE} garantiza que si se separa el producto en sus
-componentes y cada uno de estos cumple con los seis requisitos de \gls{STRIDE}
-\cite{Loren1999}, (Spoofing, Tampering, Repudiation, Information Disclosure,
-Denial of Service y Elevation of privilege), entonces, el producto es seguro.
+historias de abuso.  Esta primera técnica consiste en seguir un modelo, como por
+ejemplo \gls{STRIDE}, que sirve para analizar y encontrar los riesgos de
+seguridad en un sistema.  El modelo \gls{STRIDE} garantiza que si se separa el
+producto en sus componentes y cada uno de estos cumple con los seis requisitos
+de \gls{STRIDE} \cite{Loren1999}, (Spoofing, Tampering, Repudiation, Information
+Disclosure, Denial of Service y Elevation of privilege), entonces, el producto
+es seguro.
 
 En el segundo caso, las historias de abuso, son casos particulares de historias
-de usuario.
-En 2005, Johan Peeters introduce este concepto, definiéndolo de la siguiente
-manera: 
-Las historias de abuso identifican la forma en la que los atacantes pueden
-abusar del sistema y comprometer los recursos de los accionistas.
-Por tanto, especifican requisitos de seguridad del sistema.
-Al igual que las historias de usuario, lo hacen breve e
-informalmente. \cite{Peeters2005}
+de usuario.  En 2005, Johan Peeters introduce este concepto, definiéndolo de la
+siguiente manera: Las historias de abuso identifican la forma en la que los
+atacantes pueden abusar del sistema y comprometer los recursos de los
+accionistas.  Por tanto, especifican requisitos de seguridad del sistema.  Al
+igual que las historias de usuario, lo hacen breve e informalmente.
+\cite{Peeters2005}
 
 \subsubsection{Desarrollo del código fuente}
  
 %TODO: Análisis de secretos
 Cuando se desarrolla código, existen una serie de consideraciones que debemos
-tener en cuenta.
-Debido a la naturaleza perezosa de las personas, se tienden a dejar contraseñas,
-configuraciones o claves de \gls{API} en los propios archivos de texto sobre los
-que se escribe el código.
-Estos archivos de texto, se suben a un sistema de control de versiones.
-Este flujo almacena una nueva version del archivo cada vez que se guarda en el
-sistema de control de versiones,
-por lo tanto, esta información sensible permanecerá indefinidamente en el historial de
-cambios del sistema.
-Para prevenir esto, se han creado herramientas que previenen que el desarrollador
-guarde en el sistema de control de versiones dicha información sensible.
-Estas herramientas se llaman analizadores de secretos.
+tener en cuenta.  Debido a la naturaleza perezosa de las personas, se tienden a
+dejar contraseñas, configuraciones o claves de \gls{API} en los propios archivos
+de texto sobre los que se escribe el código.  Estos archivos de texto, se suben
+a un sistema de control de versiones.  Este flujo almacena una nueva version del
+archivo cada vez que se guarda en el sistema de control de versiones, por lo
+tanto, esta información sensible permanecerá indefinidamente en el historial de
+cambios del sistema.  Para prevenir esto, se han creado herramientas que
+previenen que el desarrollador guarde en el sistema de control de versiones
+dicha información sensible.  Estas herramientas se llaman analizadores de
+secretos.
 
 % Tests funcionales
 En esta sección, se pretende poder revisar el código fuente mientras este sigue
 en desarrollo, por tanto, las pruebas darán un resultado negativo hasta que se
-hayan completado todos los requisitos funcionales representados en los
-pipelines como tests de funcionalidad.
+hayan completado todos los requisitos funcionales representados en los pipelines
+como tests de funcionalidad.
 
 % Composición del código
-Ademas de la funcionalidad, se puede revisar la composición del software.
-Se analizan las librerías y dependencias externas que utiliza el software que
-estamos construyendo en nuestro proyecto en búsqueda de vulnerabilidades y 
-posibles vectores de ataque introducidos por las dependencias o librerías.
-Este tipo de técnica se llama análisis de composición de software, o \gls{SCA}.
-La finalidad es asegurar que los componentes de nuestro sistema no tienen
+Ademas de la funcionalidad, se puede revisar la composición del software.  Se
+analizan las librerías y dependencias externas que utiliza el software que
+estamos construyendo en nuestro proyecto en búsqueda de vulnerabilidades y
+posibles vectores de ataque introducidos por las dependencias o librerías.  Este
+tipo de técnica se llama análisis de composición de software, o \gls{SCA}.  La
+finalidad es asegurar que los componentes de nuestro sistema no tienen
 vulnerabilidades conocidas, o que si las tienen, estemos preparados para asumir
-el riesgo que introducen en nuestro sistema.
-A medida que han ido evolucionando las herramientas que se encargan de realizar
-los análisis de composición de software, también han ido evolucionando la
-cantidad de opciones que incluyen.
+el riesgo que introducen en nuestro sistema.  A medida que han ido evolucionando
+las herramientas que se encargan de realizar los análisis de composición de
+software, también han ido evolucionando la cantidad de opciones que incluyen.
 Hoy en día, estas herramientas son capaces de detectar que nuestro sistema usa
-una librería que incluye una vulnerabilidad y actualizar dicha
-librería para que nuestro sistema ya no presente esta vulnerabilidad,
-automatizando todo el proceso de análisis de vulnerabilidades de los
-componentes de nuestro sistema y posterior actualización de los mismos.
+una librería que incluye una vulnerabilidad y actualizar dicha librería para que
+nuestro sistema ya no presente esta vulnerabilidad, automatizando todo el
+proceso de análisis de vulnerabilidades de los componentes de nuestro sistema y
+posterior actualización de los mismos.
 
 %TODO: Análisis de código estático
 Otra herramienta que puede ayudar en el análisis de vulnerabilidades en el
-sistema, es el análisis de código estático, o \gls{SAST}.
-Aunque algunas características de esta herramienta se solapan con las
-características de otras herramientas automatizadas de análisis de código,
-siempre se debería usar.
-Es considerada la herramienta de análisis de código por defecto en los ciclos de
+sistema, es el análisis de código estático, o \gls{SAST}.  Aunque algunas
+características de esta herramienta se solapan con las características de otras
+herramientas automatizadas de análisis de código, siempre se debería usar.  Es
+considerada la herramienta de análisis de código por defecto en los ciclos de
 vida del software, y asienta las bases de estos.
 
 %TODO: Peer review
 Finalmente, se incorpora al ciclo de vida del software una tarea de revision del
 código escrito por un compañero, para validar que el código esta bien escrito y
-este no presenta ningún problema propio de la plataforma no detectable por las 
-herramientas de análisis automáticas.
-
-Todas estas herramientas, de las que se ha hablado hasta ahora, se solapan en
-alguna funcionalidad unas con otras, pero las ventajas de crear un ciclo de vida
-seguro aunando cada una de estas herramientas, sobrepasa las 
+este no presenta ningún problema propio de la plataforma no detectable por las
+herramientas de análisis automáticas. Todas estas herramientas, de las que se ha
+hablado hasta ahora, se solapan en alguna funcionalidad unas con otras, pero las
+ventajas de crear un ciclo de vida seguro aunando cada una de estas
+herramientas, sobrepasa las 
 
 
 \subsubsection{Testeo del código}
 
 Para llegar a esta fase del \gls{SDLC}, el código ha debido pasar
 satisfactoriamente por la fase de definición y análisis y por la fase de
-desarrollo.
-En cada una de estas dos fases, se revisa, de forma manual o automatizada varias
-secciones de la aplicación.
-Esto indica que la confianza en el código incrementa.
-En el momento en el que pase esta fase, la probabilidad con la que el código en
-question se despliegue al entorno de producción se eleva considerablemente.
-Es por esto, que esta fase debe ser mas complicada de superar que las dos fases
-anteriores.
-En esta fase entran en juego tecnologías de análisis como \gls{SAST}, \gls{CSA},
-\gls{DAST}, tests no funcionales y tests específicos de la plataforma de
-Scalefast.
+desarrollo.  En cada una de estas dos fases, se revisa, de forma manual o
+automatizada varias secciones de la aplicación.  Esto indica que la confianza en
+el código incrementa.  En el momento en el que pase esta fase, la probabilidad
+con la que el código en question se despliegue al entorno de producción se eleva
+considerablemente.  Es por esto, que esta fase debe ser mas complicada de
+superar que las dos fases anteriores.  En esta fase entran en juego tecnologías
+de análisis como \gls{SAST}, \gls{CSA}, \gls{DAST}, tests no funcionales y tests
+específicos de la plataforma de Scalefast.
 
 %SAST
 El análisis de código estático del proyecto entero difiere del análisis estático
 de la fase anterior porque este tiene en consideración el proyecto entero, no
 solamente la parte en la que esta trabajando el desarrollador o grupo de
-desarrolladores.
-Ademas de asegurar una buena practica de programación, esta revision permite
-mantener una medida de calidad general del proyecto, comparable a lo largo del
-tiempo y versiones.
-En el momento en el que todo el proyecto no supere un valor establecido con
-anterioridad, este commit no pasara el \gls{pipeline} y los desarrolladores
-deberán arreglar el problema.
-El commit tampoco parará la prueba de código estático si no sigue un estilo
-previamente definido o si detecta posibles indicadores de programación insegura,
-ya que esta herramienta lo revisa.
+desarrolladores.  Ademas de asegurar una buena practica de programación, esta
+revision permite mantener una medida de calidad general del proyecto, comparable
+a lo largo del tiempo y versiones.  En el momento en el que todo el proyecto no
+supere un valor establecido con anterioridad, este commit no pasara el
+\gls{pipeline} y los desarrolladores deberán arreglar el problema.  El commit
+tampoco parará la prueba de código estático si no sigue un estilo previamente
+definido o si detecta posibles indicadores de programación insegura, ya que esta
+herramienta lo revisa.
 
-%CSA
-%TODO: Acabar de escribir por aquí
+%CSA TODO: Acabar de escribir por aquí
 A medida que las 
 
 %DAST
@@ -1274,31 +1212,28 @@ A medida que las
 %Platform-specific tests (Common errors with our programming style, and
 %plataforma)
 
-\subsubsection{Despliegue}
-\subsubsection{Monitorización}
+\subsubsection{Despliegue} \subsubsection{Monitorización}
 
 \subsection{Creación conceptual del pipeline}
 
 En este momento de la investigación, se tiene una serie de tareas que se deben
 aplicar para mejorar la seguridad del desarrollo, pero estas deben ser aplicadas
-en momentos distintos del desarrollo. 
-Cuanto antes se pueda aplicar una revision, mejor, ya que vamos a reducir el
-nivel de esfuerzo que va a hacer falta para cambiar el desarrollo, si
-encontrásemos ese error en una fase mas avanzada del desarrollo.
-Por ejemplo, si encontramos duplicidad de código cuando este está
-desplegado en producción, se tiene que crear un desarrollo nuevo, con todas sus
-fases (Definición, Commit, Testeo, Despliegue y Monitorización), mientras que si
-encontramos la misma duplicidad de código en la fase de desarrollo, el
-desarrollador puede cambiar en ese momento el código que esta duplicado y este
-nunca llegara a producción reduciendo así el tiempo destinado a esa misma tarea
-ademas de las posibles repercusiones de seguridad que puedan suponer para
-producción. 
+en momentos distintos del desarrollo.  Cuanto antes se pueda aplicar una
+revision, mejor, ya que vamos a reducir el nivel de esfuerzo que va a hacer
+falta para cambiar el desarrollo, si encontrásemos ese error en una fase mas
+avanzada del desarrollo.  Por ejemplo, si encontramos duplicidad de código
+cuando este está desplegado en producción, se tiene que crear un desarrollo
+nuevo, con todas sus fases (Definición, Commit, Testeo, Despliegue y
+Monitorización), mientras que si encontramos la misma duplicidad de código en la
+fase de desarrollo, el desarrollador puede cambiar en ese momento el código que
+esta duplicado y este nunca llegara a producción reduciendo así el tiempo
+destinado a esa misma tarea ademas de las posibles repercusiones de seguridad
+que puedan suponer para producción. 
 
 Para definir la estrategia de automatización de despliegues, se ha procedido a
 crear un diagrama que resuma, en un vistazo todo el ciclo de vida del código
-,desde su concepción, hasta su monitorización.
-A lo largo de la linea temporal de este diagrama, se visualizan las tareas que,
-se ha decidido implementar.
+,desde su concepción, hasta su monitorización.  A lo largo de la linea temporal
+de este diagrama, se visualizan las tareas que, se ha decidido implementar.
 Algunas de estas tareas llevan mucho tiempo de implementar y otras, son bastante
 mas sencillas de llevar a cabo.
 
@@ -1307,105 +1242,93 @@ mas sencillas de llevar a cabo.
 La asignación de las tareas a un espacio temporal real, para ir asignándoles
 prioridades, se describirá en la siguiente sección.
 
-Como podemos ver en el diagrama, este está dividido en varias filas.
-Cada una de estas filas agrupa una serie de fases, eventos, detonantes, o tareas
-que ocurren a medida que se desenvuelve el ciclo de vida del proyecto.
+Como podemos ver en el diagrama, este está dividido en varias filas.  Cada una
+de estas filas agrupa una serie de fases, eventos, detonantes, o tareas que
+ocurren a medida que se desenvuelve el ciclo de vida del proyecto.
 
-En las siguientes secciones, se describen las secciones del diagrama, para lograr
-una comprensión global del mismo.
-Recordemos que la finalidad de este diagrama es proporcionar una vision idílica
-del estado al que queremos llegar.
+En las siguientes secciones, se describen las secciones del diagrama, para
+lograr una comprensión global del mismo.  Recordemos que la finalidad de este
+diagrama es proporcionar una vision idílica del estado al que queremos llegar.
 De este diagrama, se van a extrapolar las tareas necesarias y se les va a
 asignar una prioridad y un tiempo de desarrollo. 
 
 \subsubsection{Fase} 
 
 En esta parte del diagrama, se representa la parte mas abstracta, o de alto
-nivel del ciclo de vida del desarrollo.
-Se introducen los estados.
-La definición del proyecto, la fase de desarrollo, la fase de pruebas, la fase
-de despliegue y la fase de mantenimiento.
-En esta metodología, todos los desarrollos son iterativos e incrementales.
-Esta característica intrínseca del desarrollo ágil tiende a crear un 
-desarrollo cíclico.
-De ahí, las flechas ínter conexas entre las fases.
+nivel del ciclo de vida del desarrollo.  Se introducen los estados.  La
+definición del proyecto, la fase de desarrollo, la fase de pruebas, la fase de
+despliegue y la fase de mantenimiento.  En esta metodología, todos los
+desarrollos son iterativos e incrementales.  Esta característica intrínseca del
+desarrollo ágil tiende a crear un desarrollo cíclico.  De ahí, las flechas ínter
+conexas entre las fases.
 
 Entrando mas en detalle, en la sección de definición y análisis del desarrollo,
 se reúnen los responsables de cada area que se va a ocupar del desarrollo con el
 cliente y se especifican las características del proyecto, requisitos
-funcionales y no funcionales ademas del tiempo de desarrollo estimado.
-Cada proyecto esta compuesto de funcionalidades y cada una de estas
-funcionalidades, a su vez, están divididas en tareas.
-Una vez está el proyecto completamente definido se divide en funcionalidades y
-se les asigna a los equipos estas funcionalidades.
-Cada miembro de un equipo se puede encargar de una o varias tareas. 
-Cuando una o todas las tareas han sido completadas, se pasa a la fase de
-pruebas.
-Es importante remarcar que cada tarea pasa a su vez por cada una de las
-secciones de desarrollo.
-A nivel de desarrollo de una tarea individual, el desarrollador implementa
-pruebas unitarias, para asegurar que cumple los requisitos especificados y
-cuando acaba el desarrollo, despliega sus cambios a una maquina de integración,
-en la que se pasara otra fase de tests, esta vez mas general, asegurando que se
-cumplen las funcionalidades.
-En el momento en el que todas las funcionalidades han sido implementadas, se
-proceda a la fase de despliegue.
-En esta fase, se pone en el entorno de producción la funcionalidad implementada.
-Seguida de esta fase, se monitorizan los cambios añadidos, para asegurara que no
-se han producido fallos de regresión y que todo funciona como debe.
-En el caso extremo en el que los cambios dejen inoperative el entorno de
+funcionales y no funcionales ademas del tiempo de desarrollo estimado.  Cada
+proyecto esta compuesto de funcionalidades y cada una de estas funcionalidades,
+a su vez, están divididas en tareas.  Una vez está el proyecto completamente
+definido se divide en funcionalidades y se les asigna a los equipos estas
+funcionalidades.  Cada miembro de un equipo se puede encargar de una o varias
+tareas.  Cuando una o todas las tareas han sido completadas, se pasa a la fase
+de pruebas.  Es importante remarcar que cada tarea pasa a su vez por cada una de
+las secciones de desarrollo.  A nivel de desarrollo de una tarea individual, el
+desarrollador implementa pruebas unitarias, para asegurar que cumple los
+requisitos especificados y cuando acaba el desarrollo, despliega sus cambios a
+una maquina de integración, en la que se pasara otra fase de tests, esta vez mas
+general, asegurando que se cumplen las funcionalidades.  En el momento en el que
+todas las funcionalidades han sido implementadas, se proceda a la fase de
+despliegue.  En esta fase, se pone en el entorno de producción la funcionalidad
+implementada.  Seguida de esta fase, se monitorizan los cambios añadidos, para
+asegurara que no se han producido fallos de regresión y que todo funciona como
+debe.  En el caso extremo en el que los cambios dejen inoperative el entorno de
 producción, se quitan los cambios de producción para estabilizarlo y se crean
-nuevas tareas para solucionar los fallos.
-En el caso en el que se detecten nuevos fallos no críticos, se crean nuevas
-tareas, también llamadas bugs, que se deben arreglar, y estas vuelven a pasar
-por todo el ciclo de desarrollo.
+nuevas tareas para solucionar los fallos.  En el caso en el que se detecten
+nuevos fallos no críticos, se crean nuevas tareas, también llamadas bugs, que se
+deben arreglar, y estas vuelven a pasar por todo el ciclo de desarrollo.
 
 En cada una de estas secciones, se ha establecido una serie de revisiones o
-tareas para asegurar que la calidad de la seguridad es la mejor posible.
-En combinación con estas tareas, también se debe tener en cuenta las tareas que
-no tienen relación con la seguridad, no añadidas a este gráfico, por motivos de
+tareas para asegurar que la calidad de la seguridad es la mejor posible.  En
+combinación con estas tareas, también se debe tener en cuenta las tareas que no
+tienen relación con la seguridad, no añadidas a este gráfico, por motivos de
 complejidad y acotación.
 
 \subsubsection{Eventos}
 
-Una vez vista la sección mas teórica, se presentan los eventos externos. 
-Estos no necesariamente tienen una conexión directa con la seguridad.
-Su principal función es contextualizar el diagrama.
-En esta sección, se introduce el concepto de entornos.
-Estos entornos, representados por un rectángulo con el borde superior derecho
-doblado simbolizan la arquitectura sobre la que se debe ejecutar el desarrollo.
-En cada sección del ciclo de vida de desarrollo, se debe tener un entorno.
-Este estrategia de desarrollo se centra en asegurar que los despliegues no van a
-romper el código en el entorno de producción, porque ya se ha despegado el
-código de producción en un entorno idéntico previamente.
+Una vez vista la sección mas teórica, se presentan los eventos externos.  Estos
+no necesariamente tienen una conexión directa con la seguridad.  Su principal
+función es contextualizar el diagrama.  En esta sección, se introduce el
+concepto de entornos.  Estos entornos, representados por un rectángulo con el
+borde superior derecho doblado simbolizan la arquitectura sobre la que se debe
+ejecutar el desarrollo.  En cada sección del ciclo de vida de desarrollo, se
+debe tener un entorno.  Este estrategia de desarrollo se centra en asegurar que
+los despliegues no van a romper el código en el entorno de producción, porque ya
+se ha despegado el código de producción en un entorno idéntico previamente.
 Como beneficio a nivel de seguridad, desplegar el proyecto en un entorno de
 staging, proporciona al analista de seguridad la opción de realizar cualquier
-tipo de comprobación necesaria. 
-De este modo, se pueden realizar tareas como \gls{PenTest}s, tanto automáticas
-como manuales sobre el producto a analizar, asegurando aun mas su robustez frente
-a atacantes externos.
+tipo de comprobación necesaria.  De este modo, se pueden realizar tareas como
+\gls{PenTest}s, tanto automáticas como manuales sobre el producto a analizar,
+asegurando aun mas su robustez frente a atacantes externos.
 
 \subsubsection{Detonantes}
  
 Esta sección sirve como hilo conductor del diagrama, explicando que el flujo de
-desarrollo va de izquierda a derecha.
-A lo largo de esta línea conductora, aparecen una serie de acciones que realizan
-uno o varios equipos involucrados en el desarrollo del proyecto.
-Cada una de las acciones inicia las tareas a las que apunta en la sección
-inferior.
+desarrollo va de izquierda a derecha.  A lo largo de esta línea conductora,
+aparecen una serie de acciones que realizan uno o varios equipos involucrados en
+el desarrollo del proyecto.  Cada una de las acciones inicia las tareas a las
+que apunta en la sección inferior.
 
 \subsubsection{Tareas}
 
-Finalmente llegamos a la sección más importante del diagrama.
-En esta parte se especifican las tareas automáticas o manuales que se deben
-pasar satisfactoriamente para que el código del proyecto pase a ser desplegado
-en el entorno de producción.
-A medida que el desarrollo va cobrando forma, va avanzando a lo largo del
-\gls{pipeline}.
-La finalidad del pipeline es ordenar las tareas de esta sección para que se tenga
-que invertir el menor tiempo posible en la revision del código.
-La función del código es demostrar que es capaz de pasar satisfactoriamente por
-todas las revisiones establecidas a lo largo del \gls{pipeline}.
+Finalmente llegamos a la sección más importante del diagrama.  En esta parte se
+especifican las tareas automáticas o manuales que se deben pasar
+satisfactoriamente para que el código del proyecto pase a ser desplegado en el
+entorno de producción.  A medida que el desarrollo va cobrando forma, va
+avanzando a lo largo del \gls{pipeline}.  La finalidad del pipeline es ordenar
+las tareas de esta sección para que se tenga que invertir el menor tiempo
+posible en la revision del código.  La función del código es demostrar que es
+capaz de pasar satisfactoriamente por todas las revisiones establecidas a lo
+largo del \gls{pipeline}.
  
 % Describir la serie de investigaciones y referencias encontradas, que dicen que
 % un pipeline DevSecOps debe tener estos requisitos, para ir bien.
@@ -1417,7 +1340,8 @@ En esta fase, se ha realizado una prueba d
 
 \subsection{Inferencia de tareas y tiempos a partir del diagrama}
 
-\subsection{Estrategia a largo plazo de implementación del pipeline de seguridad}
+\subsection{Estrategia a largo plazo de implementación del pipeline de
+seguridad}
 
 \subsection{Indicadores de éxito frente a los cambios}
 
@@ -1435,7 +1359,8 @@ En esta fase, se ha realizado una prueba d
 
 % Los resultados de la prueba de concepto
 
-% La implementación de esa prueba de concepto a la realidad (Securizar pipelines de v3 web runner)
+% La implementación de esa prueba de concepto a la realidad (Securizar pipelines
+% de v3 web runner)
 
 \chapter{Conclusiones}
 
