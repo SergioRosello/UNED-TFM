@@ -258,8 +258,8 @@ sectores del mundo del software, que hasta hace poco, no han estado muy
 interrelacionados: la seguridad y la metodología de desarrollo ágil.
 
 No obstante, este objetivo también nace del desarrollo en estos últimos años en
-mi carrera profesional, tanto como ingeniero en QA como en DevOps en Scalfast.
-Ambos me han llevado a focalizar mi futuro profesional hacia el sector de la
+mi carrera profesional, tanto como ingeniero en QA como en DevOps en Scalefast.
+Ambos me han llevado a localizar mi futuro profesional hacia el sector de la
 Auditoria y la monitorización de la seguridad. Así mismo, tanto la evolución
 personal como la  profesional, han hecho que me diera cuenta que garantizar que
 una aplicación sea segura conlleva un tratado de datos y registros masivo. Así
@@ -389,7 +389,7 @@ van a realizar y crear un plan a medio o largo plazo de las responsabilidades
 como equipo de seguridad.
 
 %TODO: Asegurar que es lo que vamos a hacer después, porque no lo se aun Hasta
-%aquí puedo escribir ahora, porque no he llagado mas lejos.  lo demás sera
+%aquí puedo escribir ahora, porque no he llagado mas lejos.  Lo demás sera
 %mentira, y seguramente se tenga que cambiar
 
 Analizando el proceso, la propia construcción del pipeline queda representada en
@@ -620,13 +620,15 @@ version actual del software cumple con los nuevos requisitos.
 
 La sintaxis estándar de los tests de aceptación es la siguiente:
 
-\begin{lstlisting} Feature: Registro de usuario
+\begin{lstlisting} 
+Feature: Registro de usuario
 
   Background: Given la base de datos esta actualizada
 
-  Scenario: Usuario existente inicia sesion Given ya tengo cuenta en la
-aplicacion When introduzco mis credenciales correctamente Then inicio sesion en
-la aplicacion \end{lstlisting}
+  Scenario: Usuario existente inicia sesion Given ya tengo cuenta en la aplicacion 
+  When introduzco mis credenciales correctamente 
+  Then inicio sesion en la aplicacion 
+\end{lstlisting}
 
 De esta forma, se definen las características (``Features'') del producto a
 construir.  Cada característica engloba una serie de ``caminos felices'' que
@@ -825,7 +827,7 @@ describe el cambio de paradigma que surgirá en la web, a partir de 1999 y se
 pasa de tener paginas web estáticas a aplicaciones web, en las que los usuarios
 van a interactuar con el contenido. \cite{DiNucci1999} En el desarrollo de estas
 aplicaciones web, los desarrolladores implementaban las funcionalidades sin
-pensar en como otra gente pudiese romper la aplicacion para sacar provecho del
+pensar en como otra gente pudiese romper la aplicación para sacar provecho del
 sistema en el que corre, independientemente de la naturaleza y sector de la
 aplicacion.
 
@@ -856,7 +858,7 @@ cascada. \cite{royce1970}
 
 El sector de la seguridad ha ido creciendo en popularidad desde 1999, en el que
 se funda el CVE (Common Vulnerabilities and Exposures).  Entonces, el campo de
-la ciberseguridad ha sido relegado al mantenimiento de la aplicacion una vez
+la ciberseguridad ha sido relegado al mantenimiento de la aplicación una vez
 lanzada, pero actualmente la industria ha ido identificando la importancia de la
 seguridad a nivel de desarrollo y ha ido fomentando esta práctica, con
 filosofías como la de DevSecOps para convertirse en una parte fundamental del
@@ -866,7 +868,7 @@ proceso de desarrollo de software ágil de hoy en día.
 
 Siguiendo la inercia del movimiento DevOps, adoptado al inicio por grandes
 empresas y seguido de medians y pequeñas empresas, DevSecOps es una extension de
-la misma filosofía, reconociendo a la seguridad de la aplicacion y del entorno
+la misma filosofía, reconociendo a la seguridad de la aplicación y del entorno
 en el que se ejecuta como un factor igual de importante en el ciclo de vida del
 software.
 
@@ -1069,7 +1071,7 @@ serie de comprobaciones que podemos realizar sobre contenedores.  Posteriormente
 se entra en detalle sobre este aspecto.
 
 Por otro lado, como no es necesario revisar la arquitectura sobre la que corre
-la aplicacion cada vez que se ejecuta un \Gls{pipeline}, no se va a entrar en
+la aplicación cada vez que se ejecuta un \Gls{pipeline}, no se va a entrar en
 detalle sobre las formas que existen para protegerla.
 
 Podemos entonces reducir en campo de revisiones a la capa de aplicacion.  En
@@ -1192,27 +1194,67 @@ específicos de la plataforma de Scalefast.
 %SAST
 El análisis de código estático del proyecto entero difiere del análisis estático
 de la fase anterior porque este tiene en consideración el proyecto entero, no
-solamente la parte en la que esta trabajando el desarrollador o grupo de
+solamente la parte en la que está trabajando el desarrollador o grupo de
 desarrolladores.  Ademas de asegurar una buena practica de programación, esta
 revision permite mantener una medida de calidad general del proyecto, comparable
 a lo largo del tiempo y versiones.  En el momento en el que todo el proyecto no
-supere un valor establecido con anterioridad, este commit no pasara el
+supere un valor establecido con anterioridad, este commit no pasará el
 \gls{pipeline} y los desarrolladores deberán arreglar el problema.  El commit
-tampoco parará la prueba de código estático si no sigue un estilo previamente
-definido o si detecta posibles indicadores de programación insegura, ya que esta
-herramienta lo revisa.
+tampoco pasará la prueba de código estático si no sigue un estilo previamente
+definido o si la herramienta de análisis detecta posibles indicadores de
+programación insegura.
 
 %CSA TODO: Acabar de escribir por aquí
-A medida que las 
+En 2019, ya existían indicios de que la industria iba a girar en torno a los
+contenedores.
+Así lo indican los datos obtenidos por el estudio realizado por Sandy Carielli
+para Forrester:
+``as of 2019, 33\% of global developers indicated that their development
+organizations currently use containers, and another 25\% said they want to do so
+over the next 12 months.''(\cite{Carielli2020}).
+El problema con esta gran adopción y crecida en popularidad es que la seguridad
+queda relegada a un segundo plano.
+Las empresas de seguridad no pueden desarrollar productos lo suficientemente
+rápido como para suplir la trayectoria hacia la nueva tecnología, en este caso,
+los contenedores y la industria acaba adaptando medidas de seguridad antiguas a
+estas nuevas tecnologías.
+Una de las nuevas medidas de seguridad creada específicamente para contenedores,
+es el análisis de contenedores.
+También llamado \gls{CSA}.
+Estas herramientas automatizables analizan las capas de las que están formados los
+contenedores en búsqueda de vulnerabilidades.
+Si las encuentran, notifican a los propietarios de los mismos.
+En el \gls{SDLC} que se pretende implementar en Scalefast, estas herramientas
+forman parte del \gls{pipeline}.
+Incluyendo este tipo de análisis en los \gls{pipeline}s, pretendemos asentar una
+base segura, sobre la que luego se despliega la aplicación. 
+Una de las posibles herramientas de análisis de contenedores es Snyk, que, en
+colaboración con Docker, permite analizar las imágenes con un solo comando.
+Otra, de código libre, es \href{https://github.com/docker/docker-bench-security}{docker-bench-security.}
 
 %DAST
+La mayor parte de ataques que debe poder soportar la aplicacion son ataques que
+se ejecutaran mientras esta esta en ejecución.
+Ademas de un análisis estático de código, también se debe analizar la aplicacion
+de forma dinámica.
+Este tipo de análisis también se llaman Tests de seguridad de aplicacion
+dinámicos o \gls{DAST}.
+Este análisis revisa que la aplicacion sea resistente a ataques interactivos,
+como \gls{XSS} o \gls{SQLi}.
+Estas herramientas analizan las respuestas que proporciona la aplicacion.
+Según el tipo de respuesta, la aplicacion de análisis dinámico comprueba si la
+aplicacion es o no vulnerable al ataque que se le intenta aplicar.
+En caso de que el ataque se realize con exito, el \gls{pipeline} falla y el
+equipo encargado de ese desarrollo deberá solucionar el fallo.
+
 
 %Non-funcional tests
 
 %Platform-specific tests (Common errors with our programming style, and
 %plataforma)
 
-\subsubsection{Despliegue} \subsubsection{Monitorización}
+\subsubsection{Despliegue} 
+\subsubsection{Monitorización}
 
 \subsection{Creación conceptual del pipeline}
 
