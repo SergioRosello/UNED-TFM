@@ -1087,19 +1087,23 @@ tienen una actitud mas madura respecto a DevOps, las que adoptan una serie de
 tecnologías mas actualizadas, como pueden ser análisis de contenedores o
 análisis dinámico.
 
-\begin{figure}[H] \includegraphics[width=\textwidth]{sonatype-tools}
+\begin{figure}[H] 
+  \includegraphics[width=\textwidth]{sonatype-tools}
+  \caption{Adopción de herramientas de seguridad por las empresas}
+  \label{fig:sonatype-tools}
 \end{figure}
 
-En la gráfica superior, se resalta que las empresas maduras en el campo DevOps,
-usan tecnologías automatizadas, como \gls{CSA}, \gls{DAST}, \gls{SCA} y
-\gls{IAST}.  Dado que se pretende rediseñar el \gls{SDLC} para que tenga en
-cuenta la seguridad en la aplicacion, es interesante revisar estas aplicaciones,
-para ver si se ajustan a lo que se quiere en Scalefast.  A continuación, se
-analizan, entre otras, estas tecnologías.
+En la gráfica superior (\ref{fig:sonatype-tools}) se resalta que las empresas
+maduras en el campo DevOps usan tecnologías automatizadas como \gls{CSA},
+\gls{DAST}, \gls{SCA} y \gls{IAST}.  
+Dado que se pretende rediseñar el \gls{SDLC} para que tenga en
+cuenta la seguridad a la hora de desarrollar nuestra plataforma, es interesante
+revisar estas aplicaciones, para ver si se ajustan a los requisitos de calidad
+que pretende obtener Scalefast con este cambio de ciclo de desarrollo.
+A continuación se analizan, entre otras, estas tecnologías.
 
-\subsubsection{Definición y análisis del proyecto}
+\subsubsection{Definición y análisis del proyecto} \label{definicionyanalisis}
 
-%TODO: seguir escribiendo por aquí
 En esta fase, mucha mas organizativa del ciclo de vida del desarrollo, no se
 pueden crear tareas automatizables para revisar la seguridad del software, ya
 que este aun no ha sido escrito.  En su contra, las técnicas que debemos aplicar
@@ -1178,7 +1182,7 @@ ventajas de crear un ciclo de vida seguro aunando cada una de estas
 herramientas, sobrepasa las 
 
 
-\subsubsection{Testeo del código}
+\subsubsection{Testeo del código} \label{testeodecodigo}
 
 Para llegar a esta fase del \gls{SDLC}, el código ha debido pasar
 satisfactoriamente por la fase de definición y análisis y por la fase de
@@ -1234,27 +1238,143 @@ Otra, de código libre, es \href{https://github.com/docker/docker-bench-security
 
 %DAST
 La mayor parte de ataques que debe poder soportar la aplicacion son ataques que
-se ejecutaran mientras esta esta en ejecución.
+se ejecutaran mientras esta está en ejecución.
 Ademas de un análisis estático de código, también se debe analizar la aplicacion
 de forma dinámica.
-Este tipo de análisis también se llaman Tests de seguridad de aplicacion
+Este tipo de análisis se llama Tests de seguridad de aplicacion
 dinámicos o \gls{DAST}.
 Este análisis revisa que la aplicacion sea resistente a ataques interactivos,
 como \gls{XSS} o \gls{SQLi}.
-Estas herramientas analizan las respuestas que proporciona la aplicacion.
-Según el tipo de respuesta, la aplicacion de análisis dinámico comprueba si la
+Estas herramientas analizan las respuestas que proporciona la aplicacion y
+según el tipo de respuesta, la aplicacion de análisis dinámico comprueba si la
 aplicacion es o no vulnerable al ataque que se le intenta aplicar.
-En caso de que el ataque se realize con exito, el \gls{pipeline} falla y el
-equipo encargado de ese desarrollo deberá solucionar el fallo.
-
+Al añadir esta herramienta al \gls{pipeline}, en caso de que el ataque se
+realize con éxito, el \gls{pipeline} falla y el equipo encargado de ese
+desarrollo deberá solucionar el fallo.
 
 %Non-funcional tests
+En cualquier aplicación que se cree, se deben especificar tanto los requisitos
+funcionales como los no funcionales ya que de nada sirve tener una aplicacion
+bancaria que cumple todos los requisitos funcionales, pero no consigue
+mantenerse estable cuando se conectan más de tres personas en el mismo momento.
+Los requisitos no funcionales definen justamente estas características.
+Revisando estas característica durante el ciclo de desarrollo, y no al final, se
+deben poder detectar con anterioridad estos problemas, en caso de que surjan.
+Existen varios tipos de tests no funcionales, cada uno revisa una parte de la
+aplicacion.
+Los tests de rendimiento revisan que la aplicacion responde a las peticiones en
+un tiempo inferior o igual a lo estipulado.
+Los tests de carga revisan que la aplicacion funciona correctamente y responde en
+un tiempo inferior o igual que el estipulado a las peticiones que le entran
+mientras está siendo usada por el máximo numero de usuarios posible en ese mismo
+instante. Bajo este tipo de estrés, la aplicacion no debería aumentar el tiempo
+de respuesta.
+Otro tipo de test no funcional es el test de estrés.
+Este tipo de tests miden la respuesta de la aplicacion a un nivel de trafico que
+excede lo esperado. Sirve para medir la capacidad de respuesta de la aplicacion
+en situaciones criticas.
+Es necesario tener en cuenta que cada proyecto debe tener sus propios requisitos no
+funcionales, por tanto, estas herramientas se deben configurar de acorde a las
+característica deseadas, pactadas tanto por el cliente como por la organización
+en la fase de definición y análisis del proyecto (\ref{definicionyanalisis}).
+
 
 %Platform-specific tests (Common errors with our programming style, and
 %plataforma)
+Además de los tests mencionados anteriormente, en Scalefast se ha decidido crear
+una serie de pruebas o revisiones que controlen aspectos específicos de nuestra
+plataforma.
+Esto incluye la revision de fallos comunes realizados por los desarrolladores,
+archivos de configuración que no deberían estar subidos al control de versiones
+o parámetros de configuración puestos para revisar el código en la fase de
+desarrollo, no la de producción.
+Todas estas revisiones se pueden automatizar en un script y poner como una tarea
+mas en la fase de testeo del \gls{pipeline}. 
+
+Una vez el desarrollo destinado al entorno de producción han pasado por
+todas estas fases (Definición y análisis del proyecto, Desarrollo del código
+fuente y testeo del código) del ciclo de vida del software y sus respectivas
+revisiones automáticas en forma de tareas dentro del \gls{pipeline} de
+desarrollo, la confianza en el código ya es muy alta.
 
 \subsubsection{Despliegue} 
-\subsubsection{Monitorización}
+
+Al ser un \gls{pipeline} centrado en la seguridad de la aplicación, una de las tareas
+que se pueden realizar en esta fase consiste en una prueba de penetración,
+también llamada \gls{PenTest} hacia la aplicacion.
+Esta prueba consiste en analizar las vulnerabilidades reportadas por las
+herramientas de análisis estático o dinámico, ademas de un análisis manual
+exhaustivo en busca de cualquier vulnerabilidad que pueda llegar a
+materializarse en una intrusion, con las consecuencias que esto conlleva.  
+Dependiendo de la importancia de la misma, las característica que tiene y el
+cliente al que va a ser destinado (Ya que puede ser una aplicacion interna o
+externa) se puede realizar una prueba de penetración sobre la aplicacion.
+
+Ademas de la prueba de penetración, si el proyecto esta desarrollado con
+contenedores, entonces se deberá realizar una prueba de seguridad de
+contenedores o \gls{CSA}.
+Aunque esta prueba ya se ha descrito en la fase de testeo de código,
+(\ref{testeodecodigo}) es importante realizarla en cada una de las fases en las
+que se crea o usa un contenedor distinto.
+Esto se debe a que, siguiendo las buena practicas, ``as images head
+to production you should remove everything that in’t absolutely necessary''
+(\cite{Armstrong2020}).
+La razón por la que se sugiere reducir las capas en las imágenes que van a
+ejecutar el código en el entorno de producción es para eliminar vulnerabilidades
+introducidas por frameworks o aplicaciones que no son necesarias para que se
+ejecute el código en producción.
+Al reducir el numero de vulnerabilidades en los contenedores que ejecutan el
+código en producción, sera mas complicado que los atacantes encuentren o usen
+una vulnerabilidad para ganar acceso a nuestro sistema.
+
+Una vez el código ha superado todas las tareas que contiene el \gls{pipeline}
+del \gls{SDLC}, ya se puede desplegar en producción.
+Todo el esfuerzo que se ha hecho en anterioridad es para que en este momento, el
+despliegue y mantenimiento de esta aplicacion o cambio sea lo mas sencillo
+posible.
+
+No obstante, todas las precauciones son pocas y pueden ocurrir casos en los que
+el proyecto desplegado haya pasado todas las pruebas, pero haya causado
+problemas en el entorno de producción.
+
+Herramientas como \href{https://sensu.io/}{sensu} sirven para monitorizar el
+despliegue y verificar que el cambio no ha desestabilizado el entorno de
+producción.
+
+\subsubsection{Monitorización} \label{monitorizacion}
+
+Ademas de supervisar la plataforma instantes antes, durante y después de un
+despliegue, esta se debe monitorizar constantemente.
+
+Gran parte de las tareas que ocurren en esta fase deben de ser continuas.
+En esta fase, se debe revisar el estado general de la aplicacion -- asegurando
+su estabilidad -- aunque haya variaciones no funcionales que pongan a prueba la
+aplicacion, como el nivel de trafico que debe gestionar en un momento dado.
+De estas tareas, normalmente se encarga el \acrfull{SRE}.
+
+Para llevar esta tarea a cabo, se emplean herramientas de análisis de recursos,
+como analizadores de disponibilidad.
+Estas herramientas lanzan consultas predefinidas a la aplicacion y miden el
+tiempo de respuesta.
+Este tiempo se contrasta con tiempos de respuesta pasados y se dibuja una
+gráfica con estos datos.
+Algunas herramientas mas avanzadas de monitorización, notifican a los analistas
+en el momento en el que los tiempos de respuesta se desvían de los esperados.
+
+Al igual que se mide la disponibilidad constantemente, también se debe medir las
+vulnerabilidades a las que esta expuesta nuestra aplicacion.
+Aunque no se haya actualizado la aplicacion, se pueden encontrar fallos de
+seguridad en módulos que componen la aplicacion, por tanto, es interesante
+mantener una lista actualizada de las vulnerabilidades que contiene la
+aplicacion en todo momento.
+
+%Conclusion
+Habiendo analizado todos los tipos de revisiones y aplicaciones que se pueden
+usar en el ciclo de vida del software, podemos concluir que todas estas
+aplicaciones automatizadas centradas en la seguridad promueven un desarrollo
+mucho mas consciente, intencionado y seguro.  Usando este tipo de políticas, se
+promueven las buenas practicas de programación y el seguimiento de los
+estándares de Scalefast.
 
 \subsection{Creación conceptual del pipeline}
 
