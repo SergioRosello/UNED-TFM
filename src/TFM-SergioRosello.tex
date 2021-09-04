@@ -1258,18 +1258,20 @@ funcionales como los no funcionales ya que de nada sirve tener una aplicacion
 bancaria que cumple todos los requisitos funcionales, pero no consigue
 mantenerse estable cuando se conectan más de tres personas en el mismo momento.
 Los requisitos no funcionales definen justamente estas características.
+Algunos de los requisitos no funcionales se pueden interpretar como
+\acrfull{SLO}, o objetivos que debe cumplir la aplicacion.
 Revisando estas característica durante el ciclo de desarrollo, y no al final, se
 deben poder detectar con anterioridad estos problemas, en caso de que surjan.
 Existen varios tipos de tests no funcionales, cada uno revisa una parte de la
 aplicacion.
-Los tests de rendimiento revisan que la aplicacion responde a las peticiones en
+Los \textbf{tests de rendimiento} revisan que la aplicacion responde a las peticiones en
 un tiempo inferior o igual a lo estipulado.
-Los tests de carga revisan que la aplicacion funciona correctamente y responde en
+Los \textbf{tests de carga} revisan que la aplicacion funciona correctamente y responde en
 un tiempo inferior o igual que el estipulado a las peticiones que le entran
 mientras está siendo usada por el máximo numero de usuarios posible en ese mismo
 instante. Bajo este tipo de estrés, la aplicacion no debería aumentar el tiempo
 de respuesta.
-Otro tipo de test no funcional es el test de estrés.
+Otro tipo de test no funcional es el \textbf{test de estrés}.
 Este tipo de tests miden la respuesta de la aplicacion a un nivel de trafico que
 excede lo esperado. Sirve para medir la capacidad de respuesta de la aplicacion
 en situaciones criticas.
@@ -1378,37 +1380,48 @@ estándares de Scalefast.
 
 \subsection{Creación conceptual del pipeline}
 
-En este momento de la investigación, se tiene una serie de tareas que se deben
-aplicar para mejorar la seguridad del desarrollo, pero estas deben ser aplicadas
-en momentos distintos del desarrollo.  Cuanto antes se pueda aplicar una
-revision, mejor, ya que vamos a reducir el nivel de esfuerzo que va a hacer
-falta para cambiar el desarrollo, si encontrásemos ese error en una fase mas
-avanzada del desarrollo.  Por ejemplo, si encontramos duplicidad de código
-cuando este está desplegado en producción, se tiene que crear un desarrollo
-nuevo, con todas sus fases (Definición, Commit, Testeo, Despliegue y
-Monitorización), mientras que si encontramos la misma duplicidad de código en la
-fase de desarrollo, el desarrollador puede cambiar en ese momento el código que
-esta duplicado y este nunca llegara a producción reduciendo así el tiempo
-destinado a esa misma tarea ademas de las posibles repercusiones de seguridad
-que puedan suponer para producción. 
+Habiendo terminado la investigación inicial que resume las aplicaciones o tareas
+usadas en la industria en el ciclo de vida del software, se procede a documentar
+el ciclo de vida del software que se quiere implementar en Scalefast.
+Esta documentación, una vez terminada se re-interpreta en forma de diagrama.
+La intención del diagrama destinado a los miembros del equipo de
+\acrfull{AppSec}, es resumir de un vistazo la meta a la que debemos llegar.
+Por tanto este diagrama debe representar todo el ciclo de vida del desarrollo,
+desde la fase de definición y análisis del proyecto hasta la fase de
+monitorización del mismo.
+ 
+Durante la redacción del documento de ciclo de vida del software a nivel de
+seguridad, se sigue la filosofía de llevar la seguridad a la izquierda porque
+``By better integrating information security (InfoSec) objectives into daily
+work, teams can achieve higher levels of software delivery performance and build
+more secure systems'' (\cite{GoogleDOT})
+por lo contrario, si encontrásemos ese error en una fase más avanzada del
+desarrollo, este mismo cambio requeriría mas esfuerzo, mas tiempo y mas dinero
+para solucionarse.
 
-Para definir la estrategia de automatización de despliegues, se ha procedido a
-crear un diagrama que resuma, en un vistazo todo el ciclo de vida del código
-,desde su concepción, hasta su monitorización.  A lo largo de la linea temporal
-de este diagrama, se visualizan las tareas que, se ha decidido implementar.
-Algunas de estas tareas llevan mucho tiempo de implementar y otras, son bastante
-mas sencillas de llevar a cabo.
+Por ejemplo, si encontramos duplicidad de código cuando este está desplegado en
+producción, se tiene que crear un desarrollo nuevo, con todas sus fases
+(Definición, Commit, Testeo, Despliegue y Monitorización), mientras que si
+encontramos la misma duplicidad de código en la fase de desarrollo, el
+desarrollador puede cambiar en ese momento el código que esta duplicado y este
+nunca llegara a producción reduciendo así el tiempo destinado a esa misma tarea
+ademas de las posibles repercusiones de seguridad que puedan suponer para
+producción. 
 
-\begin{figure}[H] \includegraphics[width=\textwidth]{SDLC-Sec} \end{figure}
+A continuación se presenta el diagrama que resume el documento del \gls{SDLC},
+mas adelante se procede a explicar sus fases y composición.
 
-La asignación de las tareas a un espacio temporal real, para ir asignándoles
-prioridades, se describirá en la siguiente sección.
+\begin{figure}[H] 
+  \includegraphics[width=\textwidth]{SDLC-Sec}
+  \label{fig:SDLCOverview}
+\end{figure}
 
 Como podemos ver en el diagrama, este está dividido en varias filas.  Cada una
-de estas filas agrupa una serie de fases, eventos, detonantes, o tareas que
-ocurren a medida que se desenvuelve el ciclo de vida del proyecto.
+de estas filas agrupa una serie de \textbf{fases, eventos, detonantes}, o
+\textbf{tareas} que ocurren a medida que se desenvuelve el ciclo de vida del
+proyecto.
 
-En las siguientes secciones, se describen las secciones del diagrama, para
+En las siguientes secciones, se describen las partes del diagrama, para
 lograr una comprensión global del mismo.  Recordemos que la finalidad de este
 diagrama es proporcionar una vision idílica del estado al que queremos llegar.
 De este diagrama, se van a extrapolar las tareas necesarias y se les va a
@@ -1463,38 +1476,74 @@ función es contextualizar el diagrama.  En esta sección, se introduce el
 concepto de entornos.  Estos entornos, representados por un rectángulo con el
 borde superior derecho doblado simbolizan la arquitectura sobre la que se debe
 ejecutar el desarrollo.  En cada sección del ciclo de vida de desarrollo, se
-debe tener un entorno.  Este estrategia de desarrollo se centra en asegurar que
-los despliegues no van a romper el código en el entorno de producción, porque ya
-se ha despegado el código de producción en un entorno idéntico previamente.
-Como beneficio a nivel de seguridad, desplegar el proyecto en un entorno de
-staging, proporciona al analista de seguridad la opción de realizar cualquier
-tipo de comprobación necesaria.  De este modo, se pueden realizar tareas como
-\gls{PenTest}s, tanto automáticas como manuales sobre el producto a analizar,
-asegurando aun mas su robustez frente a atacantes externos.
+debe usar un entorno distinto. Este estrategia de desarrollo se centra en 
+
+Minimizar la exposición a vulnerabilidades adquiridas por las dependencias que
+componen las imágenes o contenedores que usa la aplicación.
+Ademas, al ejecutar la aplicacion en cada uno de los entornos repetidamente --
+una por cada \gls{commit} -- y la necesidad de que el \gls{commit} supere todas
+las tareas del \gls{pipeline}, implica que el entorno sobre el que se ejecuta la
+aplicacion se ha desplegado multiples veces.  Esto proporciona un nivel de
+confianza explícitamente acumulada que nos sugiere que los despliegues no van a
+romper la aplicación en el entorno de producción porque ya se ha despegado dicha
+aplicación en el mismo entorno de un \gls{pipeline} anterior.  Como beneficio a
+nivel de seguridad, desplegar el proyecto en un entorno de staging, proporciona
+al analista de seguridad la opción de realizar cualquier tipo de comprobación
+necesaria.  De este modo, se pueden realizar tareas como \gls{PenTest}s, tanto
+automáticas como manuales sobre el producto a analizar, asegurando aun mas su
+robustez frente a atacantes externos.
 
 \subsubsection{Detonantes}
  
 Esta sección sirve como hilo conductor del diagrama, explicando que el flujo de
-desarrollo va de izquierda a derecha.  A lo largo de esta línea conductora,
+desarrollo va de izquierda a derecha.
+
+De hecho, el termino ``Shifting left'' proviene del informe realizado por Puppet
+y DORA en 2015. En el informe de 2016 acunan el termino de la siguiente manera:
+``“Shifting left” is about building quality  into the software development
+process. When you shift left, fewer things break in production, because any
+issues are detected and resolved earlier. ''(\cite{SODO2016})
+Este termino hace referencia a que ``When you shift left, instead of testing
+quality only at the end, you have multiple feedback loops along the way to
+ensure that software gets delivered to users quickly, at a high level of
+quality.''(\cite{SODO2016}).
+
+Siguiendo con el análisis del diagrama, a lo largo de esta línea conductora,
 aparecen una serie de acciones que realizan uno o varios equipos involucrados en
-el desarrollo del proyecto.  Cada una de las acciones inicia las tareas a las
-que apunta en la sección inferior.
+el desarrollo del proyecto.
+Cada una de las acciones referencia al grupo de tareas de la sección inferior.
 
 \subsubsection{Tareas}
 
 Finalmente llegamos a la sección más importante del diagrama.  En esta parte se
-especifican las tareas automáticas o manuales que se deben pasar
+especifican las tareas automáticas o manuales que deben completarse
 satisfactoriamente para que el código del proyecto pase a ser desplegado en el
-entorno de producción.  A medida que el desarrollo va cobrando forma, va
-avanzando a lo largo del \gls{pipeline}.  La finalidad del pipeline es ordenar
-las tareas de esta sección para que se tenga que invertir el menor tiempo
-posible en la revision del código.  La función del código es demostrar que es
-capaz de pasar satisfactoriamente por todas las revisiones establecidas a lo
+entorno de producción.  
+
+El estado del \gls{pipeline} representa el estado del desarrollo ya que a medida
+que va avanzando el desarrollo a través del \gls{pipeline}, este va superando
+mas tareas y transmitiendo mas confianza en la calidad del desarrollo.
+
+La función del pipeline es 
+garantizar la mayor calidad posible mediante tareas, construyendo confianza en
+el \gls{commit} a medida que este progresa a través del \gls{pipeline}.
+Mientras que la función del código es demostrar que es
+capaz de pasar satisfactoriamente por todas las tareas establecidas a lo
 largo del \gls{pipeline}.
  
-% Describir la serie de investigaciones y referencias encontradas, que dicen que
-% un pipeline DevSecOps debe tener estos requisitos, para ir bien.
-En esta fase, se ha realizado una prueba d
+Las tareas deben estructurarse cautelosamente a lo largo del \gls{pipeline}, ya que su posición tienen una relación directa
+con la capacidad de reacción y productividad de los desarrolladores.
+Aunque se ha dicho que se deben pasar todas las tareas hacia la izquierda, si
+estas tareas tardan mucho en ejecutarse, los desarrolladores van a perder mucho
+tiempo en las fases iniciales del desarrollo.
+En estas fases iniciales, la frecuencia de commits es muy superior a la de las
+fases mas avanzadas del desarrollo en las que el software esta mas evolucionado.
+``The commit stage should ideally take less than five minutes to run, and
+certainly no more than ten minutes'' (\cite{Humble2010}) en caso contrario, la concentración y productividad del
+desarrollador se ven alteradas negativamente.
+En cuanto a las fases en las que el desarrollo está mas avanzado, estas siguen
+teniendo que ser lo suficientemente rápidas como para que el desarrollador no
+quiera evitar correrlas.
 
 %TODO: Seguir escribiendo por aquí
 
@@ -1509,7 +1558,7 @@ seguridad}
 
 \chapter{Desarrollo de una tarea para el pipeline de seguridad}
 
-\section{Securizacion de claves}
+\section{Securizacion de claves con HASHICORP Vault}
 
 % Explicar como se ha llegado a HASHICORP Vault.
 
