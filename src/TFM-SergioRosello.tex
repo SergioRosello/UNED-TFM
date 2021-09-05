@@ -903,7 +903,9 @@ las empresas que ya han adoptado el modelo DevOps, están añadiendo ``jobs'' a 
 que no han adoptado una filosofía DevOps, quieren pasar directamente a
 DevSecOps.
 
-\begin{figure} \includegraphics[width=\textwidth]{devsecops.png} \end{figure}
+\begin{figure} 
+  \includegraphics[width=\textwidth]{devsecops.png} 
+\end{figure}
 
 Como podemos observar en el gráfico anterior, el modelo de desarrollo basado en
 una filosofía DevSecOps, mueve las comprobaciones de seguridad desde la fase de
@@ -1543,18 +1545,217 @@ certainly no more than ten minutes'' (\cite{Humble2010}) en caso contrario, la c
 desarrollador se ven alteradas negativamente.
 En cuanto a las fases en las que el desarrollo está mas avanzado, estas siguen
 teniendo que ser lo suficientemente rápidas como para que el desarrollador no
-quiera evitar correrlas.
+quiera evitar correrlas, pero revisar el código de una forma mucho mas minuciosa.
 
-%TODO: Seguir escribiendo por aquí
+Finalmente, una vez terminado el documento del ciclo de vida del desarrollo y se
+plasma de forma visual en el diagrama \gls{SDLC} (\ref{fig:SDLCOverview}), se
+debe iniciar la planificación de las tareas a realizar para llegar a ese punto.
 
 \section{Implementación de la estrategia del cambio de pipeline}
 
+Scalefast es una compañía de unos doscientos empleados, esto quiere decir que la
+capacidad que tiene de cambio de procesos sigue siendo ágil, pero no tanto como
+en una Startup pequeña.
+Por este motivo, para llevar a cabo todos estos cambios, se debe ser respetuoso
+y empalico con los desarrolladores, que, acostumbrados a tener un ciclo de vida
+que ya conocen, ahora deben leer y entender el nuevo ciclo de vida deseado,
+aportar sus opiniones y posteriormente adoptarlo como propio.
+
+Aunque los cambios que se plantean en esta reforma del ciclo de vida tienen poca
+relación con la tarea básica del desarrollo de software, si van a modificar la
+forma en la que se trabaja en Scalefast, ya que en el planteamiento teórico del
+nuevo ciclo de vida, mucha mas energía va a ser requerida en las primeras fases
+de desarrollo, comparado con la situación anterior, en la que las primeras fases
+eran mas sencillas de llevar a cabo.
+
 \subsection{Inferencia de tareas y tiempos a partir del diagrama}
+
+Implementar los cambios que se plantean en esta nueva propuesta no es tarea
+sencilla, ya que exige un desarrollo por parte del equipo de \gls{App-Sec}.
+Es por esto que el primer paso una vez se ha definido el nuevo ciclo de vida al que
+queremos llegar, es la inferencia de tareas y toma de tiempos.
+
+%Inferencia de tareas
+Teniendo el diagrama del ciclo de vida, se deben inferir las tareas a llevar a
+cabo para llegar al \gls{SDLC} propuesto.
+En esta fase, se analiza granularmente la sección ``Tareas'' del diagrama
+\gls{SDLC} (\ref{fig:SDLCOverview}).
+
+\begin{figure}[H]
+  \includegraphics[width=\textwidth]{SDLC-Sec-SecJobs.png} 
+  \label{fig:SDLCOverview-jobs}
+\end{figure}
+
+Cada una de estas tareas se traduce a un Topic.
+Cada topic se compone en tickets.
+A estos tickets, se les estima el tiempo que se va a dedicar en desarrollarlos.
+Se hace este ejercicio por cada tarea que queremos llevar a cabo.
+Al final, nos encontramos con una serie de topics, que debemos ordenar en cuando
+a prioridades.
+
+Por ejemplo, posiblemente, implementar una estrategia de
+\href{https://docs.gitlab.com/ee/user/project/code_owners.html}{CODEOWNERS}
+sea mas rápido que implementar una revision de código estático, pero si se ha
+establecido mas prioritario lo segundo, entonces se posicionará antes en la lista de
+tareas que debemos llevar a cabo.
+
+Siguiendo con el ejemplo de los 
+\href{https://docs.gitlab.com/ee/user/project/code_owners.html}{CODEOWNERS}:
+Se segmenta la tarea ``Source code review by colleagues'' de la siguiente forma:
+
+\begin{itemize}
+  \item{\textbf{Topic:} ``Source code review by colleagues''}
+    \subitem{\textbf{Ticket:} Research automated methods of ensuring source code
+    review}
+    \subitem{\textbf{Ticket:} Create \gls{PoC} demonstrating the solution}
+    \subitem{\textbf{Ticket:} Implementation}
+\end{itemize}
+
+En este ultimo ticket, se describe la solución a la que se ha llegado en los dos
+anteriores -- En este caso, seria usar
+\href{https://docs.gitlab.com/ee/user/project/code_owners.html}{CODEOWNERS} --
+y se divide en las fases que se estimen necesarias:
+
+\begin{itemize}
+  \item{Create groups}
+  \item{Speak with \gls{HoT} to decide what files should be protected}
+  \item{Map files to users}
+  \item{Development of feature}
+\end{itemize}
+
+Una vez se desglosan las tareas, se calculan los tiempos iniciales (L0) que se
+estima que duran.
+Al acabar de estimar el tiempo de todas las tareas, se ordenan por prioridades y
+se crea una estrategia de desarrollo a largo plazo.
 
 \subsection{Estrategia a largo plazo de implementación del pipeline de
 seguridad}
 
-\subsection{Indicadores de éxito frente a los cambios}
+Aunque todas las herramientas y recomendaciones del ciclo de vida propuesto son
+interesantes, cada una aporta ciertas características.
+Dependiendo del estado de madurez de la organización en la que se va a implementar, 
+es recomendable empezar por unas u otras herramientas y procesos.
+
+En el estudio realizado por DORA y Google en enero de 2020, se ve claramente que
+si se quiere llegar a mejorar el ``Software delivery and operational
+performance'', entonces, se debe trabajar en areas como ``Change approvals'', o
+``Lean product development'' entre otras (\cite{DORA2020}).
+
+\begin{figure}[H]
+  \includegraphics[width=\textwidth]{DORA-SDOP}
+  \caption{Camino hacia una mejora en el despliegue de software y rendimiento
+  operacional}
+  \label{fig:DORA-SDOP}
+\end{figure}
+
+Este diagrama valida el esfuerzo que se esta haciendo en Scalefast por actualizar
+el desarrollo de software para que siga un proceso mucho mas ágil.
+
+Siguiendo con esta iniciativa, en el departamento de \gls{App-Sec}, se deben
+priorizar las tareas a llevar a cabo.
+Se ha decidido empezar por las tareas que menos tardan en implementarse pero que
+mas repercusión tienen a la hora de mejorar el \gls{SDLC}.
+
+Por este motivo, unas de las primeras tareas que se han seleccionado son la
+revision de código fuente por compañeros de equipo, que finalmente se hará
+estableciendo una política de 
+\href{https://docs.gitlab.com/ee/user/project/code_owners.html}{CODEOWNERS} y
+una herramienta para almacenar las credenciales de forma segura a lo largo de
+todo el ciclo de vida del desarrollo de software.
+Esta tarea usa \href{https://www.hashicorp.com/products/vault}{HASHICORP Vault}
+como base de datos de los secretos de la aplicacion principal y pipeline que se
+encarga de revisar el estado del despliegue.
+
+Se han escocido estas dos tareas porque la primera añade directamente una
+revision por parte de otro miembro de la organización, ademas, solo lo requiere
+si es necesario, ya que si el archivo que se cambia no es critico, no se
+requiere aprobación. Este proceso agiliza el desarrollo de software a la vez que
+lo protege ante cambios indeseados a archivos críticos.
+Por otro lado, se ha decidido usar
+\href{https://www.hashicorp.com/products/vault}{HASHICORP Vault} 
+porque asienta las bases de gestión de secretos para poder crear una estrategia
+de despliegue de código en producción de forma automatizada y segura.
+
+Al separar las tareas pendientes en una linea temporal, esta se prolonga hasta la
+la segunda mitad de 2022.
+%TODO: Seguir con las tareas: Añadir el listado de ellas y su distribución
+%temporal
+
+%TODO: Hablar de la organización de las tareas en quarters.
+
+\subsection{Indicadores de éxito}
+
+%Por que tomarlos
+En los estudios se demuestra que las empresas lideres en el sector tienen una cultura
+\gls{DevSecOps} madura. %TODO: Añadir una referencia a un estudio.
+Estos estudios pueden servir para conseguir un voto de confianza por parte de los
+responsables directivos, pero para poder llevar a cabo el proyecto entero,
+(sabiendo que tiene una estimación temporal mínima y que mantiene a todo el equipo
+\gls{App-Sec} ocupado al menos hasta la segunda mitad de 2022) deben existir
+datos propios, que justifiquen el esfuerzo que se esta realizando.
+Una forma de justificar el esfuerzo, es mediante indicadores.
+
+%Ventajas
+La ventaja de estos indicadores, es que no solo sirven al \gls{c-level} para
+tomar las decisiones estratégicas de la empresa, sino que son útiles a toda la
+parte técnica de la empresa.
+Tanto los desarrolladores, \gls{DTL}, como los \gls{HoT} obtienen
+información valiosa de estos indicadores y pueden medir y probar estrategias
+contra un indicador o una medición base, construyendo así confianza explícita en
+la estrategia que han tomado.
+Esto proporciona a los equipos de desarrollo mucha agilidad.
+
+%Ejemplos de indicadores
+En el equipo de \gls{App-Sec}, los indicadores no son tan dinámicos como en el
+equipo de desarrollo, debido a que la mayoría de las aplicaciones que se manejan
+son preventivas, no reactivas.
+Esto quiere decir que la mayor parte de las veces no partimos de una base sobre
+la que medir, sino que se construye para que no sucedan problemas.
+Aun así, algunos ejemplos de indicadores que sirven para ambos equipos pueden
+ser el numero de errores que ha detectado la aplicacion de análisis estático de
+código, el porcentaje de \gls{coverage} que tiene el código o el numero de
+secretos que contiene el \gls{commit} candidato a producción.
+
+% Como se miden?
+Para medir la repercusión de los cambios implementados, \textbf{primero} se definen estos
+indicadores, teniendo en cuenta que deben ser lo suficientemente generales como
+para que no dependan de una tecnología, pero lo suficientemente específicos
+como para que no se pierda su valor en posibles factores externos.
+\textbf{Seguidamente} se miden, a poder ser, de forma automática el nivel base en el
+que esta la plataforma en el momento de la medición.
+
+%Cuando se miden
+Estos indicadores deben medirse constantemente, o bien al pasar un periodo de
+tiempo estipulado con anterioridad, o bien cuando se ha realizado un cambio que
+afecta directamente estos indicadores.
+
+%Herramientas que los midan
+A medida que estos indicadores van madurando, se puede plantear crear una
+plataforma que los mida de forma automática y cree un informe de las variaciones
+de los indicadores que mas han fluctuado.
+
+% Indicadores de éxito comunes
+Los indicadores, cuando se usan en común con otras empresas, también pueden
+servir para comparar la madurez de las mismas, en este caso en particular, de
+los procesos \gls{DevSecOps}.
+Algunos de los indicadores mas populares son:
+El \textbf{``Lead time''}, esto es, el tiempo estimado desde que el código se ha subido
+al control de versiones, hasta que ese mismo código se ha desplegado en
+producción.
+El \textbf{``Deploy frequency''}, mide la frecuencia con la que se despliegan
+cambios al entorno de producción.
+El \textbf{``Time to restore''} mide el tiempo que se tarda en restaurar el
+servicio cuando ocurre algún contratiempo o incidente que afecta a los usuarios.
+Por ultimo esta el \textbf{``Change fail percentage''}, que mide el porcentaje
+de veces que se despliegan a producción cambios que desestabilizan la plataforma
+y requieren acción.
+
+%Que indicadores de éxito se han seleccionado?
+Para medir el impacto de las dos tareas mencionadas anteriormente, se pueden
+usar indicadores como el ``lead time'' o el ``numero de secretos en el entorno de
+producción''.
+
+%TODO: Seguir escribiendo por aquí
 
 \chapter{Desarrollo de una tarea para el pipeline de seguridad}
 
