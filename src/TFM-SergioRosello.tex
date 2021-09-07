@@ -969,14 +969,14 @@ anteriormente, en la metodología ágil.  Actualmente, la empresa tiene un
 ``jobs'' o pruebas automáticas en cada commit vinculado a un \acrfull{mr} que se
 sube al repositorio de código.  Un \textit{\gls{pipeline}} es la pieza clave del
 ciclo de vida del software, responsable de asegurar la calidad de los
-desarrollos que se integran a producción y que por ende, de forma indirecta,
-definen la calidad de la empresa.  Dicho esto, es importante recordar que el
+desarrollos que se integran a producción y que, de forma indirecta,
+definen la calidad de la empresa.  De la misma forma, es importante recordar que el
 desarrollo del \textit{\gls{pipeline}} debe seguir siempre el modelo de
-desarrollo de software que él mismo promueve, el desarrollo iterativo e
-incremental.  Comprendido esto, es evidente que su desarrollo deberá seguir
+desarrollo de software que él mismo promueve, es decir, el desarrollo iterativo e
+incremental.  Dicho esto, es evidente que su desarrollo deberá seguir
 siendo una prioridad de la empresa.  En vista de la progresión de Scalefast,
-debemos evolucionar el pipeline, haciendo que tienda mas hacia la integración y
-despliegues continuous, centrando ademas el desarrollo de software en la
+debemos evolucionar el pipeline, haciendo que tienda más hacia la integración y
+despliegues continuos, centrándonos, además en el desarrollo de software en la
 seguridad.  
 
 \subsection{Problemas encontrados y mejoras}
@@ -984,24 +984,22 @@ seguridad.
 Una de las razones por las que se decide actualizar el \textit{\gls{pipeline}}
 es porque se quiere promover el desarrollo seguro desde el inicio del ciclo de
 vida del proyecto.  Actualmente, la forma que tenemos de revisar la seguridad
-del proyecto que creamos es mediante un análisis manual de seguridad una vez ha
-terminado el desarrollo del proyecto.  Los inconvenientes heredados de seguir
-esta metodología de desarrollo actualmente son que en el momento en el que se
-encuentra una vulnerabilidad, el tiempo que se tarda en desarrollar una solución
-para el problema incluye el tiempo en analizar el problema, la asignación al
-desarrollador responsable de ese fallo de seguridad, o a uno nuevo, el
-planteamiento de la solución del problema, el desarrollo de la misma, la
-revision, para asegurar que el fallo esta neutralizado y la subsecuente revision
-para asegurar que no se han añadido fallos de regresión o nuevas
-vulnerabilidades.  En cambio, si se incluye un analista de seguridad desde la
-fase de concepción del proyecto, durante el ciclo de vida del desarrollo y
-ademas, se crean \textit{\gls{job}s} para analizar la parte mas automatizable
-del desarrollo, entonces, se reduce considerablemente la probabilidad de
-encontrar un fallo en los últimos pasos del desarrollo del proyecto.  Este es el
-punto al que queremos llegar.
+del proyecto es mediante un análisis manual de seguridad una vez ha
+terminado el desarrollo del mismo.  
 
-A medida que Scalefast ha crecido, tanto en clientes como en empleados y
-proyectos que abarcamos, se han identificado una serie de problemas con el
+Por otro lado, los inconvenientes heredados de seguir
+esta metodología de desarrollo se encuentran en el momento en el que aparece una vulnerabilidad. Así pues, el plazo que se tarda en elaborar una solución
+incluye: el tiempo en analizar el problema, la asignación del
+desarrollador responsable, el
+planteamiento de la solución del problema, el desarrollo de la misma, la
+revisión (para asegurar que el fallo esta neutralizado) y la subsecuente revisión. La finalidad, pues, es asegurar que no se han añadido fallos de regresión o nuevas
+vulnerabilidades.  
+En cambio, si se incluye un analista de seguridad desde la
+fase de concepción del proyecto, durante el ciclo de vida del desarrollo y se crean \textit{\gls{job}s}, para analizar la parte mas automatizable
+del desarrollo, se reduce considerablemente la probabilidad de
+encontrar un fallo en los últimos pasos del desarrollo del proyecto.
+
+Llegados a este punto, a medida que Scalefast ha crecido, se han identificado una serie de problemas con el
 \textit{\gls{pipeline}} que usamos actualmente: 
 
 \begin{itemize} \item{Se introducen cambios a producción manualmente} \item{No
@@ -1021,7 +1019,7 @@ abordar de distinta forma.
 Recientemente, Mike Ensor y Drew Stevens publicaron un ``paper'' titulado
 ``Shifting left on security''.  En él, explican las diferentes fases de el ciclo
 de vida del software, y como añadir elementos de seguridad a lo largo del
-``pipeline''.  Desde la planificación del proyecto, hasta el despliegue del
+``pipeline''.  Desde la planificación del proyecto hasta el despliegue del
 mismo.  Algunas de las técnicas que recomiendan en su ``paper'' tienen gran
 importancia. Por ejemplo,  el uso de registros de imágenes privadas, cuyas
 imágenes y recursos están identificadas y verificadas a la hora de desplegarse;
@@ -1073,7 +1071,7 @@ serie de comprobaciones que podemos realizar sobre contenedores.  Posteriormente
 se entra en detalle sobre este aspecto.
 
 Por otro lado, como no es necesario revisar la arquitectura sobre la que corre
-la aplicación cada vez que se ejecuta un \Gls{pipeline}, no se va a entrar en
+la aplicación cada vez que se ejecuta un \Gls{pipeline} no se va a entrar en
 detalle sobre las formas que existen para protegerla.
 
 Podemos entonces reducir en campo de revisiones a la capa de aplicacion.  En
@@ -1086,7 +1084,7 @@ Según revela el estudio anual \nocite{sonatype2020} realizado en 2020 por
 \href{https://sonatype.com}{Sonatype}, podemos observar que la mayor parte de
 las empresas están concienciadas con la seguridad, pero que solo son las que
 tienen una actitud mas madura respecto a DevOps, las que adoptan una serie de
-tecnologías mas actualizadas, como pueden ser análisis de contenedores o
+tecnologías mas actualizadas como pueden ser análisis de contenedores o
 análisis dinámico.
 
 \begin{figure}[H] 
@@ -1199,7 +1197,7 @@ específicos de la plataforma de Scalefast.
 
 %SAST
 El análisis de código estático del proyecto entero difiere del análisis estático
-de la fase anterior porque este tiene en consideración el proyecto entero, no
+de la fase anterior ya que este tiene en consideración el proyecto entero, no
 solamente la parte en la que está trabajando el desarrollador o grupo de
 desarrolladores.  Ademas de asegurar una buena practica de programación, esta
 revision permite mantener una medida de calidad general del proyecto, comparable
@@ -1239,36 +1237,36 @@ colaboración con Docker, permite analizar las imágenes con un solo comando.
 Otra, de código libre, es \href{https://github.com/docker/docker-bench-security}{docker-bench-security.}
 
 %DAST
-La mayor parte de ataques que debe poder soportar la aplicacion son ataques que
+La mayor parte de ataques que debe poder soportar la aplicación son ataques que
 se ejecutaran mientras esta está en ejecución.
-Ademas de un análisis estático de código, también se debe analizar la aplicacion
+Además de un análisis estático de código, también se debe analizar la aplicación
 de forma dinámica.
-Este tipo de análisis se llama Tests de seguridad de aplicacion
+Este tipo de análisis se llama Tests de seguridad de aplicación
 dinámicos o \gls{DAST}.
-Este análisis revisa que la aplicacion sea resistente a ataques interactivos,
+Este análisis revisa que la aplicación sea resistente a ataques interactivos,
 como \gls{XSS} o \gls{SQLi}.
-Estas herramientas analizan las respuestas que proporciona la aplicacion y
-según el tipo de respuesta, la aplicacion de análisis dinámico comprueba si la
-aplicacion es o no vulnerable al ataque que se le intenta aplicar.
+Estas herramientas analizan las respuestas que proporciona la aplicación y
+según el tipo de respuesta, la aplicación de análisis dinámico comprueba si la
+aplicación es o no vulnerable al ataque que se le intenta aplicar.
 Al añadir esta herramienta al \gls{pipeline}, en caso de que el ataque se
-realize con éxito, el \gls{pipeline} falla y el equipo encargado de ese
+realice con éxito, el \gls{pipeline} falla y el equipo encargado de ese
 desarrollo deberá solucionar el fallo.
 
 %Non-funcional tests
 En cualquier aplicación que se cree, se deben especificar tanto los requisitos
-funcionales como los no funcionales ya que de nada sirve tener una aplicacion
+funcionales como los no funcionales ya que de nada sirve tener una aplicación
 bancaria que cumple todos los requisitos funcionales, pero no consigue
 mantenerse estable cuando se conectan más de tres personas en el mismo momento.
 Los requisitos no funcionales definen justamente estas características.
 Algunos de los requisitos no funcionales se pueden interpretar como
-\acrfull{SLO}, o objetivos que debe cumplir la aplicacion.
+\acrfull{SLO}, o objetivos que debe cumplir la aplicación.
 Revisando estas característica durante el ciclo de desarrollo, y no al final, se
 deben poder detectar con anterioridad estos problemas, en caso de que surjan.
 Existen varios tipos de tests no funcionales, cada uno revisa una parte de la
-aplicacion.
-Los \textbf{tests de rendimiento} revisan que la aplicacion responde a las peticiones en
+aplicación.
+Los \textbf{tests de rendimiento} revisan que la aplicación responde a las peticiones en
 un tiempo inferior o igual a lo estipulado.
-Los \textbf{tests de carga} revisan que la aplicacion funciona correctamente y responde en
+Los \textbf{tests de carga} revisan que la aplicación funciona correctamente y responde en
 un tiempo inferior o igual que el estipulado a las peticiones que le entran
 mientras está siendo usada por el máximo numero de usuarios posible en ese mismo
 instante. Bajo este tipo de estrés, la aplicacion no debería aumentar el tiempo
@@ -1305,7 +1303,7 @@ desarrollo, la confianza en el código ya es muy alta.
 
 Al ser un \gls{pipeline} centrado en la seguridad de la aplicación, una de las tareas
 que se pueden realizar en esta fase consiste en una prueba de penetración,
-también llamada \gls{PenTest} hacia la aplicacion.
+también llamada \gls{PenTest} hacia la aplicación.
 Esta prueba consiste en analizar las vulnerabilidades reportadas por las
 herramientas de análisis estático o dinámico, ademas de un análisis manual
 exhaustivo en busca de cualquier vulnerabilidad que pueda llegar a
@@ -1328,13 +1326,13 @@ ejecutar el código en el entorno de producción es para eliminar vulnerabilidad
 introducidas por frameworks o aplicaciones que no son necesarias para que se
 ejecute el código en producción.
 Al reducir el numero de vulnerabilidades en los contenedores que ejecutan el
-código en producción, sera mas complicado que los atacantes encuentren o usen
+código en producción, será más complicado que los atacantes encuentren o usen
 una vulnerabilidad para ganar acceso a nuestro sistema.
 
 Una vez el código ha superado todas las tareas que contiene el \gls{pipeline}
 del \gls{SDLC}, ya se puede desplegar en producción.
 Todo el esfuerzo que se ha hecho en anterioridad es para que en este momento, el
-despliegue y mantenimiento de esta aplicacion o cambio sea lo mas sencillo
+despliegue y mantenimiento de esta aplicación o cambio sea lo más sencillo
 posible.
 
 No obstante, todas las precauciones son pocas y pueden ocurrir casos en los que
@@ -1347,18 +1345,18 @@ producción.
 
 \subsubsection{Monitorización} \label{monitorizacion}
 
-Ademas de supervisar la plataforma instantes antes, durante y después de un
+Ademá de supervisar la plataforma instantes antes, durante y después de un
 despliegue, esta se debe monitorizar constantemente.
 
 Gran parte de las tareas que ocurren en esta fase deben de ser continuas.
-En esta fase, se debe revisar el estado general de la aplicacion -- asegurando
+En esta fase, se debe revisar el estado general de la aplicación -- asegurando
 su estabilidad -- aunque haya variaciones no funcionales que pongan a prueba la
-aplicacion, como el nivel de trafico que debe gestionar en un momento dado.
+aplicación, como el nivel de trafico que debe gestionar en un momento dado.
 De estas tareas, normalmente se encarga el \acrfull{SRE}.
 
 Para llevar esta tarea a cabo, se emplean herramientas de análisis de recursos,
 como analizadores de disponibilidad.
-Estas herramientas lanzan consultas predefinidas a la aplicacion y miden el
+Estas herramientas lanzan consultas predefinidas a la aplicación y miden el
 tiempo de respuesta.
 Este tiempo se contrasta con tiempos de respuesta pasados y se dibuja una
 gráfica con estos datos.
@@ -1366,11 +1364,11 @@ Algunas herramientas mas avanzadas de monitorización, notifican a los analistas
 en el momento en el que los tiempos de respuesta se desvían de los esperados.
 
 Al igual que se mide la disponibilidad constantemente, también se debe medir las
-vulnerabilidades a las que esta expuesta nuestra aplicacion.
-Aunque no se haya actualizado la aplicacion, se pueden encontrar fallos de
-seguridad en módulos que componen la aplicacion, por tanto, es interesante
+vulnerabilidades a las que esta expuesta nuestra aplicación.
+Aunque no se haya actualizado la aplicación, se pueden encontrar fallos de
+seguridad en módulos que componen la aplicación, por tanto, es interesante
 mantener una lista actualizada de las vulnerabilidades que contiene la
-aplicacion en todo momento.
+aplicación en todo momento.
 
 %Conclusion
 Habiendo analizado todos los tipos de revisiones y aplicaciones que se pueden
@@ -1388,7 +1386,7 @@ el ciclo de vida del software que se quiere implementar en Scalefast.
 Esta documentación, una vez terminada se re-interpreta en forma de diagrama.
 La intención del diagrama destinado a los miembros del equipo de
 \acrfull{AppSec}, es resumir de un vistazo la meta a la que debemos llegar.
-Por tanto este diagrama debe representar todo el ciclo de vida del desarrollo,
+Por tanto, este diagrama debe representar todo el ciclo de vida del desarrollo,
 desde la fase de definición y análisis del proyecto hasta la fase de
 monitorización del mismo.
  
@@ -1407,11 +1405,11 @@ producción, se tiene que crear un desarrollo nuevo, con todas sus fases
 encontramos la misma duplicidad de código en la fase de desarrollo, el
 desarrollador puede cambiar en ese momento el código que esta duplicado y este
 nunca llegara a producción reduciendo así el tiempo destinado a esa misma tarea
-ademas de las posibles repercusiones de seguridad que puedan suponer para
+además de las posibles repercusiones de seguridad que puedan suponer para
 producción. 
 
 A continuación se presenta el diagrama que resume el documento del \gls{SDLC},
-mas adelante se procede a explicar sus fases y composición.
+más adelante se procede a explicar sus fases y composición.
 
 \begin{figure}[H] 
   \includegraphics[width=\textwidth]{SDLC-Sec}
@@ -1440,9 +1438,9 @@ desarrollo ágil tiende a crear un desarrollo cíclico.  De ahí, las flechas í
 conexas entre las fases.
 
 Entrando mas en detalle, en la sección de definición y análisis del desarrollo,
-se reúnen los responsables de cada area que se va a ocupar del desarrollo con el
+se reúnen los responsables de cada área que se va a ocupar del desarrollo con el
 cliente y se especifican las características del proyecto, requisitos
-funcionales y no funcionales ademas del tiempo de desarrollo estimado.  Cada
+funcionales y no funcionales, además del tiempo de desarrollo estimado.  Cada
 proyecto esta compuesto de funcionalidades y cada una de estas funcionalidades,
 a su vez, están divididas en tareas.  Una vez está el proyecto completamente
 definido se divide en funcionalidades y se les asigna a los equipos estas
@@ -1452,7 +1450,7 @@ de pruebas.  Es importante remarcar que cada tarea pasa a su vez por cada una de
 las secciones de desarrollo.  A nivel de desarrollo de una tarea individual, el
 desarrollador implementa pruebas unitarias, para asegurar que cumple los
 requisitos especificados y cuando acaba el desarrollo, despliega sus cambios a
-una maquina de integración, en la que se pasara otra fase de tests, esta vez mas
+una maquina de integración, en la que se pasara otra fase de tests, esta vez más
 general, asegurando que se cumplen las funcionalidades.  En el momento en el que
 todas las funcionalidades han sido implementadas, se proceda a la fase de
 despliegue.  En esta fase, se pone en el entorno de producción la funcionalidad
@@ -1482,10 +1480,10 @@ debe usar un entorno distinto. Este estrategia de desarrollo se centra en
 
 Minimizar la exposición a vulnerabilidades adquiridas por las dependencias que
 componen las imágenes o contenedores que usa la aplicación.
-Ademas, al ejecutar la aplicacion en cada uno de los entornos repetidamente --
+Además, al ejecutar la aplicación en cada uno de los entornos repetidamente --
 una por cada \gls{commit} -- y la necesidad de que el \gls{commit} supere todas
 las tareas del \gls{pipeline}, implica que el entorno sobre el que se ejecuta la
-aplicacion se ha desplegado multiples veces.  Esto proporciona un nivel de
+aplicación se ha desplegado múltiples veces.  Esto proporciona un nivel de
 confianza explícitamente acumulada que nos sugiere que los despliegues no van a
 romper la aplicación en el entorno de producción porque ya se ha despegado dicha
 aplicación en el mismo entorno de un \gls{pipeline} anterior.  Como beneficio a
@@ -1685,11 +1683,14 @@ la segunda mitad de 2022.
 
 \subsection{Indicadores de éxito}
 
+%TODO: Theory of constraints
+%TODO: Value stream mapping
+
 %Por que tomarlos
 En los estudios se demuestra que las empresas lideres en el sector tienen una cultura
 \gls{DevSecOps} madura. %TODO: Añadir una referencia a un estudio.
 Estos estudios pueden servir para conseguir un voto de confianza por parte de los
-responsables directivos, pero para poder llevar a cabo el proyecto entero,
+responsables directivos pero para poder llevar a cabo el proyecto entero,
 (sabiendo que tiene una estimación temporal mínima y que mantiene a todo el equipo
 \gls{App-Sec} ocupado al menos hasta la segunda mitad de 2022) deben existir
 datos propios, que justifiquen el esfuerzo que se esta realizando.
@@ -1697,7 +1698,7 @@ Una forma de justificar el esfuerzo, es mediante indicadores.
 
 %Ventajas
 La ventaja de estos indicadores, es que no solo sirven al \gls{c-level} para
-tomar las decisiones estratégicas de la empresa, sino que son útiles a toda la
+tomar las decisiones estratégicas de la empresa sino que son útiles a toda la
 parte técnica de la empresa.
 Tanto los desarrolladores, \gls{DTL}, como los \gls{HoT} obtienen
 información valiosa de estos indicadores y pueden medir y probar estrategias
