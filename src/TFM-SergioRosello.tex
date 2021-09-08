@@ -1345,7 +1345,7 @@ producción.
 
 \subsubsection{Monitorización} \label{monitorizacion}
 
-Ademá de supervisar la plataforma instantes antes, durante y después de un
+Adema de supervisar la plataforma instantes antes, durante y después de un
 despliegue, esta se debe monitorizar constantemente.
 
 Gran parte de las tareas que ocurren en esta fase deben de ser continuas.
@@ -1760,13 +1760,43 @@ producción''.
 
 \chapter{Desarrollo de una tarea para el pipeline de seguridad}
 
+A raíz del análisis de tareas pendientes para llegar al estado deseado del
+\gls{pipeline}, se ha decidido que el primer desarrollo sea la implementación de
+un mecanismo de gestión de secretos.
+Esta decision estratégica cimienta la base para el nuevo enfoque hacia
+\gls{DevSecOps} ya que desde el punto de vista de despliegue automatizado,
+proporciona a los \gls{runner}s acceso a secretos, como las credenciales de
+acceso al entorno de producción o las credenciales de la base de datos en
+producción.
+Ademas, tiene la capacidad de evitar que los desarrolladores guarden variables
+en los propios archivos de código fuente, y tengan malas practicas de seguridad.
+Tras haber comparado las distintas posibilidades, se ha decidido optar por usar
+\href{https://www.hashicorp.com/products/vault}{HASHICORP Vault}.
+
 \section{Securizacion de claves con HASHICORP Vault}
 
 % Explicar como se ha llegado a HASHICORP Vault.
+Durante la investigación realizada al inicio del proyecto, pudimos observar que
+la plataforma por excelencia para Securizar las claves, tanto de la aplicación,
+como de las herramientas que envuelven a la misma, como el \gls{pipeline} o los
+\gls{runner}s que este emplea para llevar a cabo las tareas es 
+\href{https://www.hashicorp.com/products/vault}{HASHICORP Vault}.
+Esto es debido a que esta diseñada específicamente para cumplir este propósito.
+Las alternativas a esta herramienta, suelen ser aplicaciones cuyo publico
+objetivo son usuarios finales, por tanto estas herramientas se centran en la
+simplicidad, la interfaz de usuario y la fácil curva de aprendizaje.
+Aunque \href{https://www.hashicorp.com/products/vault}{HASHICORP Vault} no
+cumpla con ninguna de estas características, tiene muy claras sus prioridades y
+el uso que se va a hacer de la herramienta.
+
+% Breve introduccion de vault
+\subsection{Casos de uso de HASHICORP Vault}
 
 % Las ventajas que ofrece, frente a lo clásico
+\subsection{Implementación de valores DevSecOps}
 
 % La implementación.
+\subsection{Implementación}
 
 %     Creación de la VPC, con las sub-redes y las maquinas (Runner y EC2)
 
