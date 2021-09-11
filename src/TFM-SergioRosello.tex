@@ -403,7 +403,7 @@ intrínseco en la creación de un Pipeline enfocado hacia la seguridad.  Por tan
 acabamos este trabajo con una retrospectiva del trabajo realizado y una
 comparativa con el estado anterior del Pipeline de Scalefast.
 
-\chapter{Estado del arte}
+\chapter{Puesta en contexto y definiciones}
 
 \section{Evolución del desarrollo de software, desde su concepción hasta la
 actualidad}
@@ -802,17 +802,35 @@ indicadores vayan reduciendo el tiempo medio, implica que la empresa el question
 tiene un potencial enorme y, por consiguiente una ventaja competitiva sobre sus
 competidores.
 
+\chapter{DevSecOps}
+
+Hasta este momento, se han introducido las etapas que en mayor o menor medida
+han contribuido a la necesidad de un puesto como el que cubre el profesional
+DevOps en la metodología ágil.
+Llegados a este punto, se presenta la filosofía DevSecOps y la necesidad que
+tiene la industria de crear un concepto similar. 
+
 \section{De DevOps a DevSecOps}
 
-La seguridad en la metodología ágil no ha sido especialmente contemplada durante
-la popularización de este tipo de desarrollo, sin embargo, la metodología ágil
-destaca por su modularidad, y capacidad de reacción frente a cambios de
-requisitos, o nuevas prioridades en el proyecto.  Al poder adaptarse a nuevas
-vertientes y filosofías, como la de DevOps, se forman distintas expresiones de
-desarrollo ágil, cada una enfatiza en su propia metodología, pero todas parten
-de ma misma base. \cite{agilePrinciples}.
+%TODO: necesita alguna cita o referencia
+La popularización del termino \gls{DevOps} guarda una estrecha relación con la
+migración de monolitos a microservicios, ya que la creciente demanda por parte
+de las empresas en mantener el ritmo que marca la industria, las obliga a
+proporcionar a sus clientes mejores estadísticas en indicadores como: ``Lead
+time'', o ``Deployment frequency''.
+Apresuradas en reunir los requisitos de sus clientes, las empresas se han visto
+obligadas a intercambiar la seguridad por esta serie de indicadores.
 
-\subsection{La seguridad desde un punto de vista clásico}
+Afortunadamente, la metodología ágil destaca por su modularidad, y capacidad de
+reacción frente a cambios de requisitos, o nuevas prioridades en el proyecto.
+Es por esto, que cuando la industria ha visto la necesidad de incorporar la
+seguridad dentro del ciclo de vida del desarrollo, se ha integrado de forma
+inclusiva, a lo largo de todo el ciclo de vida del desarrollo.
+
+Como se ve en el diagrama inferior (\ref{fig:DevSecOps-SDLC}), en el ciclo \gls{DevOps}
+ahora se contempla la seguridad de forma global.
+
+\subsection{Estado de la seguridad previo a la evolución hacia DevSecOps}
  
 La seguridad en el mundo del software ha estado relegada a un plano inferior
 debido a que normalmente no ha sido necesaria para el desarrollo del producto
@@ -865,18 +883,30 @@ filosofías como la de DevSecOps para convertirse en una parte fundamental del
 proceso de desarrollo de software ágil de hoy en día.
 
 \subsection{Que es DevSecOps}
+%TODO: Añadir las diferencias entre DevOps y DevSecOps, para que se pueda
+%comparar mejor la evolución y hacia donde tendemos
 
 Siguiendo la inercia del movimiento DevOps, adoptado al inicio por grandes
-empresas y seguido de medians y pequeñas empresas, DevSecOps es una extension de
+empresas y seguido de medians y pequeñas empresas, DevSecOps es una evolución de
 la misma filosofía, reconociendo a la seguridad de la aplicación y del entorno
 en el que se ejecuta como un factor igual de importante en el ciclo de vida del
 software.
 
-El propósito de este movimiento es concienciar a los desarrolladores de la
-importancia del desarrollo seguro de código, principalmente, cambiando la
-cultura de la empresa, para que los desarrolladores tengan el cuenta la
-seguridad en el momento en el que desarrollan la aplicacion.
+El propósito de este movimiento, según (\cite{DOD2019}) es 
+``unifying software development (Dev), security (Sec) and operations (Ops). The
+main characteristic of DevSecOps is to automate, monitor, and apply security at
+all phases of the software lifecycle.''
+Estas fases son: planificación, desarrollo, construcción, testeo, lanzamiento,
+entrega, despliegue, operación y monitorización.
 
+\begin{figure}[H]
+  \includegraphics[width=\textwidth]{devsecops} 
+  \caption{Ciclo de vida de desarrollo del software DevSecOps}
+  \label{fig:DevSecOps-SDLC}
+\end{figure}
+
+
+%TODO: Revisar párrafo, un poco chapuza
 Al igual que en el movimiento DevOps, esto se puede conseguir mediante la
 incorporación de ``Jobs'' que revisen el estado del código generado durante el
 desarrollo.  Aun así, la mejor forma de seguir esta filosofía es creando una
@@ -884,11 +914,6 @@ cultura que la reconozca y respalde, de forma que los desarrolladores no se
 molestan al ver que el código tiene vulnerabilidades, sino que evolucionen,
 mediante formaciones o reportes de los fallos de su código, a desarrollar de
 forma segura.
-
-El ciclo de vida del software, consiste en cinco fases: Planificación, Análisis,
-Diseño, Implementación y Mantenimiento.
-
-%TODO: Añade gráfico del ciclo de vida del software.
 
 Anteriormente, la seguridad formaba parte del último paso del ciclo de vida del
 desarrollo de software, el mantenimiento.  Como consecuencia, en el momento en
@@ -898,26 +923,53 @@ sensible de los usuarios de la aplicación, los recursos necesarios para
 arreglarla y el tiempo empleado en arreglarla, son muy elevados, al igual que el
 estrés y la posible sanción relacionada con la intrusion en el sistema y la Ley
 de Protección de Datos.  Este hecho es uno de los principales motivos por el que
-las empresas que ya han adoptado el modelo DevOps, están añadiendo ``jobs'' a su
-``Pipeline'', encauzando así su filosofía, de DevOps, a DevSecOps y las empresas
-que no han adoptado una filosofía DevOps, quieren pasar directamente a
-DevSecOps.
+las empresas que ya han adoptado el modelo DevOps, están apostando hacia el
+modelo de desarrollo de software \gls{DevSecOps}.
 
-\begin{figure} 
-  \includegraphics[width=\textwidth]{devsecops.png} 
+Este cambio no es inmediato, se puede ver en la gráfica
+inferior(\ref{fig:DevOps-DevSecOps-GTrends}), la comparativa
+de búsquedas de Google con el termino \gls{DevOps} y \gls{DevSecOps}.
+
+\begin{figure}[H]
+  \includegraphics[width=\textwidth]{DevOps-DevSecOps-GTrends} 
+  \caption{Comparativa Google Trends entre DevOps y DevSecOps}
+  \label{fig:DevOps-DevSecOps-GTrends}
 \end{figure}
 
-Como podemos observar en el gráfico anterior, el modelo de desarrollo basado en
-una filosofía DevSecOps, mueve las comprobaciones de seguridad desde la fase de
-mantenimiento, a la fase inicial, contemplando la seguridad como uno más de los
-requisitos que se plantean en la fase de planificación y conservando su
-importancia durante el resto de fases del proyecto.  En definitiva, la
-seguridad, pasa a ser una parte integral del ciclo de vida de desarrollo del
-software. 
+Esta gráfica proporciona evidencias de que el movimiento hacia un ciclo de vida
+seguro está empezando y muy posiblemente ofrezca una ventaja competitiva a
+quienes lo adopten tempranamente frente a las demás empresas.
+
+Como podemos observar en el diagrama anterior (\ref{fig:DevSecOps-SDLC}), el modelo
+de desarrollo basado en una filosofía DevSecOps, mueve las comprobaciones de
+seguridad desde la fase de mantenimiento, a la fase inicial, contemplando la
+seguridad como uno más de los requisitos que se plantean en la fase de
+planificación y conservando su importancia durante todo el ciclo de vida del
+software.
+En definitiva, la seguridad, pasa a ser una parte integral del ciclo
+de vida de desarrollo del software. 
 
 Para conseguir este propósito, los practicantes de dicha filosofía implementan
 ``jobs'', o tareas automatizadas relacionadas con la seguridad en el mismo
 ``Pipeline'', tan característico de DevOps.
+
+Las ventajas que ofrece la metodología \gls{DevSecOps} son las siguientes:
+
+\begin{itemize}
+  \item{Reducción del tiempo medio en desplegar en producción}
+  \item{Despliegues mas frecuentes}
+  \item{Caracterización, monitorización y mitigación de riesgos durante todo el
+    ciclo de vida del proyecto}
+  \item{Actualización y arreglo de software a la velocidad de operación}
+\end{itemize}
+
+Las ventaja superiores son similares a las \gls{DevOps} ya que también reduce
+el tiempo de despliegue y aumenta la frecuencia de despliegues, pero ademas de
+proporcionar todas las ventajas de \gls{DevOps}, también proporciona las
+ventajas de una seguridad integral a lo largo de toda la plataforma.
+Esto aumenta la confianza el el producto y evita o informa de multitud de
+vulnerabilidades en el entorno de producción, reduciendo así la exposición a
+ataques de la aplicacion, con los beneficios que esto conlleva.
 
 En los últimos años, el sector del software ha explotado con empresas como
 GitHub, GitLab o GoCD, que proporcionan a los equipos de desarrollo las
@@ -944,20 +996,31 @@ necesario que lleva de la filosofía \gls{DevOps}, a la filosofía
 En la primera sección de este capitulo, se pretende describir la forma en la que
 se ha construido el pipeline DevSecOps, analizando cada una de las fases del
 ciclo de desarrollo en su estado actual e identificando los problemas que
-presenta.  Posteriormente, teniendo en cuenta los problemas descritos en la
+presenta.
+Posteriormente, teniendo en cuenta los problemas descritos en la
 sección anterior, se crea un pipeline conceptual, en el que se definen, a nivel
 de seguridad las revisiones o \gls{job}s necesarios para que el \gls{pipeline}
 conserve la practicalidad, pero asegure la seguridad y calidad del software.
-Posteriormente se procede a analizar las tareas inferidas y asignarles un tiempo
+Mas adelante se procede a analizar las tareas inferidas y asignarles un tiempo
 de investigación y desarrollo estimado (L0) ademas de una prioridad de
-desarrollo.  Una vez definidas las tareas, se ordenan y se crea la estrategia de
+desarrollo.
+Una vez definidas las tareas, se ordenan y se crea la estrategia de
 desarrollo necesaria, ademas de los objetivos a los que hay que llegar a medio y
-largo plazo.  Para terminar, se definen una serie de indicadores, para medir los
+largo plazo.
+Para terminar, se definen una serie de indicadores, para medir los
 resultados de los cambios que tenemos pensado implementar en el ciclo de vida
 del desarrollo de software, a nivel de seguridad en Scalefast.
 
+Los recursos compartidos en esta observación y subsecuente propuesta de ciclo de
+vida seguro mediante \gls{DevSecOps} provienen de la experiencia acumulada en el
+día a día de Scalefast.
+De esta forma, la propuesta debe ser revisada por cualquier organización o
+individuo que desee implementar un ciclo de vida similar.
+
 En la segunda sección de este capitulo, se describe el desarrollo de una de
-estas tareas, desde su asignación, a su finalización, añadiéndola al
+estas tareas (Concretamente, la implementación de un almacén de secretos con 
+\href{https://www.hashicorp.com/products/vault}{HASHICORP Vault})
+ desde su asignación, a su finalización, añadiéndola al
 \gls{pipeline} para que pueda garantizar la seguridad y calidad del desarrollo
 de nuestro producto, en Scalefast.
 
@@ -967,7 +1030,8 @@ En Scalefast, se sigue un modelo de desarrollo similar al descrito
 anteriormente, en la metodología ágil.  Actualmente, la empresa tiene un
 \textit{\gls{pipeline}} de integración continua, en el que se pasan varios
 ``jobs'' o pruebas automáticas en cada commit vinculado a un \acrfull{mr} que se
-sube al repositorio de código.  Un \textit{\gls{pipeline}} es la pieza clave del
+sube al repositorio de código.  
+Un \textit{\gls{pipeline}} es la pieza clave del
 ciclo de vida del software, responsable de asegurar la calidad de los
 desarrollos que se integran a producción y que, de forma indirecta,
 definen la calidad de la empresa.  De la misma forma, es importante recordar que el
@@ -979,6 +1043,24 @@ debemos evolucionar el pipeline, haciendo que tienda más hacia la integración 
 despliegues continuos, centrándonos, además en el desarrollo de software en la
 seguridad.  
 
+Los esfuerzos por adoptar una filosofía \gls{DevOps} en Scalefast empiezan a
+finales de 2019.
+El progreso de Scalefast hacia la nueva metodología ha llevado a la compañía a
+crear distintos ``Pipelines'' que revisan el estado del código, tanto cuando se
+hace un \gls{merge} o \gls{MR}.
+Ademas, tienen la capacidad de lanzar ``Pipelines'' de forma programática,
+cuando se soliciten para revisar que las integraciones que se han hecho sobre
+distintas ramas funcionan correctamente.
+
+Los cambios estructurales en una organización conllevan una serie de factores no
+cuantificables, como el tiempo que tarda una persona en asumir los nuevos
+procesos y formas de desarrollo.
+Por este motivo, Scalefast sigue en un estado temprano en la adopción de
+una metodología \gls{DevSecOps}.
+Se podría decir, por tanto que el tiempo necesario para que una organización
+como Scalefast adopte la filosofía \gls{DevSecOps} en su integridad es mayor al
+tiempo que se ha tenido hasta la fecha.
+
 \subsection{Problemas encontrados y mejoras}
 
 Una de las razones por las que se decide actualizar el \textit{\gls{pipeline}}
@@ -988,33 +1070,100 @@ del proyecto es mediante un análisis manual de seguridad una vez ha
 terminado el desarrollo del mismo.  
 
 Por otro lado, los inconvenientes heredados de seguir
-esta metodología de desarrollo se encuentran en el momento en el que aparece una vulnerabilidad. Así pues, el plazo que se tarda en elaborar una solución
+esta metodología de desarrollo se encuentran en el momento en el que aparece una
+vulnerabilidad. Así pues, el plazo que se tarda en elaborar una solución
 incluye: el tiempo en analizar el problema, la asignación del
-desarrollador responsable, el
-planteamiento de la solución del problema, el desarrollo de la misma, la
-revisión (para asegurar que el fallo esta neutralizado) y la subsecuente revisión. La finalidad, pues, es asegurar que no se han añadido fallos de regresión o nuevas
-vulnerabilidades.  
-En cambio, si se incluye un analista de seguridad desde la
-fase de concepción del proyecto, durante el ciclo de vida del desarrollo y se crean \textit{\gls{job}s}, para analizar la parte mas automatizable
-del desarrollo, se reduce considerablemente la probabilidad de
-encontrar un fallo en los últimos pasos del desarrollo del proyecto.
+desarrollador responsable, el planteamiento de la solución del problema, el
+desarrollo de la misma, la revisión (para asegurar que el fallo esta
+neutralizado) y la subsecuente revisión. La finalidad, pues, es asegurar que no
+se han añadido fallos de regresión o nuevas vulnerabilidades.  En cambio, si se
+incluye un analista de seguridad desde la fase de concepción del proyecto,
+durante el ciclo de vida del desarrollo y se crean \textit{\gls{job}s}, para
+analizar la parte mas automatizable del desarrollo, se reduce considerablemente
+la probabilidad de encontrar un fallo en los últimos pasos del desarrollo del
+proyecto.
 
-Llegados a este punto, a medida que Scalefast ha crecido, se han identificado una serie de problemas con el
-\textit{\gls{pipeline}} que usamos actualmente: 
+Llegados a este punto, a medida que Scalefast ha crecido, se han identificado
+una serie de problemas en el \textit{\gls{pipeline}} que usamos actualmente: 
 
-\begin{itemize} \item{Se introducen cambios a producción manualmente} \item{No
-    se pueden repetir despliegues} \item{No existe una forma de revertir los
-    cambios añadidos a prod} \item{No se revisa siempre el código de la misma
-    forma} \item{La revision es susceptible a modificaciones manuales} \item{No
-se replican entornos entre fases (pruebas, \gls{staging} y producción)} \item{No
-existe responsabilidad de código} \end{itemize}
+\begin{itemize} 
+  \item{Se pueden introducir cambios a producción manualmente} 
+  \item{No se pueden repetir despliegues} 
+  \item{No existe una forma estable de revertir los cambios añadidos a prod} 
+  \item{No se revisa siempre el código de la misma forma} 
+  \item{La revision es susceptible a modificaciones manuales} 
+  \item{No se replican entornos entre fases (pruebas, \gls{staging} y producción)} 
+  \item{No existe responsabilidad de código} 
+  \item{No hay indicadores de calidad}
+  \item{No ofrecemos visibilidad directa a distintos entornos}
+  \item{No se ofrece una forma de despliegue de código continuo}
+  \item{No existe una serie de herramientas automatizables destinadas a revisar
+    la seguridad de la aplicación} 
+\end{itemize}
 
+Ademas de problemas encontrados en el \gls{pipeline}, también existen
+inconvenientes relacionados con la arquitectura de la aplicacion, ya que esta es un
+monolito.
+La filosofía \gls{DevOps} funciona mejor con aplicaciones `Stateless'', ya que
+estas se pueden escalar horizontalmente, no verticalmente, como la aplicacion
+``Stateful'' que gestiona Scalefast.
+
+Este documento se centra en los cambios que se deben hacer para llevar a
+Scalefast hacia una metodología de trabajo \gls{DevSecOps}.
+No obstante, en vista de los problemas mencionados anteriormente, Scalefast esta
+llevando a cabo proyectos para migrar la aplicacion monolito a una aplicacion
+``stateless'' basada en microservicios para poder obtener los beneficios
+esperados de esta nueva metodología.
 De entre estos problemas detectados, algunos se pueden solventar añadiendo
 herramientas directamente y otros son problemas culturales, que se tienen que
 abordar de distinta forma.
 
 
 \section{Desarrollo conceptual del pipeline de seguridad}
+
+Para llevar a cabo una transformación metodológica como la que se plantea, 
+en la que se va a ver afectada gran parte de la organización en la forma en la
+que se desarrolla el software, deben existir cuatro pilares fundamentales sobre 
+los que se va a tener que sostener.
+Estos se reflejan en el diagrama inferior.
+
+\begin{figure}[H] 
+  \includegraphics[width=\textwidth]{DevSecOps-pillars}
+  \caption{Pilares sobre los que se sustenta DevSecOps}
+  \label{fig:DevSecOps-pillars}
+\end{figure}
+
+%TODO: Seguir escribiendo por aquí las cosas que deben pasar para que se
+%implante correctamente una organización DevSecOps.
+A nivel \textbf{organizativo}, en Scalefast se ha creado un presupuesto para el equipo
+DevOps, ademas, los directivos de la empresa apoyan la dirección que esta
+tomando el equipo.
+Aunque haya ciertas características que se cumplan, también existen otras que
+no, como por ejemplo los indicadores de rendimiento.
+Estos indicadores son necesarios para poder medir el impacto que se hace desde
+el equipo y tener datos reales del cambio que es capaz de hacer una metodología
+\gls{DevSecOps}.
+
+En cuanto a \textbf{proceso}, la organización cumple gran parte de los
+requisitos o indicadores de una buena base.
+
+La \textbf{tecnología} que se usa en Scalefast sigue una evolución prometedora,
+se automatiza la mayor parte de las tareas del Pipeline y los nuevos
+desarrollos, se implementan, en la medida de lo posible teniendo en cuenta la
+seguridad.
+
+Durante el ciclo de vida de Software, se asumen ciertos riesgos.
+La gestión y observación de los mismos se llama \textbf{gobernanza}.
+Actualmente, en Scalefast, no existe un sistema de gobernanza de datos maduro a
+lo largo de todo el proceso de desarrollo de Software.
+
+Como podemos ver, para adoptar una metodología \gls{DevSecOps} y poder conseguir
+todos los beneficios que esta nos promete, hacen falta alinear prácticamente a 
+toda la parte técnica de la organization.
+
+%TODO: Revisar, a ver que pasa
+
+\subsection{Tareas DevSecOps para el Pipeline}
 
 Recientemente, Mike Ensor y Drew Stevens publicaron un ``paper'' titulado
 ``Shifting left on security''.  En él, explican las diferentes fases de el ciclo
@@ -1025,14 +1174,10 @@ importancia. Por ejemplo,  el uso de registros de imágenes privadas, cuyas
 imágenes y recursos están identificadas y verificadas a la hora de desplegarse;
 el análisis estático y dinámico del código que se escribe de forma automatizada;
 el despliegue del mismo binario que solamente pueda ser desplegado si es firmado
-de forma criptográfica por el responsable de despliegues.\cite{Ensor2021}
+de forma criptográfica por el responsable de despliegues. (\cite{Ensor2021})
 
 En esta sección, se describen más en detalle dichas herramientas y se documenta
 el proceso de creación del pipeline a nivel conceptual.
-
-\subsection{Tareas DevSecOps para el Pipeline}
-%TODO: Seguir escribiendo por aquí Concretar que herramientas se quieren usar,
-%por que, y con que finalidad.
 
 Existen una gran variedad de tareas o comprobaciones disponibles para mejorar el
 ciclo de vida del Software a nivel de seguridad.  Por cada tarea, existen
@@ -1058,10 +1203,10 @@ Pipeline para prevenir errores detectables con análisis automáticos.
 % Tipos de revisiones que se pueden hacer. (Que analiza que herramienta)
 Siguiendo la investigación, se han seleccionado varias formas de revision del
 Pipeline que pueden ser de gran utilidad para asegurar la calidad a nivel de
-seguridad del código.  Estas se pueden dividir a grandes rasgos en:
+seguridad del código.  Estas se pueden dividir a grandes rasgos en
 Infraestructura y aplicacion.
 
-Como explican \cite{Ensor2021} Stevens, para poder garantizar la protección y
+Como explican Emerson y Stevens, para poder garantizar la protección y
 seguridad del software sobre el que se esta ejecutando el código de la
 organización es necesario disponer con de una infraestructura segura.  Hoy en
 día, esta tarea pasa a ser responsabilidad de proveedores de infraestructura en
@@ -1096,6 +1241,11 @@ análisis dinámico.
 En la gráfica superior (\ref{fig:sonatype-tools}) se resalta que las empresas
 maduras en el campo DevOps usan tecnologías automatizadas como \gls{CSA},
 \gls{DAST}, \gls{SCA} y \gls{IAST}.  
+Estos datos validan los mostrados en la gráfica
+(\ref{fig:DevOps-DevSecOps-GTrends}), aunque la metodología \gls{DevOps} si que
+esta mas extendida, la metodología \gls{DevSecOps} sigue siendo novedosa y son
+solo las empresas mas maduras o evolucionadas, las que adoptan estas practicas.
+
 Dado que se pretende rediseñar el \gls{SDLC} para que tenga en
 cuenta la seguridad a la hora de desarrollar nuestra plataforma, es interesante
 revisar estas aplicaciones, para ver si se ajustan a los requisitos de calidad
@@ -1379,6 +1529,8 @@ promueven las buenas practicas de programación y el seguimiento de los
 estándares de Scalefast.
 
 \subsection{Creación conceptual del pipeline}
+
+%TODO: Darle mucha mas luz a esta seccion 
 
 Habiendo terminado la investigación inicial que resume las aplicaciones o tareas
 usadas en la industria en el ciclo de vida del software, se procede a documentar
@@ -1789,7 +1941,7 @@ Aunque \href{https://www.hashicorp.com/products/vault}{HASHICORP Vault} no
 cumpla con ninguna de estas características, tiene muy claras sus prioridades y
 el uso que se va a hacer de la herramienta.
 
-% Breve introduccion de vault
+% Breve introducción de vault
 \subsection{Casos de uso de HASHICORP Vault}
 
 % Las ventajas que ofrece, frente a lo clásico
