@@ -106,6 +106,7 @@ hmargin=3cm
 
 
 % Tables and figures settings
+\usepackage{wrapfig}
 \usepackage{multirow} % combine cells 
 \usepackage{caption} % customize the title of tables and figures
 \usepackage{floatrow} % we use this package and its \ ttabbox and \ ffigbox macros to align the table and figure names according to the defined style.
@@ -1529,8 +1530,9 @@ promueven las buenas practicas de programación y el seguimiento de los
 estándares de Scalefast.
 
 \subsection{Creación conceptual del pipeline}
+\label{creacionconceptualdelpipeline}
 
-%TODO: Darle mucha mas luz a esta seccion 
+%TODO: Darle mucha mas luz a esta sección 
 
 Habiendo terminado la investigación inicial que resume las aplicaciones o tareas
 usadas en la industria en el ciclo de vida del software, se procede a documentar
@@ -1800,11 +1802,76 @@ performance'', entonces, se debe trabajar en areas como ``Change approvals'', o
 
 Este diagrama valida el esfuerzo que se esta haciendo en Scalefast por actualizar
 el desarrollo de software para que siga un proceso mucho mas ágil.
+Según este estudio, para llegar a obtener un rendimiento de despliegue y operacional
+competitivo, previamente se tienen que cumplir las siguientes características:
+
+\begin{itemize}
+  \item {\textbf{Continuous Delivery}: En Scalefast, sigue siendo necesario
+    invertir tiempo y recursos hacia este propuesto aunque ya se han creado
+    estrategias para llegar a conseguir el propósito en 2022.}
+  \item {\textbf{Change approvals}: Es una de los primeros cambios que se ha decidido
+    abordar por el equipo \gls{App-Sec}}
+  \item {\textbf{Lean management}: Cumplimos este requisito}
+  \item {\textbf{Lean product development}: Cumplimos este requisito}
+  \item {\textbf{Autonomy, trust and voice}: Cumplimos este requisito}
+  \item {\textbf{Culture and work environment}: Cumplimos este requisito}
+  \item {\textbf{Disaster recovery testing}: Entra dentro de nuestra propuesta
+    de cambio (Presentada en la sección \ref{creacionconceptualdelpipeline})}
+  \item {\textbf{Functional outsourcing decreases}: Cumplimos este requisito}
+  \item {\textbf{Cloud infrastructure}: En transición}
+\end{itemize}
+
+Analizando los resultados obtenidos, podemos observar que Scalefast dispone de
+los procesos y mentalidad necesarios para llevar a cabo la transición, pero que,
+debido a su herencia tecnológica (La existencia del monolito), la parte
+tecnológica va unos pasas atrás.
+
+Ademas de las mediciones y análisis previo, 
+Se ha realizado una evaluación del modelo \gls{DevSecOps}, para obtener el
+estado de madurez en el que esta actualmente Scalefast.
+La matriz contra la que se han realizado las pruebas es un estándar en la
+industria llamado \href{https://dsomm.timo-pagel.de/index.FP}{``OWASP DevSecOps Maturity Model''}.
+Esta matriz define una serie de procesos característicos de distintas fases de
+madurez de la aplicacion.
+Esta matriz nos proporciona un indicador, sobre el que podemos medir el impacto
+real que tienen los cambios que se propone aplicar en la sección
+\ref{creacionconceptualdelpipeline}.
+Siendo 0 la organización sin madurez \gls{DevSecOps} y 5 la organización mas madura.
+En Scalefast, el resultado de esta prueba, demuestra que nuestro nivel de
+madurez es de 1.5 de 5.
+
+
+\begin{figure}[H]
+  \centering
+  \subfloat[\centering DSOMM actual]{{\includegraphics[width=.45\linewidth]{DSOMM-filled} }}%
+  \qquad
+  \subfloat[\centering DSOWW esperado]{{\includegraphics[width=.45\linewidth]{DSOMM-expectations} }}%
+  \caption{Comparativa entre el estado de madurez actual frente al esperado}%
+  \label{fig:DSOMM-comparison}
+\end{figure}
+
+Comparando el estado actual del ciclo de vida, con el estado al que se quiere
+llegar, podemos observar una gran evolución.
+Evidentemente, cualquier organización debe aspirar a un nivel de madurez 5, pero
+siendo realistas, en Scalefast se quiere llegar a un nivel de madurez 4.
+La figura \ref{fig:DSOMM-TODO} representa de forma gráfica el esfuerzo que se
+debe hacer para llegar a nuestro objetivo.
+
+\begin{wrapfigure}{r}{7cm}
+  \includegraphics[width=7cm]{DSOMM-TODO}
+  \caption{Representación de las tareas a desarrollar}
+  \label{fig:DSOMM-TODO}
+\end{wrapfigure}
 
 Siguiendo con esta iniciativa, en el departamento de \gls{App-Sec}, se deben
 priorizar las tareas a llevar a cabo.
 Se ha decidido empezar por las tareas que menos tardan en implementarse pero que
 mas repercusión tienen a la hora de mejorar el \gls{SDLC}.
+
+Como el nivel de madurez \gls{DevOps} en Scalefast está en desarrollo, las
+herramientas y procesos a cambiar deben elegirse conscientemente, ya que el
+resultado de la implementación de dichas tareas o herramientas tiene la
+capacidad de alterar el destino de todo el proyecto.
 
 Por este motivo, unas de las primeras tareas que se han seleccionado son la
 revision de código fuente por compañeros de equipo, que finalmente se hará
@@ -1828,6 +1895,8 @@ de despliegue de código en producción de forma automatizada y segura.
 
 Al separar las tareas pendientes en una linea temporal, esta se prolonga hasta la
 la segunda mitad de 2022.
+
+
 %TODO: Seguir con las tareas: Añadir el listado de ellas y su distribución
 %temporal
 
