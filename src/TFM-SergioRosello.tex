@@ -1904,9 +1904,6 @@ la segunda mitad de 2022.
 
 \subsection{Indicadores de éxito}
 
-%TODO: Theory of constraints
-%TODO: Value stream mapping
-
 %Por que tomarlos
 En los estudios se demuestra que las empresas lideres en el sector tienen una cultura
 \gls{DevSecOps} madura. %TODO: Añadir una referencia a un estudio.
@@ -2002,7 +1999,8 @@ la plataforma por excelencia para Securizar las claves, tanto de la aplicación,
 como de las herramientas que envuelven a la misma, como el \gls{pipeline} o los
 \gls{runner}s que este emplea para llevar a cabo las tareas es 
 \href{https://www.hashicorp.com/products/vault}{HASHICORP Vault}.
-Esto es debido a que esta diseñada específicamente para cumplir este propósito.
+Esto es debido a que esta diseñada específicamente para ser usada de forma
+programática.
 Las alternativas a esta herramienta, suelen ser aplicaciones cuyo publico
 objetivo son usuarios finales, por tanto estas herramientas se centran en la
 simplicidad, la interfaz de usuario y la fácil curva de aprendizaje.
@@ -2013,11 +2011,75 @@ el uso que se va a hacer de la herramienta.
 % Breve introducción de vault
 \subsection{Casos de uso de HASHICORP Vault}
 
-% Las ventajas que ofrece, frente a lo clásico
-\subsection{Implementación de valores DevSecOps}
+Esta plataforma ofrece una solución elegante a uno de los problemas mas
+populares frente a la integración continua y el despliegue continuo.
+Anteriormente para poder desplegar en el entorno de producción, la persona
+que se encargue de realizar esta operación debe tener acceso a ciertas credenciales
+como las de la base de datos o las de acceso a los servidores de producción.
+Naturalmente, esta información es muy sensible y debería ser guardada de forma
+ segura.
+Esto significa que se deben cumplir la confidencialidad, integridad, accesibilidad,
+autenticación y no repudio.
+Si estas credenciales se filtran o una persona malintencionada consigue estos
+datos, las consecuencias pueden ser desastrosas.
+
+Para pasar el proceso de despliegue a un proceso automatizado, las credenciales
+que anteriormente debía introducir el desarrollador, ahora se las tenemos que
+proporcionar al programa que se encargue de esta tarea.
+Esto quiere decir que las credenciales deben estar almacenadas en texto claro en
+algún archivo.
+La existencia de esta herramienta, proporciona una alternativa a esta mala
+practica.
+Consiste en exponer una API a las aplicaciones para que estas, si cumplen las
+condiciones estipuladas, consigan las credenciales.
+Simplemente esta característica ya es suficiente motivo para migrar la gestión
+de secretos de la aplicacion a esta nueva estrategia, pero Vault ofrece al menos
+dos alternativas mas dignas de ser mencionadas.
+
+Al estar pensada específicamente para este tipo de casos de uso, en los que un
+evento -- como puede ser que un desarrollador haga un \gls{merge} a la rama
+principal del repositorio -- lanza un \gls{pipeline}, que a su vez lanza una
+tarea en un \gls{runner}, Vault ofrece la posibilidad de proporcionar acceso al
+secreto durante un tiempo especificado por el usuario a la aplicacion que lo
+solicite.
+Visto de forma practica, cuando el job que despliega el código en el entorno de
+producción necesite las credenciales de producción, la aplicacion que se ejecuta
+en esta tarea le pide un token a Vault, proporcionando esta un token \gls{JWT}.
+Si las características del token y la aplicacion son correctas, solo entonces,
+el servidor de vault le proporciona un token de acceso a Vault a la aplicacion.
+Acompañados de este token la aplicacion ahora puede pedirle a
+Vault que le de las credenciales de acceso al servidor de producción.
+Ademas, la política de seguridad del token permite especificar un limite de
+tiempo, así que aunque un actor malicioso gane acceso a la maquina, este no podrá
+volver a recuperar el token porque ya ha expirado su validez.
+
+Otra característica que hace a Vault único es la capacidad de integrarse con
+aplicaciones.
+Siguiendo el ejemplo anterior, pongamos que la aplicacion requiere las
+credenciales de la base de datos de producción.
+Vault tiene la capacidad de crear dinámicamente las credenciales de la base de
+datos de forma exclusiva para este momento y borrarlas de la base de datos una
+vez ha acabado la transacción.
+Esto significa que la contraseña de la base de datos no existe hasta que se crea
+dinámicamente en ese momento y una vez ha alcanzado el tiempo de expiración,
+esta se elimina de la base de datos.
+
+Estos dos ejemplos forman parte de los casos de uso de gestión de secretos, que
+es uno de los tres casos de uso con los que cuenta Vault.
+Los otros dos, son encrustation de datos y protección de datos.
+En esta fase del desarrollo, no nos hemos centrado en estos dos casos de uso,
+por tanto, no se describen tan en detalle.
 
 % La implementación.
 \subsection{Implementación}
+
+Debido a la gestión de Vault con los secretos, se ha decidido usar esta
+herramienta como parte de nuestro \gls{pipeline}.
+Esta herramienta nos proporciona una buena base sobre la que construir el
+\gls{pipeline} \gls{DevSecOps}.
+
+En Scalefast usamos \gls{AWS}, por tanto, creamos la infraestructura en la nube
+en sus servidores.
 
 %     Creación de la VPC, con las sub-redes y las maquinas (Runner y EC2)
 
