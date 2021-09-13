@@ -2078,8 +2078,81 @@ herramienta como parte de nuestro \gls{pipeline}.
 Esta herramienta nos proporciona una buena base sobre la que construir el
 \gls{pipeline} \gls{DevSecOps}.
 
+\subsubsection{Infraestructura}
+
 En Scalefast usamos \gls{AWS}, por tanto, creamos la infraestructura en la nube
 en sus servidores.
+
+La idea detrás de la arquitectura que se ha construido es proteger el servidor
+en el que reside HASHICORP Vault, dentro de una red privada a la que solo se
+pueda acceder desde la red publica interna.
+Para esto, se crea una red virtual llamada ``PoC - Vault'' y en esta, se crean
+dos sub-redes.
+
+\begin{figure}[H]
+  \includegraphics[width=\textwidth]{Vault-Architecture} 
+  \caption{Diagrama de la arquitectura de Vault}
+  \label{fig:VaultArchitecture}
+\end{figure}
+
+La red publica contiene una instancia \gls{EC2} en la que se ha instalado un
+\gls{runner}.
+La red privada contiene el servidor de gestión de secretos.
+
+De esta forma, el servidor de GitLab puede comunicarse con su \gls{runner},
+ubicado en la red publica, y este puede comunicarse de forma segura con Vault,
+en la red privada.
+Esto se puede hacer de esta forma porque en ningún momento se comunica el
+servidor de Vault, con el servidor de GitLab.
+
+%TODO: Configuración de security groups.
+
+\subsubsection{Configuración}
+
+En esta sección se va a describir la configuración necesaria para llevar a cabo
+el siguiente flujo:
+Cuando se ejecuta un \gls{pipeline} desde GitLab que requiera acceso a secretos,
+ya sea de forma automática como manual, el job del \gls{pipeline} que necesite
+acceso a la información sensible lanza una petición a Vault y este le devuelve
+un token, con el que posteriormente podrá acceder a los secretos que se hayan 
+especificado en su política.
+Una vez haya acabado el tiempo de vida del token, la aplicacion que se ejecuta
+en el \gls{runner} pierde el acceso al secreto y este mismo queda sellado hasta
+nueva petición.
+
+% Configuración del runner
+Desde el repositorio de GitLab en el que se va a querer ejecutar el
+\gls{pipeline}, se accede a la configuración de integración continua para
+configurar un \gls{runner}.
+Por otro lado, en la instancia de la red publica, se descarga e instala Vault y
+se configura para que se vincule con la instancia de GitLab,
+proporcionando su URL y un token que obtenemos en el menu de configuración
+del servidor de GitLab.
+Una vez conectado, se añade una breve descripción, unos tags y se selecciona el
+ejecutor ``shell''.
+GitLab ofrece los siguientes ejecutores: SSH, Shell, Parallels, VirtualBox,
+Docker, Docker-Machine (Auto-escalado), Kubernetes y Custom.
+Dependiendo de cada \gls{job} se puede usar uno u otro.
+Como en este \gls{job} nosotros queremos obtener la contraseña de producción
+y posteriormente ejecutar un script en bash, tenemos dos opciones: Shell y
+Docker.
+Hemos seleccionado el ejecutor Shell porque resulta más rápido y no necesitamos
+más de lo que éste es capaz de proporcionar.
+ 
+% Configuración del pipeline, para que acceda al runner
+Como ya tenemos las dos \gls{EC2} levantadas y configuradas a nivel de red, 
+para comprobar que el \gls{runner} está bien configurado, se crea un pipeline
+muy sencillo que simplemente se conecta al runner y ejecuta un comando para ver
+si este tiene visibilidad a la red privada.
+
+%TODO: Mostrar el código del pipeline que hace un ping al servidor de Vault
+
+
+\subsubsection{Flujo de datos}
+
+%TODO: Describir en detalle como se comunican todas las partes implicadas
+
+
 
 %     Creación de la VPC, con las sub-redes y las maquinas (Runner y EC2)
 
